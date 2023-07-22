@@ -11,6 +11,9 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Label fx:id="guestText"/>
+    <Button text="Login as Guest" onAction="#onGuestButtonClick"/>
+
+    <Label fx:id="managerText"/>
+    <Button text="Login as Manager" onAction="#onManagerButtonClick"/>
 </VBox>

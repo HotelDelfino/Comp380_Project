@@ -5,10 +5,12 @@ import javafx.scene.control.Label;
 
 public class Controller {
     @FXML
-    private Label welcomeText;
+    private Label guestText;
+    @FXML
+    private Label managerText;
 
     @FXML
-    protected void onHelloButtonClick() {//
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
+    protected void onGuestButtonClick() { guestText.setText("Logging in as Guest..."); }
+    @FXML
+    protected void onManagerButtonClick() { managerText.setText("Logging in as Manager"); }
 }
