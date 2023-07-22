@@ -4,13 +4,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class Controller {
-    @FXML
-    private Label guestText;
-    @FXML
-    private Label managerText;
 
     @FXML
-    protected void onGuestButtonClick() { guestText.setText("Logging in as Guest..."); }
+    private Label userName;
     @FXML
-    protected void onManagerButtonClick() { managerText.setText("Logging in as Manager"); }
+    private Label passWord;
+
+    private Label nameLabel;
+
+    @FXML
+    protected void handleSubmitButtonAction() {System.out.println("Logging in Boss...");}
+
+    @FXML
+    protected void onSignInManagerButton(){System.out.println("OK boss");}
+    @FXML
+    protected void onRegisterButton(){System.out.println("Register boss");}
 }
