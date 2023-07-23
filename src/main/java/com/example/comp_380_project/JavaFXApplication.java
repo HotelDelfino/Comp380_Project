@@ -18,8 +18,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 
 
-public class JavaFXApplication extends Application implements EventHandler<ActionEvent> {
-    Button button1;
+public class JavaFXApplication extends Application { // implements EventHandler<ActionEvent> 
+    Button button1, button2;
+    Scene scene1, scene2;
+    StackPane layout1, layout2;
 
     @Override
     public void start(Stage initialWindow) throws IOException { // Launches the application
@@ -27,17 +29,24 @@ public class JavaFXApplication extends Application implements EventHandler<Actio
         // Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         // initialStage.setScene(scene);
 
-        
-        StackPane layout = new StackPane(); // Creats a stack layout for GUI elements
-        Scene scene = new Scene(layout, 500, 500); // Size of a visual displayed window
+        layout1 = new StackPane(); // Creats a stack layout for GUI elements
+        layout2 = new StackPane(); 
+        scene1 = new Scene(layout1, 500, 500); // Size of a visual displayed window
+        scene2 = new Scene(layout2, 500, 500);
         button1 = new Button();
+        button2 = new Button();
+        
+        layout1.getChildren().addAll(button1);
+        layout2.getChildren().addAll(button2);
 
-        layout.getChildren().add(button1);
-        button1.setText("Click");
-        button1.setOnAction(e -> System.out.println("a"));
+        button1.setText("Manager Login");
+        button1.setOnAction(event -> initialWindow.setScene(scene2));
+
+        button2.setText("Guest Login");
+        button2.setOnAction(event -> initialWindow.setScene(scene1));
 
         initialWindow.setTitle("Hotel");
-        initialWindow.setScene(scene);
+        initialWindow.setScene(scene1);
         initialWindow.show();
     }
 
