@@ -18,8 +18,6 @@ import javafx.geometry.Insets;
 
 import javafx.fxml.FXMLLoader;
 
-
-
 public class JavaFXApplication extends Application { // implements EventHandler<ActionEvent> 
     Button button1, loginButton, button3;
     Scene scene1, scene2;
@@ -61,7 +59,8 @@ public class JavaFXApplication extends Application { // implements EventHandler<
         initialWindow.setTitle("Hotel Login");
         initialWindow.setScene(scene1);
         initialWindow.show();
-        /*layout1 = new StackPane(); // Creats a stack layout for GUI elements
+        /*
+        layout1 = new StackPane(); // Creates a stack layout for GUI elements
         layout2 = new StackPane(); 
         scene1 = new Scene(layout1, 500, 500); // Size of a visual displayed window
         scene2 = new Scene(layout2, 500, 500);
@@ -75,10 +74,10 @@ public class JavaFXApplication extends Application { // implements EventHandler<
 
         button1.setText("Manager Login");
         button1.setOnAction(event -> firstScene());
-        //button1.setOnAction(event -> initialWindow.setScene(scene2));
+        button1.setOnAction(event -> initialWindow.setScene(scene2));
 
         button3.setText("Guest Login");
-        //button2.setOnAction(event -> initialWindow.setScene(scene1));
+        button2.setOnAction(event -> initialWindow.setScene(scene1));
         */
     }
 
