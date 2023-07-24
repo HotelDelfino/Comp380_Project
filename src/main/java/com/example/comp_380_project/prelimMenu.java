@@ -43,14 +43,14 @@ public class prelimMenu extends Application {
         grid.setVgap(10); //vertical space for each "unit"
         grid.setHgap(10); //horizontal space for each "unit"
 
-        grid.getChildren().add(reserve);
+        grid.getChildren().add(reserve); // from here to line 51, adding buttons to grid.
         grid.getChildren().add(search);
         grid.getChildren().add(cancel);
         grid.getChildren().add(review);
         grid.getChildren().add(edit);
         grid.getChildren().add(info);
 
-        GridPane.setConstraints(reserve, 10, 5);
+        GridPane.setConstraints(reserve, 10, 5); // from here to line 58, placing buttons
         GridPane.setConstraints(search, 25, 5);
         GridPane.setConstraints(cancel, 10, 15);
         GridPane.setConstraints(review, 25, 15);
