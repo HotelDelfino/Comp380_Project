@@ -50,12 +50,19 @@ public class prelimMenu extends Application {
         grid.getChildren().add(edit);
         grid.getChildren().add(info);
 
-        GridPane.setConstraints(reserve, 10, 5); // from here to line 58, placing buttons
-        GridPane.setConstraints(search, 25, 5);
-        GridPane.setConstraints(cancel, 10, 15);
-        GridPane.setConstraints(review, 25, 15);
-        GridPane.setConstraints(edit, 10, 25);
-        GridPane.setConstraints(info, 25, 25);
+        reserve.setStyle("-fx-font-size:20"); // increasing button/font size
+        search.setStyle("-fx-font-size:20");
+        cancel.setStyle("-fx-font-size:20");
+        review.setStyle("-fx-font-size:20");
+        edit.setStyle("-fx-font-size:20");
+        info.setStyle("-fx-font-size:20");
+
+        GridPane.setConstraints(reserve, 5, 5); // from here to line 58, placing buttons
+        GridPane.setConstraints(search, 15, 5);
+        GridPane.setConstraints(cancel, 5, 15);
+        GridPane.setConstraints(review, 15, 15);
+        GridPane.setConstraints(edit, 5, 25);
+        GridPane.setConstraints(info, 15, 25);
 
         Scene menu = new Scene(grid, 640, 480);
         mainMenu.setScene(menu);
