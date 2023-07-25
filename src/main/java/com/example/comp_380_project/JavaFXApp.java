@@ -11,11 +11,22 @@ import javax.swing.JOptionPane;
  * @author Administrator
  */
 public class JavaFXApp extends javax.swing.JFrame {
+    /* User Objects */
+    private PrelimMenu optionMenu;
+    private String[] args;
+    /* End USer Objects */
+
 
     /**
      * Creates new form JavaFXApp
      */
     public JavaFXApp() {
+        initComponents();
+    }
+
+    public JavaFXApp(PrelimMenu optionMenu, String args[]) {
+        this.optionMenu = optionMenu;
+        this.args = args;
         initComponents();
     }
 
@@ -134,6 +145,8 @@ public class JavaFXApp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Wrong Password");
         else {
             JOptionPane.showMessageDialog(null, "Weclome!");
+            dispose();
+            optionMenu.userMenu(args);
         }
     }//GEN-LAST:event_b2MouseClicked
 
@@ -143,10 +156,20 @@ public class JavaFXApp extends javax.swing.JFrame {
         if (!p.equals("manager"))
             JOptionPane.showMessageDialog(null, "Wrong Password");
         else {
-           JOptionPane.showMessageDialog(null, "Weclome!"); 
+           JOptionPane.showMessageDialog(null, "Weclome!");
+           
         }        
        
     }//GEN-LAST:event_b1MouseClicked
+     
+
+
+    /*--------------------------------Front End Connection Methods Here --------------------------------------------------*/
+
+    
+    /*--------------------------------Front End Connection Methods Here --------------------------------------------------*/
+
+
 
     /**
      * @param args the command line arguments
@@ -178,7 +201,7 @@ public class JavaFXApp extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JavaFXApp().setVisible(true);
+                new JavaFXApp(optionMenu, args).setVisible(true);
             }
         });
     }

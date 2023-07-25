@@ -19,11 +19,11 @@ import javafx.geometry.Insets;
 // 6 methods so far: Search for a room type (Single bed - Family rooms), Reserve, Cancel Reservation, Review Reservation
 // Change Reservation, Room Info (Whoever's taking this room/For how long; this is hotel staff exclusive)
 
-public class prelimMenu extends Application {
+public class PrelimMenu extends Application {
 
     Button reserve, search, cancel, review, edit, info; //buttons for each method
 
-    public static void main(String[] args) {
+    public void userMenu(String[] args) {
         launch(args); // launches window
     }
 
