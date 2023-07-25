@@ -142,30 +142,44 @@ public class JavaFXApp extends javax.swing.JFrame {
         String u = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.PLAIN_MESSAGE); // username prompt
         if(!u.equals("guest"))
                 JOptionPane.showMessageDialog(null, "Username not found");
-
         else {
-            String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
+            while (true) {
 
-            if (!p.equals("guest"))
-                JOptionPane.showMessageDialog(null, "Wrong Password");
-            else {
-                JOptionPane.showMessageDialog(null, "Welcome!");
-                dispose();
-                optionMenu.userMenu(args);
+                String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
+
+                if (!p.equals("g")) {
+                    JOptionPane.showMessageDialog(null, "Wrong Password");
+                    dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Welcome!");
+                    dispose();
+                    optionMenu.userMenu(args);
+                }
             }
         }
     }//GEN-LAST:event_b2MouseClicked
 
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
-        String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE);
-        
-        if (!p.equals("manager"))
-            JOptionPane.showMessageDialog(null, "Wrong Password");
+        String u = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.PLAIN_MESSAGE); // username prompt
+
+        if(!u.equals("manager"))
+                JOptionPane.showMessageDialog(null, "Username not found");
         else {
-           JOptionPane.showMessageDialog(null, "Welcome!");
-            dispose();
-            optionMenu.userMenu(args);
-        }        
+            while (true) {
+                String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
+            
+                if (!p.equals("m")) {
+                    JOptionPane.showMessageDialog(null, "Wrong Password");
+                    dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Welcome!");
+                    dispose();
+                    optionMenu.userMenu(args);
+                }
+            }
+        }     
        
     }//GEN-LAST:event_b1MouseClicked
      
