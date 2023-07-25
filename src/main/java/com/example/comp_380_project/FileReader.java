@@ -48,10 +48,11 @@ public class FileReader {
             }else{
                 System.out.println("File already exists");
             }
-            //Example
+            /** //Example
             String username = "Jose";
             writeTextFile(obj, username);
             readTextFile(obj);
+             **/
         }catch(IOException e){
             System.out.println("An Error Occurred");
             e.printStackTrace();
@@ -68,10 +69,11 @@ public class FileReader {
             }else{
                 System.out.println("File already exists");
             }
-            //Example
+            /** //Example
             String password = "password";
             writeTextFile(obj, password);
             readTextFile(obj);
+             **/
         }catch(IOException e){
             System.out.println("An Error Occurred");
             e.printStackTrace();
