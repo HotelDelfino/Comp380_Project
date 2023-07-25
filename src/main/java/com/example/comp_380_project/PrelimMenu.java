@@ -1,19 +1,11 @@
 package com.example.comp_380_project;
 // THIS IS A PRELIMINARY MENU, NOT FINAL PRODUCT NOR PROGRAMMED TO FUNCTION
-import java.util.*;
-import java.io.*;
 import javafx.stage.Stage;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
-import javafx.scene.transform.Scale;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 
 // 6 methods so far: Search for a room type (Single bed - Family rooms), Reserve, Cancel Reservation, Review Reservation

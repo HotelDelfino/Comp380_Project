@@ -144,7 +144,7 @@ public class JavaFXApp extends javax.swing.JFrame {
         if (!p.equals("guest"))
             JOptionPane.showMessageDialog(null, "Wrong Password");
         else {
-            JOptionPane.showMessageDialog(null, "Weclome!");
+            JOptionPane.showMessageDialog(null, "Welcome!");
             dispose();
             optionMenu.userMenu(args);
         }
@@ -156,8 +156,9 @@ public class JavaFXApp extends javax.swing.JFrame {
         if (!p.equals("manager"))
             JOptionPane.showMessageDialog(null, "Wrong Password");
         else {
-           JOptionPane.showMessageDialog(null, "Weclome!");
-           
+           JOptionPane.showMessageDialog(null, "Welcome!");
+            dispose();
+            optionMenu.userMenu(args);
         }        
        
     }//GEN-LAST:event_b1MouseClicked
