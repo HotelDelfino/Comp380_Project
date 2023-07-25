@@ -139,14 +139,20 @@ public class JavaFXApp extends javax.swing.JFrame {
     }//GEN-LAST:event_b1PropertyChange
 
     private void b2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseClicked
-        String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE);
-        
-        if (!p.equals("guest"))
-            JOptionPane.showMessageDialog(null, "Wrong Password");
+        String u = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.PLAIN_MESSAGE); // username prompt
+        if(!u.equals("guest"))
+                JOptionPane.showMessageDialog(null, "Username not found");
+
         else {
-            JOptionPane.showMessageDialog(null, "Welcome!");
-            dispose();
-            optionMenu.userMenu(args);
+            String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
+
+            if (!p.equals("guest"))
+                JOptionPane.showMessageDialog(null, "Wrong Password");
+            else {
+                JOptionPane.showMessageDialog(null, "Welcome!");
+                dispose();
+                optionMenu.userMenu(args);
+            }
         }
     }//GEN-LAST:event_b2MouseClicked
 
