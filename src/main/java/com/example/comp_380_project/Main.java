@@ -15,5 +15,7 @@ public class Main {
         JavaFXApp app = new JavaFXApp(dataBase, optionMenu, args);
         
         app.runApp();
+
+
     }
 }
