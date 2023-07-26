@@ -12,6 +12,10 @@ public class FileReader {
     static ArrayList<String> userNames = new ArrayList<>();
     static ArrayList<String> passwords = new ArrayList<>();
 
+    /** Constructor. Starts the Textfile **/
+    FileReader(){
+        verifyTextFile();
+    }
     /** This reads username text file. Adds content to Array **/
     public void readUsernameFile(File file){
         System.out.println("Attempting to read file: " + file.getAbsolutePath());
