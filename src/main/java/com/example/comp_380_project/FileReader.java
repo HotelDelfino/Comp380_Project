@@ -64,7 +64,7 @@ public class FileReader {
 
         try{
             FileWriter myWriter = new FileWriter(file,true);
-            myWriter.write(stuff + "\n");
+            myWriter.write("\n" + stuff);
             myWriter.close();
             System.out.println("File Writing Successful");
         }catch(IOException e){
@@ -107,7 +107,7 @@ public class FileReader {
 
     public String getUserFilePath(){
         /** Capture file path **/
-        Path path = Paths.get("usernames.txt");
+        Path path = Paths.get("u.txt");
         // Temporary
         System.out.println(path.toAbsolutePath());
         return path.toAbsolutePath().toString();
@@ -115,7 +115,7 @@ public class FileReader {
 
     public String getPassWFilePath(){
         /** Capture file path **/
-        Path path = Paths.get("passwords.txt");
+        Path path = Paths.get("p.txt");
         // Temporary
         System.out.println(path.toAbsolutePath());
         return path.toAbsolutePath().toString();

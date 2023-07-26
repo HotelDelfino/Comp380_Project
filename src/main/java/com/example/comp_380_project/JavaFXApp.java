@@ -215,7 +215,11 @@ public class JavaFXApp extends javax.swing.JFrame {
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseClicked
-        String s = JOptionPane.showInputDialog(null, "Register User", "Choose User Name:", JOptionPane.PLAIN_MESSAGE); // username prompt
+        String u = JOptionPane.showInputDialog(null, "Register User", "Choose User Name:", JOptionPane.PLAIN_MESSAGE); // username prompt
+        String p = JOptionPane.showInputDialog(null, "Register User", "Choose User Name:", JOptionPane.PLAIN_MESSAGE); // username prompt
+        
+        dispose(); 
+        dataBase.registerNewUser(u, p);
     }//GEN-LAST:event_b3MouseClicked
      
 
