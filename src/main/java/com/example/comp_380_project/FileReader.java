@@ -105,9 +105,17 @@ public class FileReader {
         }
     }
 
-    public String getFilePath(){
+    public String getUserFilePath(){
         /** Capture file path **/
         Path path = Paths.get("usernames.txt");
+        // Temporary
+        System.out.println(path.toAbsolutePath());
+        return path.toAbsolutePath().toString();
+    }
+
+    public String getPassWFilePath(){
+        /** Capture file path **/
+        Path path = Paths.get("passwords.txt");
         // Temporary
         System.out.println(path.toAbsolutePath());
         return path.toAbsolutePath().toString();
