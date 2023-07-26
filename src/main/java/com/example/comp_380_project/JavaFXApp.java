@@ -155,6 +155,7 @@ public class JavaFXApp extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Welcome!");
                     dispose();
                     optionMenu.userMenu(args);
+                    break;
                 }
             }
         }
@@ -177,6 +178,7 @@ public class JavaFXApp extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Welcome!");
                     dispose();
                     optionMenu.userMenu(args);
+                    break;
                 }
             }
         }     
