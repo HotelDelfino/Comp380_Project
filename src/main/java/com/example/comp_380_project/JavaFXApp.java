@@ -149,12 +149,12 @@ public class JavaFXApp extends javax.swing.JFrame {
 
                 if (!p.equals("g")) {
                     JOptionPane.showMessageDialog(null, "Wrong Password");
-                    dispose();
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Welcome!");
                     dispose();
                     optionMenu.userMenu(args);
+                    break;
                 }
             }
         }
@@ -171,12 +171,12 @@ public class JavaFXApp extends javax.swing.JFrame {
             
                 if (!p.equals("m")) {
                     JOptionPane.showMessageDialog(null, "Wrong Password");
-                    dispose();
                 }
                 else {
                     JOptionPane.showMessageDialog(null, "Welcome!");
                     dispose();
                     optionMenu.userMenu(args);
+                    break;
                 }
             }
         }     
