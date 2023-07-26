@@ -174,7 +174,7 @@ public class JavaFXApp extends javax.swing.JFrame {
 
                 String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
 
-                if (!dataBase.verifyUsername(p)) {
+                if (!dataBase.verifyLogin(u,p)) {
                     JOptionPane.showMessageDialog(null, "Wrong Password");
                 }
                 else {
@@ -196,7 +196,7 @@ public class JavaFXApp extends javax.swing.JFrame {
             while (true) {
                 String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
             
-                if (!dataBase.verifyUsername(p)) {
+                if (!dataBase.verifyLogin(u,p)) {
                     JOptionPane.showMessageDialog(null, "Wrong Password");
                 }
                 else {
