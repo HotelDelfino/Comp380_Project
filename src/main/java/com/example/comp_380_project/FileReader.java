@@ -14,7 +14,7 @@ public class FileReader {
 
     /** This reads username text file. Adds content to Array **/
     public void readUsernameFile(File file){
-
+        System.out.println("Attempting to read file: " + file.getAbsolutePath());
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
             String st;

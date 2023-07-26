@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class JavaFXApp extends javax.swing.JFrame {
     /* User Objects */
+    private FileReader dataBase;
     private PrelimMenu optionMenu;
     private String[] args;
     /* End USer Objects */
@@ -24,7 +25,8 @@ public class JavaFXApp extends javax.swing.JFrame {
         initComponents();
     }
 
-    public JavaFXApp(PrelimMenu optionMenu, String args[]) {
+    public JavaFXApp(FileReader dataBase, PrelimMenu optionMenu, String args[]) {
+        this.dataBase = dataBase;
         this.optionMenu = optionMenu;
         this.args = args;
         initComponents();
@@ -164,14 +166,15 @@ public class JavaFXApp extends javax.swing.JFrame {
 
     private void b2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseClicked
         String u = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.PLAIN_MESSAGE); // username prompt
-        if(!u.equals("guest"))
+        
+        if (!dataBase.verifyUsername(u))
                 JOptionPane.showMessageDialog(null, "Username not found");
         else {
             while (true) {
 
                 String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
 
-                if (!p.equals("g")) {
+                if (!dataBase.verifyUsername(p)) {
                     JOptionPane.showMessageDialog(null, "Wrong Password");
                 }
                 else {
@@ -187,13 +190,13 @@ public class JavaFXApp extends javax.swing.JFrame {
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
         String u = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.PLAIN_MESSAGE); // username prompt
 
-        if(!u.equals("manager"))
+        if (!dataBase.verifyUsername(u))
                 JOptionPane.showMessageDialog(null, "Username not found");
         else {
             while (true) {
                 String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
             
-                if (!p.equals("m")) {
+                if (!dataBase.verifyUsername(p)) {
                     JOptionPane.showMessageDialog(null, "Wrong Password");
                 }
                 else {
@@ -254,7 +257,7 @@ public class JavaFXApp extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JavaFXApp(optionMenu, args).setVisible(true);
+                new JavaFXApp(dataBase, optionMenu, args).setVisible(true);
             }
         });
     }
