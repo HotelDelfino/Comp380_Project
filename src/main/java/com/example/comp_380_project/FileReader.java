@@ -3,9 +3,12 @@ package com.example.comp_380_project;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class FileReader {
 
+    ArrayList<String> userNames = new ArrayList<>();
+    ArrayList<String> passWords = new ArrayList<>();
     /** This reads text file. Does not do anything else **/
     public void readTextFile(File file){
 
@@ -39,39 +42,24 @@ public class FileReader {
     }
 
     /** This verifies that a text file exists. Otherwise, creates one. **/
-    public void verifyUserNameTextFile(){
+    public void verifyTextFile(){
 
         try{
-            File obj = new File("usernames.txt");
-            if(obj.createNewFile()){
-                System.out.println("File Successfully Created: " + obj.getName());
+            File user = new File("usernames.txt");
+            if(user.createNewFile()){
+                System.out.println("File Successfully Created: " + user.getName());
             }else{
-                System.out.println("File already exists");
+                System.out.println("File usernames.text already exists");
+            }
+            File passW = new File("passwords.txt");
+            if(passW.createNewFile()){
+                System.out.println("File Successfully Created: " + passW.getName());
+            }else{
+                System.out.println("File passwords.txt already exists");
             }
             /** //Example
             String username = "Jose";
             writeTextFile(obj, username);
-            readTextFile(obj);
-             **/
-        }catch(IOException e){
-            System.out.println("An Error Occurred");
-            e.printStackTrace();
-        }
-    }
-
-    /** This verifies that a text file exists. Otherwise, creates one. **/
-    public void verifyPasswordTextFile(){
-
-        try{
-            File obj = new File("passwords.txt");
-            if(obj.createNewFile()){
-                System.out.println("File Successfully Created: " + obj.getName());
-            }else{
-                System.out.println("File already exists");
-            }
-            /** //Example
-            String password = "password";
-            writeTextFile(obj, password);
             readTextFile(obj);
              **/
         }catch(IOException e){

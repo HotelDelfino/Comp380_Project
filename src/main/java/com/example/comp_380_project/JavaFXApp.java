@@ -44,6 +44,7 @@ public class JavaFXApp extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         b2 = new javax.swing.JButton();
         b1 = new javax.swing.JButton();
+        b3 = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
@@ -94,17 +95,38 @@ public class JavaFXApp extends javax.swing.JFrame {
             }
         });
 
+        b3.setBackground(new java.awt.Color(255, 0, 0));
+        b3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 36)); // NOI18N
+        b3.setText("Register User");
+        b3.setBorder(new javax.swing.border.MatteBorder(null));
+        b3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        b3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b3MouseClicked(evt);
+            }
+        });
+        b3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57)
-                .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57)
+                        .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -116,7 +138,9 @@ public class JavaFXApp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,6 +206,14 @@ public class JavaFXApp extends javax.swing.JFrame {
         }     
        
     }//GEN-LAST:event_b1MouseClicked
+
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b3ActionPerformed
+
+    private void b3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseClicked
+        String s = JOptionPane.showInputDialog(null, "Register User", "Choose User Name:", JOptionPane.PLAIN_MESSAGE); // username prompt
+    }//GEN-LAST:event_b3MouseClicked
      
 
 
@@ -230,6 +262,7 @@ public class JavaFXApp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton b1;
     private javax.swing.JButton b2;
+    private javax.swing.JButton b3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
