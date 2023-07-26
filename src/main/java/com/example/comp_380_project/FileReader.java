@@ -105,12 +105,12 @@ public class FileReader {
         }
     }
 
-    public Path getFilePath(){
+    public String getFilePath(){
         /** Capture file path **/
         Path path = Paths.get("usernames.txt");
         // Temporary
         System.out.println(path.toAbsolutePath());
-        return path.toAbsolutePath();
+        return path.toAbsolutePath().toString();
     }
     
     /** Checks to see if Username exists **/
