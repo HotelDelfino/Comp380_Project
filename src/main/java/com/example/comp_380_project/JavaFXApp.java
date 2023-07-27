@@ -190,13 +190,13 @@ public class JavaFXApp extends javax.swing.JFrame {
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
         String u = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.PLAIN_MESSAGE); // username prompt
 
-        if (!dataBase.verifyUsername(u))
+        if (!u.equals("manager"))
                 JOptionPane.showMessageDialog(null, "Username not found");
         else {
             while (true) {
                 String p = JOptionPane.showInputDialog(null, "Enter your password:", "Login", JOptionPane.PLAIN_MESSAGE); // password prompt !! activates only if username is found
             
-                if (!dataBase.verifyLogin(u,p)) {
+                if (!p.equals("managerpass")) {
                     JOptionPane.showMessageDialog(null, "Wrong Password");
                 }
                 else {
@@ -215,11 +215,14 @@ public class JavaFXApp extends javax.swing.JFrame {
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseClicked
-        String u = JOptionPane.showInputDialog(null, "Register User", "Choose User Name:", JOptionPane.PLAIN_MESSAGE); // username prompt
-        String p = JOptionPane.showInputDialog(null, "Register User", "Choose User Name:", JOptionPane.PLAIN_MESSAGE); // username prompt
-        
-        dispose(); 
-        dataBase.registerNewUser(u, p);
+        String u = JOptionPane.showInputDialog(null, "Choose Username:", "Register", JOptionPane.PLAIN_MESSAGE); // username prompt
+        if(dataBase.verifyUsername(u) == true) {
+            JOptionPane.showMessageDialog(null, "Username taken, please try another.");
+        }
+        else {
+            String p = JOptionPane.showInputDialog(null, "Choose Password:", "Register", JOptionPane.PLAIN_MESSAGE); // username prompt
+            dataBase.registerNewUser(u, p);
+        }
     }//GEN-LAST:event_b3MouseClicked
      
 
