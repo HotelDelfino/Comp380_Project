@@ -2,6 +2,7 @@ package com.example.comp_380_project;
 // THIS IS A PRELIMINARY MENU, NOT FINAL PRODUCT NOR PROGRAMMED TO FUNCTION
 import javafx.stage.Stage;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Label;
@@ -32,6 +33,14 @@ public class PrelimMenu extends Application {
         edit = new Button("Edit Reservation"); // edit button
         info = new Button("Room Info"); // info button
 
+        reserve.setOnAction(e -> reserveRoom());
+        search.setOnAction(e -> searchRoom());
+        cancel.setOnAction(e -> cancelRoom());
+        review.setOnAction(e -> reserveRoom());
+        reserve.setOnAction(e -> reviewRoom());
+        edit.setOnAction(e -> editRoom());
+        info.setOnAction(e -> infoRoom());
+
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
         grid.setVgap(10); //vertical space for each "unit"
@@ -57,5 +66,29 @@ public class PrelimMenu extends Application {
         Scene menu = new Scene(grid, 800, 600);
         mainMenu.setScene(menu);
         mainMenu.show();
+    }
+
+    private void infoRoom() {
+
+    }
+
+    private void editRoom() {
+
+    }
+
+    private void reviewRoom() {
+
+    }
+
+    private void cancelRoom() {
+
+    }
+
+    private void searchRoom() {
+
+    }
+
+    private void reserveRoom() {
+
     }
 }
