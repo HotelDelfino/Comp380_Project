@@ -11,10 +11,12 @@ public class FileReader {
     static File passwordFile;
     static ArrayList<String> userNames = new ArrayList<>();
     static ArrayList<String> passwords = new ArrayList<>();
+    ArrayList<Guest> registeredMembers = new ArrayList<>();
 
     /** Constructor. Starts the Textfile **/
     FileReader(){
         verifyTextFile();
+        createRegisteredGuest();
     }
     /** This reads username text file. Adds content to Array **/
     public void readUsernameFile(File file){
@@ -57,6 +59,7 @@ public class FileReader {
     public void registerNewUser(String username, String pw){
         writeTextFile(usernamesFile, username);
         writeTextFile(passwordFile, pw);
+        createGuest(username,pw);
     }
 
     /** This writes a new line on the text file. Does not do anything else**/
@@ -141,5 +144,15 @@ public class FileReader {
 
     public boolean verifyPassWord(String pW, int index){
         return pW.equals(passwords.get(index));
+    }
+    public void createGuest(String username, String password){
+        registeredMembers.add(new Guest(username,password));
+    }
+    /** Creates Guest Objects from textfiles. Will add reservations later on **/
+    public void createRegisteredGuest(){
+        for(int i = 0; i < userNames.size(); i++){
+
+            registeredMembers.add(new Guest(userNames.get(i),passwords.get(i)));
+        }
     }
 }
