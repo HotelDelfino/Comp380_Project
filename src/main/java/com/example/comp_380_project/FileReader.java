@@ -107,7 +107,7 @@ public class FileReader {
 
             File reservations = new File("reservations.txt");
             if(reservations.createNewFile()){
-                System.out.println("File Successfully Created: " + user.getName());
+                System.out.println("File Successfully Created: " + reservations.getName());
             }else{
                 System.out.println("File reservations.text already exists");
                 // If file exists, then it will read it and put contents in array
