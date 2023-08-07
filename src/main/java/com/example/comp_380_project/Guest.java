@@ -2,6 +2,8 @@ package com.example.comp_380_project;
 
 import java.util.ArrayList;
 
+import static java.lang.Integer.parseInt;
+
 public class Guest {
     private String username;
     private String password;
@@ -13,6 +15,11 @@ public class Guest {
         this.username = un;
         this.password = pw;
         this.bookedReservations.add(0);
+    }
+    Guest(String un, String pw, String res){
+        this.username = un;
+        this.password = pw;
+        this.bookedReservations.add(parseInt(res));
     }
 
     void setUsername(String UserName){
