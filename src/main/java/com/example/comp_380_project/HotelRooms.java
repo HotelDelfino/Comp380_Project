@@ -51,8 +51,8 @@ public class HotelRooms {
                 }
             }
             if (floor == 5) {
-                if (floor2[roomNum - 1] != "Closed") {
-                    floor2[roomNum - 1] = "Closed";
+                if (floor5[roomNum - 1] != "Closed") {
+                    floor5[roomNum - 1] = "Closed";
                     System.out.println();
                     System.out.println("Thank you for booking room " + roomNum + " on floor 5!");
                 } else {
@@ -105,8 +105,8 @@ public class HotelRooms {
                 }
             }
             if (floor == 5) {
-                if (floor2[roomNum - 1] != "Open") {
-                    floor2[roomNum - 1] = "Open";
+                if (floor5[roomNum - 1] != "Open") {
+                    floor5[roomNum - 1] = "Open";
                     System.out.println();
                     System.out.println("Thank you for letting us know! Your refund should be given to you in 48 hours!");
                 } else {
