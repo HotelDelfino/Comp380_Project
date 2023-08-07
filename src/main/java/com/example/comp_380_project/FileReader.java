@@ -9,6 +9,7 @@ public class FileReader {
 
     static File usernamesFile;
     static File passwordFile;
+    static File reservationsFile;
     static ArrayList<String> userNames = new ArrayList<>();
     static ArrayList<String> passwords = new ArrayList<>();
     ArrayList<Guest> registeredMembers = new ArrayList<>();
@@ -63,6 +64,7 @@ public class FileReader {
     public void registerNewUser(String username, String pw){
         writeTextFile(usernamesFile, username);
         writeTextFile(passwordFile, pw);
+        writeTextFile(reservationsFile,"0");
         createGuest(username,pw);
     }
 
@@ -113,6 +115,8 @@ public class FileReader {
                 // If file exists, then it will read it and put contents in array
                 readReservationsFile(reservations);
             }
+            //Save the file for the whole class to use
+            reservationsFile = reservations;
 
 
         }catch(IOException e){
