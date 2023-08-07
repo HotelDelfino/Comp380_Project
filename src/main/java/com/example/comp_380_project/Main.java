@@ -32,7 +32,7 @@ public class Main {
                 case "1":
                     Scanner input1 = new Scanner(System.in);
                     System.out.println();
-                    System.out.println("Please select which type of room you would want to stay in and the room" +
+                    System.out.println("Please select which type of floor you would want to stay in and the room" +
                             " number you would like to stay in:");
                     System.out.println();
                     System.out.println("Please note that each floor has ten rooms\n\n" +
@@ -85,10 +85,10 @@ public class Main {
                     Scanner input6 = new Scanner(System.in);
                     System.out.println("Which floor would you like to know more about?\n");
                     System.out.println("Small rooms: 1\n" +
-                            "Larger rooms: 2\n" +
-                            "Family rooms: 3\n" +
-                            "Luxury rooms: 4\n" +
-                            "Penthouse suite: 5\n");
+                                       "Larger rooms: 2\n" +
+                                       "Family rooms: 3\n" +
+                                       "Luxury rooms: 4\n" +
+                                       "Penthouse suite: 5\n");
                     hotel.roomInfo(input6.nextInt());
                     break;
                 case "6":
