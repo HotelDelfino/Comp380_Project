@@ -55,6 +55,10 @@ public class FileReader {
         }
     }
 
+    /** This reads the reservations file. Adds to HotelRooms **/
+    public void readReservationsFile(File file){}
+
+
     /** This creates a new username and password **/
     public void registerNewUser(String username, String pw){
         writeTextFile(usernamesFile, username);
@@ -100,6 +104,15 @@ public class FileReader {
             }
             //Save the file for the whole class to use
             passwordFile = passW;
+
+            File reservations = new File("reservations.txt");
+            if(reservations.createNewFile()){
+                System.out.println("File Successfully Created: " + user.getName());
+            }else{
+                System.out.println("File reservations.text already exists");
+                // If file exists, then it will read it and put contents in array
+                readReservationsFile(reservations);
+            }
 
 
         }catch(IOException e){
