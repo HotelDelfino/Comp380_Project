@@ -28,7 +28,6 @@ public class Main {
                     "Room Info: 5\n" +
                     "Quit: 6\n");
 
-
             switch (input.nextLine()) {
                 case "1":
                     Scanner input1 = new Scanner(System.in);
@@ -41,21 +40,19 @@ public class Main {
                             "Larger rooms: 2\n" +
                             "Family rooms: 3\n" +
                             "Luxury rooms: 4\n" +
-                            "Penthouse suite: 5\n\n");
-                    System.out.println();
+                            "Penthouse suite: 5\n");
                     hotel.reserveRoom(input1.nextInt(), input1.nextInt());
                     break;
                 case "2":
                     Scanner input2 = new Scanner(System.in);
                     System.out.println("I'm so sorry to hear that.\n" +
-                            "Please tell me the floor ad room number you reserved in:\n");
+                            "Please tell me the floor and room number you reserved in:\n");
                     System.out.println("Please note that each floor has ten rooms\n\n" +
                             "Small rooms: 1\n" +
                             "Larger rooms: 2\n" +
                             "Family rooms: 3\n" +
                             "Luxury rooms: 4\n" +
                             "Penthouse suite: 5\n");
-                    System.out.println();
                     hotel.cancelRoom(input2.nextInt(), input2.nextInt());
                     break;
                 case "3":
