@@ -17,7 +17,7 @@ public class Main {
         HotelRooms hotel = new HotelRooms();
 
         System.out.println();
-        System.out.print("Welcome to Summer's Hotel!");
+        System.out.print("Welcome to Hotel Delfino!");
         while(true){
             System.out.println("\n");
             System.out.println("Please select one of these options:\n" +

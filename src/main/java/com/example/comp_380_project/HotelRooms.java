@@ -121,6 +121,7 @@ public class HotelRooms {
     public void changeRoom(int floor, int roomNum){
         if (floor >= 1 && floor <= 5 && roomNum >= 1 && roomNum <= 10) {
             cancelRoom(floor, roomNum);
+            reserveRoom(floor, roomNum);
         } else {
             System.out.println("You inputted a wrong number for either floor or room number. Please try again!");
         }
