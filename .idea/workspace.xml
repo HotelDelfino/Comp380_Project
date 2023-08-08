@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4e95ffb-07af-4169-bd89-0d8f9106c8bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/MenuUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/MenuUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/HotelRooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/HotelRooms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/JavaFXApp.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/JavaFXApp.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/JavaFXApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/JavaFXApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/comp_380_project/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="f4e95ffb-07af-4169-bd89-0d8f9106c8bb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging master",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Administrator/Downloads/Comp_380_Project",
     "node.js.detected.package.eslint": "true",
