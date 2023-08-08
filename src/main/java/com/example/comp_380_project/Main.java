@@ -18,6 +18,7 @@ public class Main {
 
         System.out.println();
         System.out.print("Welcome to Hotel Delfino!");
+
         while(true){
             System.out.println("\n");
             System.out.println("Please select one of these options:\n" +
