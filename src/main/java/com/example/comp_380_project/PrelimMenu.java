@@ -1,6 +1,9 @@
 package com.example.comp_380_project;
 // THIS IS A PRELIMINARY MENU, NOT FINAL PRODUCT NOR PROGRAMMED TO FUNCTION
 import javafx.stage.Stage;
+
+import java.util.Scanner;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
@@ -15,6 +18,12 @@ import javafx.geometry.Insets;
 public class PrelimMenu extends Application {
 
     Button reserve, search, cancel, review, edit, info; //buttons for each method
+    private HotelRooms hotel;
+     
+
+    public void setHotel(HotelRooms hotel) {
+        this.hotel = hotel;
+    }
 
     public void userMenu(String[] args) {
         launch(args); // launches window
@@ -36,8 +45,7 @@ public class PrelimMenu extends Application {
         reserve.setOnAction(e -> reserveRoom());
         search.setOnAction(e -> searchRoom());
         cancel.setOnAction(e -> cancelRoom());
-        review.setOnAction(e -> reserveRoom());
-        reserve.setOnAction(e -> reviewRoom());
+        review.setOnAction(e -> reviewRoom());
         edit.setOnAction(e -> editRoom());
         info.setOnAction(e -> infoRoom());
 
@@ -68,27 +76,76 @@ public class PrelimMenu extends Application {
         mainMenu.show();
     }
 
-    private void infoRoom() {
 
+    private void reserveRoom() {
+        Scanner input1 = new Scanner(System.in);
+        System.out.println();
+        System.out.println("Please select which type of floor you would want to stay in and the room" +
+                " number you would like to stay in:");
+        System.out.println();
+        System.out.println("Please note that each floor has ten rooms\n\n" +
+                "Small rooms: 1\n" +
+                "Larger rooms: 2\n" +
+                "Family rooms: 3\n" +
+                "Luxury rooms: 4\n" +
+                "Penthouse suite: 5\n");
+        hotel.reserveRoom(input1.nextInt(), input1.nextInt());
     }
 
-    private void editRoom() {
+    private void searchRoom() {
+        Scanner input5 = new Scanner(System.in);
+        System.out.println("Please input the room you would like to know the status of:\n ");
+        System.out.println("Please note that each floor has ten rooms\n\n" +
+                "Small rooms: 1\n" +
+                "Larger rooms: 2\n" +
+                "Family rooms: 3\n" +
+                "Luxury rooms: 4\n" +
+                "Penthouse suite: 5\n");
+        hotel.searchRoom(input5.nextInt(), input5.nextInt());
+    }
 
+    private void cancelRoom() {
+        Scanner input2 = new Scanner(System.in);
+        System.out.println("I'm so sorry to hear that.\n" +
+                "Please tell me the floor and room number you reserved in:\n");
+        System.out.println("Please note that each floor has ten rooms\n\n" +
+                "Small rooms: 1\n" +
+                "Larger rooms: 2\n" +
+                "Family rooms: 3\n" +
+                "Luxury rooms: 4\n" +
+                "Penthouse suite: 5\n");
+        hotel.cancelRoom(input2.nextInt(), input2.nextInt());
+    }
+
+    private void infoRoom() {
+        Scanner input6 = new Scanner(System.in);
+        System.out.println("Which floor would you like to know more about?\n");
+        System.out.println("Small rooms: 1\n" +
+                            "Larger rooms: 2\n" +
+                            "Family rooms: 3\n" +
+                            "Luxury rooms: 4\n" +
+                            "Penthouse suite: 5\n");
+        hotel.roomInfo(input6.nextInt());
     }
 
     private void reviewRoom() {
 
     }
 
-    private void cancelRoom() {
+    private void editRoom() {
+        Scanner input3 = new Scanner(System.in);
+        System.out.println("Please input the floor and room number you would like to change:\n");
+        System.out.println("Please note that each floor has ten rooms\n\n" +
+                "Small rooms: 1\n" +
+                "Larger rooms: 2\n" +
+                "Family rooms: 3\n" +
+                "Luxury rooms: 4\n" +
+                "Penthouse suite: 5\n");
+        hotel.changeRoom(input3.nextInt(), input3.nextInt());
 
+        Scanner input4 = new Scanner(System.in);
+        System.out.print("Which room would you like to change it to?");
+        hotel.reserveRoom(input4.nextInt(), input4.nextInt());
     }
 
-    private void searchRoom() {
-
-    }
-
-    private void reserveRoom() {
-
-    }
 }
