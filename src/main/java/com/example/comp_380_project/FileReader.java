@@ -63,7 +63,9 @@ public class FileReader {
     /** This creates a new username and password **/
     public void registerNewUser(String username, String pw){
         writeTextFile(usernamesFile, username);
+        userNames.add(username);
         writeTextFile(passwordFile, pw);
+        passwords.add(pw);
         writeTextFile(reservationsFile,"0");
         createGuest(username,pw);
     }
