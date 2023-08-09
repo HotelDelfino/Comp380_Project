@@ -17,7 +17,7 @@ public class Main {
         dataBase = new FileReader();
         hotel = new HotelRooms();
         optionMenu = new PrelimMenu();
-        optionMenu.setHotel(hotel);
+        //optionMenu.setHotel(hotel);
         optionMenu.userMenu(args);
         
         /*app = new JavaFxApplication(new FileReader(), new PrelimMenu(), new HotelRooms(), args);

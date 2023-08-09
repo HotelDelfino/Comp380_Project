@@ -17,22 +17,16 @@ import javafx.geometry.Insets;
 // 6 methods so far: Search for a room type (Single bed - Family rooms), Reserve, Cancel Reservation, Review Reservation
 // Change Reservation, Room Info (Whoever's taking this room/For how long; this is hotel staff exclusive)
 
-public class PrelimMenu extends Application implements Cloneable {
+public class PrelimMenu extends Application {
     Stage window;
     Scene scene;
     Button reserve, search, cancel, review, edit, info, close; //buttons for each method
-    HotelRooms hotel = new HotelRooms();
-    //HotelRooms hotel;
-    //FileReader database = new FileReader();
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
+    HotelRooms hotelRooms = Main.hotel;
+    FileReader database = Main.dataBase;
     
-    public void setHotel(HotelRooms hotel) {
-        Main.hotel = hotel;
-    }
+    /*public void setHotel(HotelRooms hotel) {
+        this.hotel = hotel;
+    }*/
 
     public void userMenu(String[] args) {
         launch(args); // launches window
@@ -133,7 +127,7 @@ public class PrelimMenu extends Application implements Cloneable {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotel.reserveRoom(floors.getValue(), rooms.getValue())); // bars
+        confirm.setOnAction(e -> hotelRooms.reserveRoom(floors.getValue(), rooms.getValue())); // bars
         GridPane.setConstraints(confirm, 2,3);
 
         grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack);
@@ -152,7 +146,7 @@ public class PrelimMenu extends Application implements Cloneable {
                 "Family rooms: 3\n" +
                 "Luxury rooms: 4\n" +
                 "Penthouse suite: 5\n");
-        hotel.searchRoom(input5.nextInt(), input5.nextInt());
+        hotelRooms.searchRoom(input5.nextInt(), input5.nextInt());
     }
 
     private void cancelRoom() {
@@ -165,7 +159,7 @@ public class PrelimMenu extends Application implements Cloneable {
                 "Family rooms: 3\n" +
                 "Luxury rooms: 4\n" +
                 "Penthouse suite: 5\n");
-        hotel.cancelRoom(input2.nextInt(), input2.nextInt());
+        hotelRooms.cancelRoom(input2.nextInt(), input2.nextInt());
     }
 
     private void infoRoom() {
@@ -176,7 +170,7 @@ public class PrelimMenu extends Application implements Cloneable {
                             "Family rooms: 3\n" +
                             "Luxury rooms: 4\n" +
                             "Penthouse suite: 5\n");
-        hotel.roomInfo(input6.nextInt());
+        hotelRooms.roomInfo(input6.nextInt());
     }
 
     private void reviewRoom() {
@@ -192,11 +186,11 @@ public class PrelimMenu extends Application implements Cloneable {
                 "Family rooms: 3\n" +
                 "Luxury rooms: 4\n" +
                 "Penthouse suite: 5\n");
-        hotel.changeRoom(input3.nextInt(), input3.nextInt());
+        hotelRooms.changeRoom(input3.nextInt(), input3.nextInt());
 
         Scanner input4 = new Scanner(System.in);
         System.out.print("Which room would you like to change it to?");
-        hotel.reserveRoom(input4.nextInt(), input4.nextInt());
+        hotelRooms.reserveRoom(input4.nextInt(), input4.nextInt());
     }
 
 }

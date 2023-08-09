@@ -125,10 +125,6 @@ public class JavaFxApplication extends javax.swing.JFrame {
                 else {
                     JOptionPane.showMessageDialog(null, "Welcome!");
                     dispose();
-                    JOptionPane.showMessageDialog(null, "Hellooo!");
-                    System.out.println("aaaa" + hotel);
-                    optionMenu.setHotel(hotel);
-                    optionMenu.userMenu(args);
                     break;
                 }
             }
