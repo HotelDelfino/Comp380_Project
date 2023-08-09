@@ -30,17 +30,16 @@ public class PrelimMenu extends Application implements Cloneable {
         return super.clone();
     }
     
-   /*  public void setHotel(HotelRooms hotel) {
-        this.hotel = hotel;
-    }*/
+    public void setHotel(HotelRooms hotel) {
+        Main.hotel = hotel;
+    }
 
-    /*public void userMenu(String[] args) {
+    public void userMenu(String[] args) {
         launch(args); // launches window
-    }*/
+    }
 
     @Override 
     public void start(Stage mainMenu) throws Exception {
-        //Main.hotel;
         window = mainMenu;
         mainMenu.setTitle("Hotel Delfino: Main Menu"); // unnamed hotel
         Label welcome = new Label("Welcome to Hotel Delfino!");
