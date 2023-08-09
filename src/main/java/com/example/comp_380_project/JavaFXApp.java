@@ -14,7 +14,6 @@ public class JavaFXApp extends javax.swing.JFrame {
     /* User Objects */
     private FileReader dataBase;
     private PrelimMenu optionMenu;
-    private HotelRooms hotel;
     private String[] args;
     /* End User Objects */
 

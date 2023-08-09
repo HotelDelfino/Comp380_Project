@@ -77,7 +77,7 @@ public class PrelimMenu extends Application {
     }
 
 
-    private void reserveRoom() {
+    private void reserveRoom() { // Adrian
         Scanner input1 = new Scanner(System.in);
         System.out.println();
         System.out.println("Please select which type of floor you would want to stay in and the room" +
@@ -92,7 +92,7 @@ public class PrelimMenu extends Application {
         hotel.reserveRoom(input1.nextInt(), input1.nextInt());
     }
 
-    private void searchRoom() {
+    private void searchRoom() { // Sergio
         Scanner input5 = new Scanner(System.in);
         System.out.println("Please input the room you would like to know the status of:\n ");
         System.out.println("Please note that each floor has ten rooms\n\n" +
@@ -104,7 +104,7 @@ public class PrelimMenu extends Application {
         hotel.searchRoom(input5.nextInt(), input5.nextInt());
     }
 
-    private void cancelRoom() {
+    private void cancelRoom() { // Adrian
         Scanner input2 = new Scanner(System.in);
         System.out.println("I'm so sorry to hear that.\n" +
                 "Please tell me the floor and room number you reserved in:\n");
@@ -117,7 +117,7 @@ public class PrelimMenu extends Application {
         hotel.cancelRoom(input2.nextInt(), input2.nextInt());
     }
 
-    private void infoRoom() {
+    private void infoRoom() { // Angel
         Scanner input6 = new Scanner(System.in);
         System.out.println("Which floor would you like to know more about?\n");
         System.out.println("Small rooms: 1\n" +
@@ -128,11 +128,11 @@ public class PrelimMenu extends Application {
         hotel.roomInfo(input6.nextInt());
     }
 
-    private void reviewRoom() {
+    private void reviewRoom() {// Angel
 
     }
 
-    private void editRoom() {
+    private void editRoom() { // Sergio
         Scanner input3 = new Scanner(System.in);
         System.out.println("Please input the floor and room number you would like to change:\n");
         System.out.println("Please note that each floor has ten rooms\n\n" +
