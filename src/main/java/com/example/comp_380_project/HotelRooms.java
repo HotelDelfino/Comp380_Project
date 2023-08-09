@@ -14,43 +14,42 @@ public class HotelRooms {
 
 
     public void reserveRoom(int floor, int roomNum) {
-        if (floor >= 1 && floor <= 5 && roomNum >= 1 && roomNum <= 10) {
+        if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {
             if (floor == 1) {
-                if (floor1[roomNum - 1] != "Closed") {
-                    floor1[roomNum - 1] = "Closed";
+                if (floor1[roomNum] != "Closed") {
+                    floor1[roomNum] = "Closed";
                     JOptionPane.showMessageDialog(null, "Thank you for booking room " + roomNum + " on floor 1!");
                 } else {
                     JOptionPane.showMessageDialog(null,"Sorry but this room is already book! Please try another room.");
                 }
             }
             if (floor == 2) {
-                if (floor2[roomNum - 1] != "Closed") {
-                    floor2[roomNum - 1] = "Closed";
+                if (floor2[roomNum] != "Closed") {
+                    floor2[roomNum] = "Closed";
                     JOptionPane.showMessageDialog(null, "Thank you for booking room " + roomNum + " on floor 2!");
                 } else {
                     JOptionPane.showMessageDialog(null,"Sorry but this room is already book! Please try another room.");
                 }
             }
             if (floor == 3) {
-                if (floor3[roomNum - 1] != "Closed") {
-                    floor3[roomNum - 1] = "Closed";
+                if (floor3[roomNum] != "Closed") {
+                    floor3[roomNum] = "Closed";
                     JOptionPane.showMessageDialog(null, "Thank you for booking room " + roomNum + " on floor 3!");
                 } else {
                     JOptionPane.showMessageDialog(null,"Sorry but this room is already book! Please try another room.");
                 }
             }
             if (floor == 4) {
-                if (floor4[roomNum - 1] != "Closed") {
-                    floor4[roomNum - 1] = "Closed";
-                    System.out.println();
+                if (floor4[roomNum] != "Closed") {
+                    floor4[roomNum] = "Closed";
                     JOptionPane.showMessageDialog(null, "Thank you for booking room " + roomNum + " on floor 4!");
                 } else {
                     JOptionPane.showMessageDialog(null,"Sorry but this room is already book! Please try another room.");
                 }
             }
             if (floor == 5) {
-                if (floor5[roomNum - 1] != "Closed") {
-                    floor5[roomNum - 1] = "Closed";
+                if (floor5[roomNum] != "Closed") {
+                    floor5[roomNum] = "Closed";
                     JOptionPane.showMessageDialog(null, "Thank you for booking room " + roomNum + " on floor 5!");
                 } else {
                     JOptionPane.showMessageDialog(null,"Sorry but this room is already book! Please try another room.");
