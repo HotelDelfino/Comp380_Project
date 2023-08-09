@@ -143,7 +143,7 @@ public class JavaFXApp extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
-        jLabel1.setText("Welcome To The Hotel!");
+        jLabel1.setText("Welcome To Hotel Delfino!");
 
         b2.setBackground(new java.awt.Color(153, 153, 153));
         b2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
