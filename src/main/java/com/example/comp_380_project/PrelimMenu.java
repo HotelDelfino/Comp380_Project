@@ -23,22 +23,26 @@ public class PrelimMenu extends Application {
     Button reserve, search, cancel, review, edit, info, close; //buttons for each method
     //HotelRooms hotelRooms = Main.hotel;
     //FileReader database = Main.dataBase;
-    HotelRooms hotelRooms;
+    public HotelRooms hotelRooms;
 
-    public PrelimMenu(HotelRooms hotel) {
-        this.hotelRooms = hotel;
-    }
+    //PrelimMenu(HotelRooms hotel) {
+    //    this.hotelRooms = hotel;
+    //}
     public void setHotel(HotelRooms hotel) {
         this.hotelRooms = hotel;
-        hotelRooms.reserveRoom(1,1);
+        System.out.println("Hotel");
     }
 
     public void userMenu(String[] args) {
-        launch(); // launches window
+        launch(args); // launches window
     }
 
     @Override 
     public void start(Stage mainMenu) throws Exception {
+        if(hotelRooms == null) {
+            System.out.println("Hotel is null");
+            hotelRooms = new HotelRooms();
+        }
         window = mainMenu;
         mainMenu.setTitle("Hotel Delfino: Main Menu"); // unnamed hotel
         Label welcome = new Label("Welcome to Hotel Delfino!");
@@ -93,6 +97,7 @@ public class PrelimMenu extends Application {
 
 
     private void reserveRoom() {
+        if(hotelRooms == null) System.out.println("Hotel is null");
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
         grid2.setVgap(50); //vertical space for each "unit"
@@ -132,8 +137,7 @@ public class PrelimMenu extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-        System.out.println("any: ");
-        confirm.setOnAction(e -> hotelRooms.reserveRoom(floors.getValue(), rooms.getValue())); // bars
+        confirm.setOnAction(e -> hotelRooms.reserveRoom(floors.getValue(), rooms.getValue())); // bars :(
         GridPane.setConstraints(confirm, 2,3);
 
         grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack);

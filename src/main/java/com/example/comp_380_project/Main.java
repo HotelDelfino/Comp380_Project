@@ -16,8 +16,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         dataBase = new FileReader();
         hotel = new HotelRooms();
-        optionMenu = new PrelimMenu(hotel);
-        //optionMenu.setHotel(hotel);
+        optionMenu = new PrelimMenu();
+        optionMenu.setHotel(hotel);
         optionMenu.userMenu(args);
 
         /*app = new JavaFxApplication(new FileReader(), new PrelimMenu(), new HotelRooms(), args);
