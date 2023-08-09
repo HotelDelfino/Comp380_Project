@@ -21,15 +21,20 @@ public class PrelimMenu extends Application {
     Stage window;
     Scene scene;
     Button reserve, search, cancel, review, edit, info, close; //buttons for each method
-    HotelRooms hotelRooms = Main.hotel;
-    FileReader database = Main.dataBase;
-    
-    /*public void setHotel(HotelRooms hotel) {
-        this.hotel = hotel;
-    }*/
+    //HotelRooms hotelRooms = Main.hotel;
+    //FileReader database = Main.dataBase;
+    HotelRooms hotelRooms;
+
+    public PrelimMenu(HotelRooms hotel) {
+        this.hotelRooms = hotel;
+    }
+    public void setHotel(HotelRooms hotel) {
+        this.hotelRooms = hotel;
+        hotelRooms.reserveRoom(1,1);
+    }
 
     public void userMenu(String[] args) {
-        launch(args); // launches window
+        launch(); // launches window
     }
 
     @Override 
@@ -127,6 +132,7 @@ public class PrelimMenu extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
+        System.out.println("any: ");
         confirm.setOnAction(e -> hotelRooms.reserveRoom(floors.getValue(), rooms.getValue())); // bars
         GridPane.setConstraints(confirm, 2,3);
 

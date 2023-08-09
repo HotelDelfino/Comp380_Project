@@ -16,18 +16,18 @@ public class Main {
     public static void main(String[] args) throws Exception {
         dataBase = new FileReader();
         hotel = new HotelRooms();
-        optionMenu = new PrelimMenu();
+        optionMenu = new PrelimMenu(hotel);
         //optionMenu.setHotel(hotel);
         optionMenu.userMenu(args);
-        
+
         /*app = new JavaFxApplication(new FileReader(), new PrelimMenu(), new HotelRooms(), args);
-        
+
         app.startLoginMenu();
 
         System.out.println(unlocker);
         if (unlocker.equals("t")) {
-            optionMenu.setHotel(hotel);
             optionMenu.userMenu(args);
         }*/
+
     }
 }

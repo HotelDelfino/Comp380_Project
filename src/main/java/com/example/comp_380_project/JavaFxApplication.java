@@ -1,5 +1,6 @@
 package com.example.comp_380_project;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -149,6 +150,7 @@ public class JavaFxApplication extends javax.swing.JFrame {
                 else {
                     JOptionPane.showMessageDialog(null, "Welcome!");
                     dispose();
+                    //optionMenu.userMenu(args);
                     Main.unlocker = "t";
                     break;
                 }
@@ -203,8 +205,7 @@ public class JavaFxApplication extends javax.swing.JFrame {
     }
 
     public void y() {
-       Scanner scnr = new Scanner(System.in);
-       scnr.next();
+       
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton guestButton;
