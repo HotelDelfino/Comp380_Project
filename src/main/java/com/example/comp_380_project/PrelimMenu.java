@@ -128,7 +128,7 @@ public class PrelimMenu extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotel.reserveRoom(floors.getValue(), rooms.getValue()));
+        confirm.setOnAction(e -> hotel.reserveRoom(floors.getValue(), rooms.getValue())); // bars
         GridPane.setConstraints(confirm, 2,3);
 
         grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack);
