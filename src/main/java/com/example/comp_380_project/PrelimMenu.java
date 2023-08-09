@@ -17,26 +17,30 @@ import javafx.geometry.Insets;
 // 6 methods so far: Search for a room type (Single bed - Family rooms), Reserve, Cancel Reservation, Review Reservation
 // Change Reservation, Room Info (Whoever's taking this room/For how long; this is hotel staff exclusive)
 
-public class PrelimMenu extends Application {
-
+public class PrelimMenu extends Application implements Cloneable {
     Stage window;
     Scene scene;
     Button reserve, search, cancel, review, edit, info, close; //buttons for each method
     HotelRooms hotel = new HotelRooms();
+    //HotelRooms hotel;
+    //FileReader database = new FileReader();
 
-    FileReader database = new FileReader();
-
-
-    public void setHotel(HotelRooms hotel) {
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+    
+   /*  public void setHotel(HotelRooms hotel) {
         this.hotel = hotel;
-    }
+    }*/
 
-    public void userMenu(String[] args) {
+    /*public void userMenu(String[] args) {
         launch(args); // launches window
-    }
+    }*/
 
     @Override 
     public void start(Stage mainMenu) throws Exception {
+        //Main.hotel;
         window = mainMenu;
         mainMenu.setTitle("Hotel Delfino: Main Menu"); // unnamed hotel
         Label welcome = new Label("Welcome to Hotel Delfino!");

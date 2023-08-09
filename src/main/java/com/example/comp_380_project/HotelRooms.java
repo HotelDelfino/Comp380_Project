@@ -5,7 +5,12 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 
-public class HotelRooms {
+public class HotelRooms implements Cloneable {
+   
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     String[] floor1 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Small rooms
     String[] floor2 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Larger rooms

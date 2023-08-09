@@ -5,15 +5,19 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class FileReader {
-
+public class FileReader implements Cloneable {
     static File usernamesFile;
     static File passwordFile;
     static File reservationsFile;
     static ArrayList<String> userNames = new ArrayList<>();
     static ArrayList<String> passwords = new ArrayList<>();
     ArrayList<Guest> registeredMembers = new ArrayList<>();
-
+    
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+    
     /** Constructor. Starts the Textfile **/
     FileReader(){
         verifyTextFile();

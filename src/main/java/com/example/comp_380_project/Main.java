@@ -1,19 +1,34 @@
 package com.example.comp_380_project;
-import java.util.Scanner;
+
 import java.util.*;
+
+import javafx.stage.Stage;
+
 import java.io.*;
 
 public class Main {
-
+    public static JavaFxApplication app;
+    public static HotelRooms hotel;
+    public static PrelimMenu optionMenu;
+    public static FileReader dataBase;
+    public static String unlocker = "none";
 
     public static void main(String[] args) throws Exception {
-        FileReader dataBase = new FileReader();
-        HotelRooms hotel = new HotelRooms();
-        PrelimMenu optionMenu = new PrelimMenu();
-        JavaFXApp app = new JavaFXApp(dataBase, optionMenu, args);
+        dataBase = new FileReader();
+        hotel = new HotelRooms();
+        optionMenu = new PrelimMenu();
+        //optionMenu.setHotel(hotel);
+        //optionMenu.userMenu(args);
+        optionMenu.start(new Stage());
         
-        optionMenu.setHotel(hotel);
+        /*app = new JavaFxApplication(new FileReader(), new PrelimMenu(), new HotelRooms(), args);
         
-        app.runApp();
+        app.startLoginMenu();
+
+        System.out.println(unlocker);
+        if (unlocker.equals("t")) {
+            optionMenu.setHotel(hotel);
+            optionMenu.userMenu(args);
+        }*/
     }
 }
