@@ -22,7 +22,9 @@ public class PrelimMenu extends Application {
     Stage window;
     Scene scene;
     Button reserve, search, cancel, review, edit, info, close; //buttons for each method
-    private HotelRooms hotel;
+    HotelRooms hotel = new HotelRooms();
+
+    FileReader database = new FileReader();
 
 
     public void setHotel(HotelRooms hotel) {

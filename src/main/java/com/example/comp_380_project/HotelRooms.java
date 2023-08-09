@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
+
 public class HotelRooms {
 
     String[] floor1 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Small rooms
@@ -18,7 +19,7 @@ public class HotelRooms {
             if (floor == 1) {
                 if (floor1[roomNum] != "Closed") {
                     floor1[roomNum] = "Closed";
-                    JOptionPane.showMessageDialog(null, "Thank you for booking room " + roomNum + " on floor 1!");
+                    JOptionPane.showMessageDialog(null, "Thank you for booking room " + floor + roomNum + "!");
                 } else {
                     JOptionPane.showMessageDialog(null,"Sorry but this room is already book! Please try another room.");
                 }
