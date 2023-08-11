@@ -21,7 +21,7 @@ public class HotelRooms {
                     floor1[roomNum] = "Closed";
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + roomNum + "on floor 1!");
+                    alert.setContentText("Thank you for booking room " + roomNum + " on floor 1!");
                     alert.showAndWait();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -35,7 +35,7 @@ public class HotelRooms {
                     floor2[roomNum] = "Closed";
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + roomNum + "on floor 2!");
+                    alert.setContentText("Thank you for booking room " + roomNum + " on floor 2!");
                     alert.showAndWait();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -49,7 +49,7 @@ public class HotelRooms {
                     floor3[roomNum] = "Closed";
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + roomNum + "on floor 3!");
+                    alert.setContentText("Thank you for booking room " + roomNum + " on floor 3!");
                     alert.showAndWait();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -63,7 +63,7 @@ public class HotelRooms {
                     floor4[roomNum] = "Closed";
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + roomNum + "on floor 4!");
+                    alert.setContentText("Thank you for booking room " + roomNum + " on floor 4!");
                     alert.showAndWait();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -77,7 +77,7 @@ public class HotelRooms {
                     floor5[roomNum] = "Closed";
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + roomNum + "on floor 5!");
+                    alert.setContentText("Thank you for booking room " + roomNum + " on floor 5!");
                     alert.showAndWait();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
