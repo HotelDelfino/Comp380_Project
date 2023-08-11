@@ -2,6 +2,7 @@ package com.example.comp_380_project;
 import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
+import javafx.application.Platform;
 
 import java.awt.*;
 import java.util.Scanner;
@@ -23,7 +24,7 @@ public class PrelimMenu extends Application {
     Button reserve, search, cancel, review, edit, info, close; //buttons for each method
     //HotelRooms hotelRooms = Main.hotel;
     //FileReader database = Main.dataBase;
-    public HotelRooms hotelRooms;
+    private HotelRooms hotelRooms = new HotelRooms();;
 
     //PrelimMenu(HotelRooms hotel) {
     //    this.hotelRooms = hotel;
@@ -39,7 +40,7 @@ public class PrelimMenu extends Application {
 
     @Override 
     public void start(Stage mainMenu) throws Exception {
-        if(hotelRooms == null) {
+        if (hotelRooms == null) {
             System.out.println("Hotel is null");
             hotelRooms = new HotelRooms();
         }
