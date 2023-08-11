@@ -174,8 +174,7 @@ public class Main extends Application {
         dialog1.setHeaderText(null);
         dialog1.setContentText("Choose Username:");
         String u = dialog1.showAndWait().orElse(null);
-        
-        System.out.println(u);
+
         if (u == null)
             return;
         
