@@ -6,11 +6,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class FileReader implements Cloneable {
-    static File usernamesFile;
-    static File passwordFile;
-    static File reservationsFile;
-    static ArrayList<String> userNames = new ArrayList<>();
-    static ArrayList<String> passwords = new ArrayList<>();
+    File usernamesFile;
+    File passwordFile;
+    File reservationsFile;
+    HotelRooms hotel;
+    ArrayList<String> userNames = new ArrayList<>();
+    ArrayList<String> passwords = new ArrayList<>();
     ArrayList<Guest> registeredMembers = new ArrayList<>();
     
     @Override
@@ -19,9 +20,10 @@ public class FileReader implements Cloneable {
     }
     
     /** Constructor. Starts the Textfile **/
-    FileReader(){
+    FileReader(HotelRooms hotelrooms){
         verifyTextFile();
         createRegisteredGuest();
+        this.hotel = hotelrooms;
     }
     /** This reads username text file. Adds content to Array **/
     public void readUsernameFile(File file){

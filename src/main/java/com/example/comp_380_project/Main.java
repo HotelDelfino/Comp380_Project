@@ -44,7 +44,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         window = primaryStage;
         hotelRooms = new HotelRooms();
-        dataBase = new FileReader();
+        dataBase = new FileReader(hotelRooms);
 
         VBox root = new VBox(40);
         root.setPadding(new Insets(50));
@@ -200,7 +200,7 @@ public class Main extends Application {
 
 
 
-//////////---------------------------------------------------------------------------------------------------------------
+//////////-----------------------------------Main Menu-----------------------------------------------------------------
 
 
     public void menu(Stage mainMenu) throws Exception {
@@ -259,6 +259,7 @@ public class Main extends Application {
 
     private void reserveRoom() {
         if(hotelRooms == null) System.out.println("Hotel is null");
+
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
         grid2.setVgap(50); //vertical space for each "unit"
@@ -298,6 +299,7 @@ public class Main extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
+        if(hotelRooms == null) System.out.println("Hotel is null");
         confirm.setOnAction(e -> hotelRooms.reserveRoom(floors.getValue(), rooms.getValue())); // bars :(
         GridPane.setConstraints(confirm, 2,3);
 
