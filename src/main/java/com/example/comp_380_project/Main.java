@@ -3,6 +3,8 @@ package com.example.comp_380_project;
 import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -17,6 +19,8 @@ import javafx.scene.text.Font;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Button;
 import javafx.geometry.Insets;
@@ -24,11 +28,13 @@ import javafx.geometry.Insets;
 
 
 public class Main extends Application {
-    Stage window;
-    Scene scene, loginScene, guestScene;
+    public Stage window;
+    public Scene scene, loginScene, guestScene;
     Button reserve, search, cancel, review, edit, info, close;
     private HotelRooms hotelRooms;
     private FileReader dataBase;
+    private Manager manager;
+    ListView<String> listReviews;
 
     public static void main(String[] args) throws Exception {
         Main main = new Main();
@@ -44,7 +50,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         window = primaryStage;
         hotelRooms = new HotelRooms();
-        dataBase = new FileReader(hotelRooms);
+        //dataBase = new FileReader(hotelRooms);
+        manager = new Manager();
+
 
         VBox root = new VBox(40);
         root.setPadding(new Insets(50));
@@ -257,8 +265,6 @@ public class Main extends Application {
 
 
     private void reserveRoom() {
-        if(hotelRooms == null) System.out.println("Hotel is null");
-
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
         grid2.setVgap(50); //vertical space for each "unit"
@@ -345,8 +351,47 @@ public class Main extends Application {
         hotelRooms.roomInfo(input6.nextInt());
     }
 
-    private void reviewRoom() {
+    private void reviewRoom() { 
+        Scene reviewScene;
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10,10,10,10));
+        grid.setHgap(10);
+        grid.setVgap(10);
 
+        Button submitButton = new Button("Submit");
+        Button cancelButton = new Button("Cancel");
+
+        Label reviewLabel = new Label("Type Review:");
+        TextArea reviewArea = new TextArea();
+
+        grid.add(reviewLabel, 0,0);
+        grid.add(reviewArea, 1,0);
+        grid.add(cancelButton, 2,1);
+        grid.add(submitButton, 2,2);
+
+        submitButton.setOnAction(e -> {
+            manager.addReview(reviewArea.getText());
+            window.setScene(scene);
+
+        });
+
+        cancelButton.setOnAction(e -> {
+            /*ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll(manager.getReviews());
+    
+            VBox vBox = new VBox(20);
+            vBox.getChildren().add(listReviews);
+    
+            Scene thisScene = new Scene(vBox, 800, 800);
+            window.setScene(thisScene);
+            window.show();*/
+            window.setScene(scene);
+        });
+        
+
+        reviewScene = new Scene(grid, 700,700);
+        window.setScene(reviewScene);
+        window.show();
     }
 
     private void editRoom() {

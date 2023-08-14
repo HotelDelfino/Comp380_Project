@@ -180,4 +180,5 @@ public class FileReader implements Cloneable {
             registeredMembers.add(new Guest(userNames.get(i),passwords.get(i)));
         }
     }
+
 }
