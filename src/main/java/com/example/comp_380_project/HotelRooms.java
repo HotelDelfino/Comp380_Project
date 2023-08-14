@@ -19,87 +19,88 @@ public class HotelRooms {
     public void reserveRoom(int floor, int roomNum) {                               //Method gets the user's floor room and number room
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {             //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             if (floor == 1) {
-<<<<<<< Updated upstream
+
                 if (floor1[roomNum] != "Closed") {                                  //This checks if the room is not closed
                     floor1[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
-=======
-                if (floor1[roomNum].equals("Open")) {
-                    floor1[roomNum] = guest.getUsername();
->>>>>>> Stashed changes
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
-                    alert.showAndWait();
-                } else {                                                            //If room is closed, it will not allow the user to continue booking the room
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                    alert.showAndWait();                                                                    //different room through a pop-up box
-                }
-            }
-            if (floor == 2) {
-                if (floor2[roomNum] != "Closed") {                                  //This checks if the room is not closed
-                    floor2[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
-                    alert.showAndWait();
-                } else {                                                            //If room is closed, it will not allow the user to continue booking the room
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                    alert.showAndWait();                                                                    //different room through a pop-up box
-                }
-            }
-            if (floor == 3) {
-                if (floor3[roomNum] != "Closed") {                                  //This checks if the room is not closed
-                    floor3[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
-                    alert.showAndWait();
-                } else {                                                            //If room is closed, it will not allow the user to continue booking the room
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                    alert.showAndWait();                                                                    //different room through a pop-up box
-                }
-            }
-            if (floor == 4) {
-                if (floor4[roomNum] != "Closed") {                                  //This checks if the room is not closed
-                    floor4[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
-                    alert.showAndWait();
-                } else {                                                            //If room is closed, it will not allow the user to continue booking the room
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                    alert.showAndWait();                                                                    //different room through a pop-up box
-                }
-            }
-            if (floor == 5) {
-                if (floor5[roomNum] != "Closed") {                                  //This checks if the room is not closed
-                    floor5[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
-                    alert.showAndWait();
-                } else {                                                            //If room is closed, it will not allow the user to continue booking the room
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setHeaderText(null);
-                    alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                    alert.showAndWait();                                                                    //different room through a pop-up box
-                }
-            }
 
-        } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("You inputted a wrong number for either floor or room number. Please try again!"); //If the user picks a wrong input for the rooms
-            alert.showAndWait();                                                                                    //Or the floors it will give this message through
-        }                                                                                                           //through a pop-up window
+                    if (floor1[roomNum].equals("Open")) {
+                        floor1[roomNum] = guest.getUsername();
+
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                        alert.showAndWait();
+                    } else {                                                            //If room is closed, it will not allow the user to continue booking the room
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
+                        alert.showAndWait();                                                                    //different room through a pop-up box
+                    }
+                }
+                if (floor == 2) {
+                    if (floor2[roomNum] != "Closed") {                                  //This checks if the room is not closed
+                        floor2[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                        alert.showAndWait();
+                    } else {                                                            //If room is closed, it will not allow the user to continue booking the room
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
+                        alert.showAndWait();                                                                    //different room through a pop-up box
+                    }
+                }
+                if (floor == 3) {
+                    if (floor3[roomNum] != "Closed") {                                  //This checks if the room is not closed
+                        floor3[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                        alert.showAndWait();
+                    } else {                                                            //If room is closed, it will not allow the user to continue booking the room
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
+                        alert.showAndWait();                                                                    //different room through a pop-up box
+                    }
+                }
+                if (floor == 4) {
+                    if (floor4[roomNum] != "Closed") {                                  //This checks if the room is not closed
+                        floor4[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                        alert.showAndWait();
+                    } else {                                                            //If room is closed, it will not allow the user to continue booking the room
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
+                        alert.showAndWait();                                                                    //different room through a pop-up box
+                    }
+                }
+                if (floor == 5) {
+                    if (floor5[roomNum] != "Closed") {                                  //This checks if the room is not closed
+                        floor5[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                        alert.showAndWait();
+                    } else {                                                            //If room is closed, it will not allow the user to continue booking the room
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText(null);
+                        alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
+                        alert.showAndWait();                                                                    //different room through a pop-up box
+                    }
+                }
+
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("You inputted a wrong number for either floor or room number. Please try again!"); //If the user picks a wrong input for the rooms
+                alert.showAndWait();                                                                                    //Or the floors it will give this message through
+            }                                                                                                           //through a pop-up window
+        }
     }
 
     public void cancelRoom(int floor, int roomNum) {                               //Method allows the user to cancel the room they booked
