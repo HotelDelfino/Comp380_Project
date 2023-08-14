@@ -32,9 +32,7 @@ public class Guest {
         return this.password.equals(pw);
     }
     /** Checks if any rooms are booked **/
-    void hasRooms(){
-
-    }
+    boolean hasRooms(){ return !(bookedReservations.size() == 1 && bookedReservations.get(0) == 0); }
     void addReservation(int room){
         bookedReservations.add(room);
     }
@@ -49,5 +47,8 @@ public class Guest {
     }
     // Need HotelRooms Finished
     void modifyReservations(int room){}
+    public int amountOfReservations(){return bookedReservations.size();}
+    public int getReservation(int num){return bookedReservations.get(num);}
+    public String getUsername(){return username;}
 
 }

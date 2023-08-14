@@ -35,7 +35,8 @@ public class Main extends Application {
     private FileReader dataBase;
     private Manager manager;
     ListView<String> listReviews;
-
+    private HotelRooms hotelRooms;
+    private  FileReader dataBase;
     public static void main(String[] args) throws Exception {
         Main main = new Main();
   
@@ -122,6 +123,8 @@ public class Main extends Application {
                 }
                 else {
                     try {
+                        hotelRooms.setGuestOnLogin(dataBase.getRegisteredGuest(u));
+                        hotelRooms.printArray();
                         menu(primaryStage);
                     } catch (Exception e) {
                         e.printStackTrace();

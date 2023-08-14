@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 
 public class HotelRooms {
+
+    Guest guest;
     String[] floor1 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Small rooms
     String[] floor2 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Larger rooms
     String[] floor3 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Family rooms
@@ -17,8 +19,13 @@ public class HotelRooms {
     public void reserveRoom(int floor, int roomNum) {                               //Method gets the user's floor room and number room
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {             //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             if (floor == 1) {
+<<<<<<< Updated upstream
                 if (floor1[roomNum] != "Closed") {                                  //This checks if the room is not closed
                     floor1[roomNum] = "Closed";                                     //If it isn't, make it so the room the user choose now becomes closed
+=======
+                if (floor1[roomNum].equals("Open")) {
+                    floor1[roomNum] = guest.getUsername();
+>>>>>>> Stashed changes
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
@@ -307,5 +314,32 @@ public class HotelRooms {
             alert.setContentText("You inputted a wrong number for either floor or room number. Please try again!");//If the user picks a wrong input for the rooms
             alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
+    }
+    public void setGuestOnLogin(Guest guest1){
+        this.guest = guest1;
+    }
+    public void updateHotelRoomsArray(Guest guest){
+        if(!guest.hasRooms())return;
+        else{
+            /** The following converts 1 double-digit integer into 2 single-digit integers. The 2 single-digit integers are used to add username to appropriate floor array */
+            String room;
+            int floor;
+            int roomNum;
+            for(int i = 0; i < guest.amountOfReservations(); i++){
+                room = Integer.toString(guest.getReservation(i));
+                floor = Integer.parseInt(Character.toString(room.charAt(0)));
+                roomNum = Integer.parseInt(Character.toString(room.charAt(1)));
+                if(floor == 1) floor1[roomNum] = guest.getUsername();
+                else if(floor == 2) floor2[roomNum] = guest.getUsername();
+                else if(floor == 3) floor3[roomNum] = guest.getUsername();
+                else if(floor == 4) floor4[roomNum] = guest.getUsername();
+                else floor5[roomNum] = guest.getUsername();
+            }
+        }
+    }
+    public void printArray(){
+        for (int i = 0; i < floor1.length; i++) {
+            System.out.println(floor1[i]);
+        }
     }
 }
