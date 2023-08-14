@@ -107,22 +107,35 @@ public class FileReader{
     /** This writes on the reservations text file. Uses the guest index to find where to override text **/
     private void writeReservationTextFile(File file, String stuff, int guestIndex){
 
-        try{
-            FileWriter deleter = new FileWriter(file,false);
-            deleter.write("");
-            deleter.close();
-            System.out.println("File Wipe Successful");
-            FileWriter myWriter = new FileWriter(file,true);
-            for (int i = 0; i < reservations.size(); i++) {
-                if(i != guestIndex)
-                    myWriter.write(reservations.get(i) + "\n");
-                else myWriter.write(stuff + "\n");
+        if(reservations.size()>1) {
+            try {
+                FileWriter deleter = new FileWriter(file, false);
+                deleter.write(reservations.get(0));
+                deleter.close();
+                System.out.println("File Wipe Successful");
+                FileWriter myWriter = new FileWriter(file, true);
+                for (int i = 1; i < reservations.size(); i++) {
+                    if (i != guestIndex)
+                        myWriter.write("\n"+reservations.get(i));
+                    else myWriter.write("\n" + stuff);
+                    System.out.println("File Writing Successful");
+                }
+                myWriter.close();
+            } catch (IOException e) {
+                System.out.println("An error has occurred");
+                e.printStackTrace();
             }
-            System.out.println("File Writing Successful");
-            myWriter.close();
-        }catch(IOException e){
-            System.out.println("An error has occurred");
-            e.printStackTrace();
+        }else{
+            try {
+                FileWriter deleter = new FileWriter(file, false);
+                deleter.write(reservations.get(0));
+                deleter.close();
+                System.out.println("File Writing Successful");
+
+            } catch (IOException e) {
+                System.out.println("An error has occurred");
+                e.printStackTrace();
+            }
         }
     }
 
