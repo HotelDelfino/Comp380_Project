@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class HotelRooms {
 
     Guest guest;
+    private static FileReader database;
     String[] floor1 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Small rooms
     String[] floor2 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Larger rooms
     String[] floor3 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Family rooms
@@ -22,6 +23,8 @@ public class HotelRooms {
 
                 if (floor1[roomNum].equals("Open")) {                                               //This checks if the room is not closed
                         floor1[roomNum] = guest.getUsername();                                      //If it isn't, make it so the room the user choose now becomes closed
+                        guest.addReservation((floor*10)+roomNum);
+                        database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
                         alert.setContentText("Thank you for booking room " + floor + roomNum);      //Thanks the user for booking the room through a pop-up box
@@ -312,7 +315,8 @@ public class HotelRooms {
         }                                                                                                           //through a pop-up window
     }
     /** sets current logged in guest. */
-    public void setGuestOnLogin(Guest guest1){this.guest = guest1;}
+    public void setGuestOnLogin(Guest guest1){this.guest = guest1;
+        this.guest.printReservationsArray();}
     /** Activates when file reader instanciates. Updates all arrays with what is on reservations.txt */
     public void updateHotelRoomsArray(Guest guest){
         if(!guest.hasRooms())return;
@@ -338,5 +342,9 @@ public class HotelRooms {
         for (int i = 0; i < floor1.length; i++) {
             System.out.println(floor1[i]);
         }
+    }
+
+    public void setDatabase(FileReader db){
+        database = db;
     }
 }

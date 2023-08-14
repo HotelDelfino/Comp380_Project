@@ -101,6 +101,31 @@ public class FileReader{
             e.printStackTrace();
         }
     }
+    public void updateReservationTextFile(String stuff, int guestIndex){
+        writeReservationTextFile(reservationsFile,stuff,guestIndex);
+    }
+    /** This writes on the reservations text file. Uses the guest index to find where to override text **/
+    private void writeReservationTextFile(File file, String stuff, int guestIndex){
+
+        try{
+            FileWriter deleter = new FileWriter(file,false);
+            deleter.write("");
+            deleter.close();
+            System.out.println("File Wipe Successful");
+            FileWriter myWriter = new FileWriter(file,true);
+            for (int i = 0; i < reservations.size(); i++) {
+                if(i != guestIndex)
+                    myWriter.write(reservations.get(i) + "\n");
+                else myWriter.write(stuff + "\n");
+            }
+            System.out.println("File Writing Successful");
+            myWriter.close();
+        }catch(IOException e){
+            System.out.println("An error has occurred");
+            e.printStackTrace();
+        }
+    }
+
 
     /** This verifies that a text file exists. Otherwise, creates one. **/
     public void verifyTextFile(){
@@ -185,11 +210,13 @@ public class FileReader{
     public void createGuest(String username, String password){
         registeredMembers.add(new Guest(username,password));
     }
-    /** Creates Guest Objects from textfiles. Will add reservations later on **/
+
+    /** Creates Guest Objects from textfiles. Adds reservations **/
     public void createRegisteredGuest(){
         for(int i = 0; i < userNames.size(); i++){
             registeredMembers.add(new Guest(userNames.get(i),passwords.get(i),reservations.get(i)));
             hotel.updateHotelRoomsArray(registeredMembers.get(i));
+            registeredMembers.get(i).setGuestIndex(i);
         }
     }
 

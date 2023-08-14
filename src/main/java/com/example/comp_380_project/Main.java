@@ -44,6 +44,7 @@ public class Main extends Application {
         window = primaryStage;
         hotelRooms = new HotelRooms();
         dataBase = new FileReader(hotelRooms);
+        hotelRooms.setDatabase(dataBase);
         manager = new Manager();
 
 
@@ -116,7 +117,6 @@ public class Main extends Application {
                 else {
                     try {
                         hotelRooms.setGuestOnLogin(dataBase.getRegisteredGuest(u));
-                        //hotelRooms.printArray();
                         menu(primaryStage);
                     } catch (Exception e) {
                         e.printStackTrace();
