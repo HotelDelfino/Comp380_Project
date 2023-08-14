@@ -39,6 +39,8 @@ public class HotelRooms {
 
                 if (floor2[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                     floor2[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
+                    guest.cancelReservation((floor*10)+roomNum);
+                    database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
@@ -53,6 +55,8 @@ public class HotelRooms {
                 if (floor == 3) {
                     if (floor3[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor3[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
+                        guest.cancelReservation((floor*10)+roomNum);
+                        database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
                         alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
@@ -67,6 +71,8 @@ public class HotelRooms {
                 if (floor == 4) {
                     if (floor4[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor4[roomNum] = guest.getUsername();                                    //If it isn't, make it so the room the user choose now becomes closed
+                        guest.cancelReservation((floor*10)+roomNum);
+                        database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
                         alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
@@ -81,6 +87,8 @@ public class HotelRooms {
                 if (floor == 5) {
                     if (floor5[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor5[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
+                        guest.cancelReservation((floor*10)+roomNum);
+                        database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
                         alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
@@ -122,6 +130,8 @@ public class HotelRooms {
             if (floor == 2) {
                 if (floor2[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor2[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
+                    guest.cancelReservation((floor*10)+roomNum);
+                    database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Thank you for letting us know! Your refund should be given to you in 48 hours!"); //Thanks the user for letting the hotel know
@@ -135,7 +145,9 @@ public class HotelRooms {
             }
             if (floor == 3) {
                 if (floor3[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
-                    floor3[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
+                    floor3[roomNum] = "Open";                                                       //If not, make the closed room open to imitate a user canceling there reservation
+                    guest.cancelReservation((floor*10)+roomNum);
+                    database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Thank you for letting us know! Your refund should be given to you in 48 hours!"); //Thanks the user for letting the hotel know
@@ -150,6 +162,8 @@ public class HotelRooms {
             if (floor == 4) {
                 if (floor4[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor4[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
+                    guest.cancelReservation((floor*10)+roomNum);
+                    database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Thank you for letting us know! Your refund should be given to you in 48 hours!"); //Thanks the user for letting the hotel know
@@ -164,6 +178,8 @@ public class HotelRooms {
             if (floor == 5) {
                 if (floor5[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor5[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
+                    guest.cancelReservation((floor*10)+roomNum);
+                    database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Thank you for letting us know! Your refund should be given to you in 48 hours!"); //Thanks the user for letting the hotel know
@@ -198,7 +214,7 @@ public class HotelRooms {
     public void searchRoom(int floor, int roomNum){
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {         //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             if (floor == 1) {
-                if (floor1[roomNum] != "Closed") {                              //If room is not closed the room status is open
+                if (floor1[roomNum].equals("Open")) {                              //If room is not closed the room status is open
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("The room " + floor + roomNum + " is open!");
@@ -212,7 +228,7 @@ public class HotelRooms {
                 }
             }
             if (floor == 2) {
-                if (floor2[roomNum] != "Closed") {                              //If room is not closed the room status is open
+                if (floor2[roomNum].equals("Open")) {                              //If room is not closed the room status is open
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("The room " + floor + roomNum + " is open!");
@@ -226,7 +242,7 @@ public class HotelRooms {
                 }
             }
             if (floor == 3) {
-                if (floor3[roomNum] != "Closed") {                              //If room is not closed the room status is open
+                if (floor3[roomNum].equals("Open")) {                              //If room is not closed the room status is open
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("The room " + floor + roomNum + " is open!");
@@ -240,7 +256,7 @@ public class HotelRooms {
                 }
             }
             if (floor == 4) {
-                if (floor4[roomNum] != "Closed") {                              //If room is not closed the room status is open
+                if (floor4[roomNum].equals("Open")) {                              //If room is not closed the room status is open
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("The room " + floor + roomNum + " is open!");
@@ -254,7 +270,7 @@ public class HotelRooms {
                 }
             }
             if (floor == 5) {
-                if (floor5[roomNum] != "Closed") {                              //If room is not closed the room status is open
+                if (floor5[roomNum].equals("Open")) {                              //If room is not closed the room status is open
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("The room " + floor + roomNum + " is open!");
