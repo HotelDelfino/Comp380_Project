@@ -332,6 +332,31 @@ public class HotelRooms {
             alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
     }
+    public void roomReview(int stars){
+        if (stars >= 1 && stars <= 5) {
+            if (stars == 1) {
+                System.out.println("We are so sorry that the experience was terrible, if you can please describe your experience " +
+                        "on why you scored us this low. (Optional)");
+            }
+            if (stars == 2) {
+                System.out.println("We are so sorry that the experience was bad, if you can please describe your experience " +
+                        "on why you scored us this low. (Optional)");
+            }
+            if (stars == 3) {
+                System.out.println("We are so sorry that the experience wasn't as good we wanted you to have, if you can please " +
+                        "describe your experience and how we could improve to earn a better score. (Optional)");
+            }
+            if (stars == 4) {
+                System.out.println("We are happy to hear that,  if you can please " +
+                        "describe your experience and how we could improve to earn a perfect score. (Optional)");
+            }
+            if (stars == 5) {
+                System.out.println("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+            }
+        } else {
+            System.out.println("Thank you for stopping by at Hotel Delfino!");
+        }
+    }
     /** sets current logged in guest. */
     public void setGuestOnLogin(Guest guest1){this.guest = guest1;
         this.guest.printReservationsArray();}
