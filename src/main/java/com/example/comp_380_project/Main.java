@@ -27,8 +27,8 @@ public class Main extends Application {
     Stage window;
     Scene scene, loginScene, guestScene;
     Button reserve, search, cancel, review, edit, info, close;
-    private HotelRooms hotelRooms;
-    private FileReader dataBase;
+    private static HotelRooms hotelRooms;
+    private static FileReader dataBase;
 
     public static void main(String[] args) throws Exception {
         Main main = new Main();
@@ -114,6 +114,8 @@ public class Main extends Application {
                 }
                 else {
                     try {
+                        hotelRooms.setGuestOnLogin(dataBase.getRegisteredGuest(u));
+                        hotelRooms.printArray();
                         menu(primaryStage);
                     } catch (Exception e) {
                         e.printStackTrace();

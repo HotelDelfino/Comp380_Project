@@ -5,25 +5,21 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class FileReader implements Cloneable {
+public class FileReader{
     File usernamesFile;
     File passwordFile;
     File reservationsFile;
-    HotelRooms hotel;
+    private static HotelRooms hotel;
     ArrayList<String> userNames = new ArrayList<>();
     ArrayList<String> passwords = new ArrayList<>();
+    ArrayList<String> reservations = new ArrayList<>();
     ArrayList<Guest> registeredMembers = new ArrayList<>();
-    
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
     
     /** Constructor. Starts the Textfile **/
     FileReader(HotelRooms hotelrooms){
+        hotel = hotelrooms;
         verifyTextFile();
         createRegisteredGuest();
-        this.hotel = hotelrooms;
     }
     /** This reads username text file. Adds content to Array **/
     public void readUsernameFile(File file){
@@ -63,7 +59,23 @@ public class FileReader implements Cloneable {
     }
 
     /** This reads the reservations file. Adds to HotelRooms **/
-    public void readReservationsFile(File file){}
+    public void readReservationsFile(File file){
+
+        try{
+            BufferedReader br = new BufferedReader(new java.io.FileReader(file));
+            String st;
+            while ((st = br.readLine())!= null){
+                reservations.add(st);
+                System.out.println(st);
+            }
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
+            e.printStackTrace();
+        }catch(IOException f){
+            System.out.println("An Error has occurred");
+            f.printStackTrace();
+        }
+    }
 
 
     /** This creates a new username and password **/
@@ -176,8 +188,16 @@ public class FileReader implements Cloneable {
     /** Creates Guest Objects from textfiles. Will add reservations later on **/
     public void createRegisteredGuest(){
         for(int i = 0; i < userNames.size(); i++){
-
-            registeredMembers.add(new Guest(userNames.get(i),passwords.get(i)));
+            registeredMembers.add(new Guest(userNames.get(i),passwords.get(i),reservations.get(i)));
+            hotel.updateHotelRoomsArray(registeredMembers.get(i));
         }
     }
+    public Guest getRegisteredGuest(String username){
+        for (int i = 0; i < userNames.size(); i++) {
+            if (userNames.get(i).equals(username)) return registeredMembers.get(i);
+        }
+        return null;
+    }
+
+
 }
