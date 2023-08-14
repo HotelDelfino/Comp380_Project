@@ -192,15 +192,11 @@ public class FileReader{
             hotel.updateHotelRoomsArray(registeredMembers.get(i));
         }
     }
-<<<<<<< HEAD
-=======
+
     public Guest getRegisteredGuest(String username){
         for (int i = 0; i < userNames.size(); i++) {
             if (userNames.get(i).equals(username)) return registeredMembers.get(i);
         }
         return null;
     }
-
->>>>>>> 3b8ad6441dbb47097d572491ac5584286f2feca6
-
 }

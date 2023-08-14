@@ -4,7 +4,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -14,29 +13,22 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
 import javafx.scene.text.Font;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.Button;
-import javafx.geometry.Insets;
-
 
 
 public class Main extends Application {
-    public Stage window;
-    public Scene scene, loginScene, guestScene;
+    Stage window;
+    Scene scene, loginScene, guestScene;
     Button reserve, search, cancel, review, edit, info, close;
     private HotelRooms hotelRooms;
     private FileReader dataBase;
     private Manager manager;
     ListView<String> listReviews;
-    private HotelRooms hotelRooms;
-    private  FileReader dataBase;
+
     public static void main(String[] args) throws Exception {
         Main main = new Main();
   
@@ -51,7 +43,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         window = primaryStage;
         hotelRooms = new HotelRooms();
-        //dataBase = new FileReader(hotelRooms);
+        dataBase = new FileReader(hotelRooms);
         manager = new Manager();
 
 
