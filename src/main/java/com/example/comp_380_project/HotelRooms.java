@@ -199,16 +199,16 @@ public class HotelRooms {
         }                                                                                                           //through a pop-up window
     }
 
-    public void changeRoom(int floor, int roomNum){                             //Method allows the user to change their room they reserved to another
-        if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {         //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
-            cancelRoom(floor, roomNum);                                         //Calls the cancelRoom and reserveRoom Methods to simulate the user changing their
-            reserveRoom(floor, roomNum);                                        //room to a different room
+    public void editRoom(int initFloor, int initRoom, int finFloor, int finRoom) { //Method allows the user to change their room they reserved to another
+        if(initFloor >= 1 && initFloor <= 5 && initRoom >= 0 && initRoom <= 9 && finFloor >= 1 && finFloor <=5 && finRoom >= 0 && finRoom <= 9) { //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
+            cancelRoom(initFloor, initRoom); //Cancel initial booking
+            reserveRoom(finFloor, finRoom); // Reserve target room
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText(null);
-            alert.setContentText("You inputted a wrong number for either floor or room number. Please try again!"); //If the user picks a wrong input for the rooms
-            alert.showAndWait();                                                                                    //Or the floors it will give this message through
-        }                                                                                                           //through a pop-up window
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText(null);
+        alert.setContentText("You inputted a wrong number for either floor or room number. Please try again!"); //If the user picks a wrong input for the rooms
+        alert.showAndWait();                                                                                    //Or the floors it will give this message through
+        }
     }
 
     public void searchRoom(int floor, int roomNum){

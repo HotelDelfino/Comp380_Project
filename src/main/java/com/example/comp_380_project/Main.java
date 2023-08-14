@@ -492,7 +492,66 @@ public class Main extends Application {
     }
 
     private void editRoom() {
-        Scanner input3 = new Scanner(System.in);
+        GridPane grid2 = new GridPane();
+        grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
+        grid2.setVgap(50); //vertical space for each "unit"
+        grid2.setHgap(50); //horizontal space for each "unit"
+        //grid2.setGridLinesVisible(true);
+        grid2.setAlignment(Pos.CENTER);
+        grid2.setGridLinesVisible(true);
+
+        Label reservation = new Label("Edit Reservation");
+        GridPane.setConstraints(reservation, 0,0);
+        reservation.setStyle("-fx-font-size:20");
+
+        Label currRoom = new Label("What room are you currently booked on?");
+        GridPane.setConstraints(currRoom,0,1);
+        currRoom.setStyle("-fx-font-size:15");
+
+        ChoiceBox<Integer> initFloor = new ChoiceBox<>(); //dropdown menu for floor selection
+        initFloor.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
+        initFloor.setValue(1);
+        GridPane.setConstraints(initFloor, 1,1);
+        initFloor.setStyle("fx-font-size:15");
+
+        ChoiceBox<Integer> initRoom = new ChoiceBox<>(); //dropdown menu for floor selection
+        initRoom.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9); // 5 floors available to select
+        initRoom.setValue(0);
+        GridPane.setConstraints(initRoom, 2,1);
+        initRoom.setStyle("fx-font-size:15");
+
+        Label roomSelect = new Label("What room would you like to change to?");
+        GridPane.setConstraints(roomSelect, 0, 2);
+        roomSelect.setStyle("-fx-font-size:15");
+
+        ChoiceBox<Integer> finFloor = new ChoiceBox<>(); //dropdown menu for room selection
+        finFloor.getItems().addAll(1, 2, 3, 4, 5);
+        finFloor.setValue(1);
+        GridPane.setConstraints(finFloor,1,2);
+        finFloor.setStyle("fx-font-size:15");
+
+        ChoiceBox<Integer> finRoom = new ChoiceBox<>(); //dropdown menu for room selection
+        finRoom.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        finRoom.setValue(0);
+        GridPane.setConstraints(finRoom,2,2);
+        finRoom.setStyle("fx-font-size:15");
+
+        Button goBack = new Button("Return to Main Menu");
+        goBack.setStyle("-fx-font-size:15");
+        goBack.setOnAction(e -> window.setScene(scene));
+        GridPane.setConstraints(goBack, 0, 3);
+
+        Button confirm = new Button("Confirm Room Selection");
+        confirm.setStyle("-fx-font-size:15");
+        confirm.setOnAction(e -> hotelRooms.cancelRoom(initFloor.getValue(), initRoom.getValue())); // bars :(
+        GridPane.setConstraints(confirm, 2,3);
+
+        grid2.getChildren().addAll(reservation, currRoom, initRoom, initFloor, roomSelect, finRoom, finFloor, confirm, goBack);
+
+        Scene editRoom = new Scene(grid2, 550, 300);
+        window.setScene(editRoom);
+        window.show();
+        /*Scanner input3 = new Scanner(System.in);
         System.out.println("Please input the floor and room number you would like to change:\n");
         System.out.println("Please note that each floor has ten rooms\n\n" +
                 "Small rooms: 1\n" +
@@ -505,6 +564,7 @@ public class Main extends Application {
         Scanner input4 = new Scanner(System.in);
         System.out.print("Which room would you like to change it to?");
         hotelRooms.reserveRoom(input4.nextInt(), input4.nextInt());
+        */
     }
 
 /*---------------------------------Manager Menu-----------------------------------------------------------------------*/
