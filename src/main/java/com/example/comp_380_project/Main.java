@@ -221,7 +221,7 @@ public class Main extends Application {
 
         reserve.setOnAction(e -> reserveRoom());
         search.setOnAction(e -> searchRoom());
-        cancel.setOnAction(e -> cancelRoom());
+        cancel.setOnAction(e -> cancelReservation());
         review.setOnAction(e -> reviewRoom());
         edit.setOnAction(e -> editRoom());
         info.setOnAction(e -> infoRoom());
@@ -310,6 +310,56 @@ public class Main extends Application {
         window.show();
     }
 
+    private void cancelReservation() {
+        GridPane grid2 = new GridPane();
+        grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
+        grid2.setVgap(50); //vertical space for each "unit"
+        grid2.setHgap(50); //horizontal space for each "unit"
+        //grid2.setGridLinesVisible(true);
+        grid2.setAlignment(Pos.CENTER);
+
+        Label reservation = new Label("Cancel Reservation");
+        GridPane.setConstraints(reservation, 0,0);
+        reservation.setStyle("-fx-font-size:20");
+
+        Label floorSelect = new Label("Select your desired floor!");
+        GridPane.setConstraints(floorSelect,0,1);
+        floorSelect.setStyle("-fx-font-size:15");
+
+        ChoiceBox<Integer> floors = new ChoiceBox<Integer>(); //dropdown menu for floor selection
+        floors.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
+        floors.setValue(1);
+        GridPane.setConstraints(floors, 1,1);
+        floors.setStyle("fx-font-size:15");
+
+        Label roomSelect = new Label("Select your desired room!");
+        GridPane.setConstraints(roomSelect, 0, 2);
+        roomSelect.setStyle("-fx-font-size:15");
+
+        ChoiceBox<Integer> rooms = new ChoiceBox<Integer>(); //dropdown menu for room selection
+        rooms.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        rooms.setValue(0);
+        GridPane.setConstraints(rooms,1,2);
+        rooms.setStyle("fx-font-size:15");
+
+
+        Button goBack = new Button("Return to Main Menu");
+        goBack.setStyle("-fx-font-size:15");
+        goBack.setOnAction(e -> window.setScene(scene));
+        GridPane.setConstraints(goBack, 0, 3);
+
+        Button confirm = new Button("Confirm Room Selection");
+        confirm.setStyle("-fx-font-size:15");
+
+        confirm.setOnAction(e -> hotelRooms.cancelRoom(floors.getValue(), rooms.getValue())); // bars :(
+        GridPane.setConstraints(confirm, 2,3);
+
+        grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack);
+
+        Scene resRoom = new Scene(grid2, 550, 300);
+        window.setScene(resRoom);
+        window.show();
+    }
     private void searchRoom() {
         Scanner input5 = new Scanner(System.in);
         System.out.println("Please input the room you would like to know the status of:\n ");
@@ -320,19 +370,6 @@ public class Main extends Application {
                 "Luxury rooms: 4\n" +
                 "Penthouse suite: 5\n");
         hotelRooms.searchRoom(input5.nextInt(), input5.nextInt());
-    }
-
-    private void cancelRoom() {
-        Scanner input2 = new Scanner(System.in);
-        System.out.println("I'm so sorry to hear that.\n" +
-                "Please tell me the floor and room number you reserved in:\n");
-        System.out.println("Please note that each floor has ten rooms\n\n" +
-                "Small rooms: 1\n" +
-                "Larger rooms: 2\n" +
-                "Family rooms: 3\n" +
-                "Luxury rooms: 4\n" +
-                "Penthouse suite: 5\n");
-        hotelRooms.cancelRoom(input2.nextInt(), input2.nextInt());
     }
 
     private void infoRoom() {
