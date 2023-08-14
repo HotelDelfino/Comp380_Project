@@ -106,6 +106,8 @@ public class HotelRooms {
             if (floor == 1) {
                 if (floor1[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor1[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
+                    guest.cancelReservation((floor*10)+roomNum);
+                    database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Thank you for letting us know! Your refund should be given to you in 48 hours!"); //Thanks the user for letting the hotel know

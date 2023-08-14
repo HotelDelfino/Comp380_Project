@@ -52,6 +52,8 @@ public class Guest {
     }
     void addReservation(int room){
         bookedReservations.add(room);
+        if(bookedReservations.size() > 1 && bookedReservations.get(0)==0)
+            bookedReservations.remove(0);
     }
     void cancelReservation(int room){
         for(int i = 0; i< bookedReservations.size();i++) {
@@ -61,6 +63,7 @@ public class Guest {
                 System.out.println("No reservation at " + room + " exists.");
             }
         }
+        if(bookedReservations.isEmpty()) bookedReservations.add(0);
     }
     public String reservationsToString(){
         String allReservations = "";
