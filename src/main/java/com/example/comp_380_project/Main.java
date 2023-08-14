@@ -138,15 +138,14 @@ public class Main extends Application {
         
         if (u == null)
             return;
-        
-        while (true) {
+
+        while (u != null) {
             if (!u.equals("m")) {
                 dialog1.setTitle("Wrong User Name");
                 dialog1.setHeaderText(null);
                 dialog1.setContentText("Enter User Name:");
                 u = dialog1.showAndWait().orElse(null);
-            }
-            else {
+            } else {
                 dialog2.setTitle("Password");
                 dialog2.setHeaderText(null);
                 dialog2.setContentText("Enter Password:");
@@ -158,8 +157,7 @@ public class Main extends Application {
                     alert.setHeaderText(null);
                     alert.setContentText("Wrong password entered.");
                     alert.showAndWait();
-                }
-                else {
+                } else {
                     try {
                         menu(primaryStage);
                     } catch (Exception e) {
@@ -167,7 +165,7 @@ public class Main extends Application {
                     }
                     break;
                 }
-            } 
+            }
         }
     }
 
