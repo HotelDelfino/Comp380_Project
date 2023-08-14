@@ -101,7 +101,7 @@ public class HotelRooms {
     public void cancelRoom(int floor, int roomNum) {                               //Method allows the user to cancel the room they booked
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {            //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             if (floor == 1) {
-                if (floor1[roomNum] != "Open") {                                //This checks if the room is not open
+                if (floor1[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor1[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
@@ -115,7 +115,7 @@ public class HotelRooms {
                 }
             }
             if (floor == 2) {
-                if (floor2[roomNum] != "Open") {                                //This checks if the room is not open
+                if (floor2[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor2[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
@@ -129,7 +129,7 @@ public class HotelRooms {
                 }
             }
             if (floor == 3) {
-                if (floor3[roomNum] != "Open") {                                //This checks if the room is not open
+                if (floor3[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor3[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
@@ -143,7 +143,7 @@ public class HotelRooms {
                 }
             }
             if (floor == 4) {
-                if (floor4[roomNum] != "Open") {                                //This checks if the room is not open
+                if (floor4[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor4[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
@@ -157,7 +157,7 @@ public class HotelRooms {
                 }
             }
             if (floor == 5) {
-                if (floor5[roomNum] != "Open") {                                //This checks if the room is not open
+                if (floor5[roomNum].equals(guest.getUsername())) {                                //This checks if the room is not open
                     floor5[roomNum] = "Open";                                   //If not, make the closed room open to imitate a user canceling there reservation
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
@@ -311,9 +311,9 @@ public class HotelRooms {
             alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
     }
-    public void setGuestOnLogin(Guest guest1){
-        this.guest = guest1;
-    }
+    /** sets current logged in guest. */
+    public void setGuestOnLogin(Guest guest1){this.guest = guest1;}
+    /** Activates when file reader instanciates. Updates all arrays with what is on reservations.txt */
     public void updateHotelRoomsArray(Guest guest){
         if(!guest.hasRooms())return;
         else{
@@ -333,6 +333,7 @@ public class HotelRooms {
             }
         }
     }
+    /** Used for bug fixing, serves no other purpose */
     public void printArray(){
         for (int i = 0; i < floor1.length; i++) {
             System.out.println(floor1[i]);

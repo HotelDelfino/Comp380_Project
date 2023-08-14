@@ -116,7 +116,7 @@ public class Main extends Application {
                 else {
                     try {
                         hotelRooms.setGuestOnLogin(dataBase.getRegisteredGuest(u));
-                        hotelRooms.printArray();
+                        //hotelRooms.printArray();
                         menu(primaryStage);
                     } catch (Exception e) {
                         e.printStackTrace();
