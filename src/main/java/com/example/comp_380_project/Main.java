@@ -275,7 +275,7 @@ public class Main extends Application {
         GridPane.setConstraints(floorSelect,0,1);
         floorSelect.setStyle("-fx-font-size:15");
 
-        ChoiceBox<Integer> floors = new ChoiceBox<Integer>(); //dropdown menu for floor selection
+        ChoiceBox<Integer> floors = new ChoiceBox<>(); //dropdown menu for floor selection
         floors.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
         floors.setValue(1);
         GridPane.setConstraints(floors, 1,1);
@@ -285,7 +285,7 @@ public class Main extends Application {
         GridPane.setConstraints(roomSelect, 0, 2);
         roomSelect.setStyle("-fx-font-size:15");
 
-        ChoiceBox<Integer> rooms = new ChoiceBox<Integer>(); //dropdown menu for room selection
+        ChoiceBox<Integer> rooms = new ChoiceBox<>(); //dropdown menu for room selection
         rooms.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         rooms.setValue(0);
         GridPane.setConstraints(rooms,1,2);
@@ -299,7 +299,6 @@ public class Main extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-        if(hotelRooms == null) System.out.println("Hotel is null");
         confirm.setOnAction(e -> hotelRooms.reserveRoom(floors.getValue(), rooms.getValue())); // bars :(
         GridPane.setConstraints(confirm, 2,3);
 
@@ -326,7 +325,7 @@ public class Main extends Application {
         GridPane.setConstraints(floorSelect,0,1);
         floorSelect.setStyle("-fx-font-size:15");
 
-        ChoiceBox<Integer> floors = new ChoiceBox<Integer>(); //dropdown menu for floor selection
+        ChoiceBox<Integer> floors = new ChoiceBox<>(); //dropdown menu for floor selection
         floors.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
         floors.setValue(1);
         GridPane.setConstraints(floors, 1,1);
@@ -336,7 +335,7 @@ public class Main extends Application {
         GridPane.setConstraints(roomSelect, 0, 2);
         roomSelect.setStyle("-fx-font-size:15");
 
-        ChoiceBox<Integer> rooms = new ChoiceBox<Integer>(); //dropdown menu for room selection
+        ChoiceBox<Integer> rooms = new ChoiceBox<>(); //dropdown menu for room selection
         rooms.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         rooms.setValue(0);
         GridPane.setConstraints(rooms,1,2);
@@ -350,7 +349,6 @@ public class Main extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-
         confirm.setOnAction(e -> hotelRooms.cancelRoom(floors.getValue(), rooms.getValue())); // bars :(
         GridPane.setConstraints(confirm, 2,3);
 
@@ -376,7 +374,7 @@ public class Main extends Application {
         GridPane.setConstraints(floorSelect,0,1);
         floorSelect.setStyle("-fx-font-size:15");
 
-        ChoiceBox<Integer> floors = new ChoiceBox<Integer>(); //dropdown menu for floor selection
+        ChoiceBox<Integer> floors = new ChoiceBox<>(); //dropdown menu for floor selection
         floors.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
         floors.setValue(1);
         GridPane.setConstraints(floors, 1,1);
@@ -386,7 +384,7 @@ public class Main extends Application {
         GridPane.setConstraints(roomSelect, 0, 2);
         roomSelect.setStyle("-fx-font-size:15");
 
-        ChoiceBox<Integer> rooms = new ChoiceBox<Integer>(); //dropdown menu for room selection
+        ChoiceBox<Integer> rooms = new ChoiceBox<>(); //dropdown menu for room selection
         rooms.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         rooms.setValue(0);
         GridPane.setConstraints(rooms,1,2);
@@ -400,7 +398,6 @@ public class Main extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-
         confirm.setOnAction(e -> hotelRooms.searchRoom(floors.getValue(), rooms.getValue()));
         GridPane.setConstraints(confirm, 2,3);
 
@@ -433,7 +430,7 @@ public class Main extends Application {
         floors.setValue(1);
         GridPane.setConstraints(floors, 1,1);
         floors.setStyle("fx-font-size:15");
-        
+
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
         goBack.setOnAction(e -> window.setScene(scene));
@@ -441,7 +438,6 @@ public class Main extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-
         confirm.setOnAction(e -> hotelRooms.roomInfo(floors.getValue()));
         GridPane.setConstraints(confirm, 2,3);
 
@@ -510,5 +506,7 @@ public class Main extends Application {
         System.out.print("Which room would you like to change it to?");
         hotelRooms.reserveRoom(input4.nextInt(), input4.nextInt());
     }
+
+/*---------------------------------Manager Menu-----------------------------------------------------------------------*/
 
 }
