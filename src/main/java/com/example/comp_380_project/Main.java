@@ -564,14 +564,19 @@ public class Main extends Application {
 
 
         oneStarButton.setOnAction(e -> {
-            //Scene s1 = new Scene(star1Area);
             ListView<String> listReviews = new ListView<>();
             listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
 
-            VBox vBox = new VBox(20);
-            vBox.getChildren().add(listReviews);
+            Button cancel = new Button("Done");
 
-            Scene thisScene = new Scene(vBox, 800, 800);
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
 
             manager.addReview(reviewArea.getText());
             window.setScene(thisScene);
