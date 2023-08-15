@@ -538,9 +538,8 @@ public class Main extends Application {
         Button submitButton = new Button("Submit");
         Button cancelButton = new Button("Cancel");
 
-        Label reviewLabel = new Label("Type Review:");
+        Label reviewLabel = new Label("Please select one of the options.");
         TextArea reviewArea = new TextArea();
-
 
         TextArea star5Area = new TextArea();
         TextArea star4Area = new TextArea();
@@ -548,27 +547,63 @@ public class Main extends Application {
         TextArea star2Area = new TextArea();
         TextArea star1Area = new TextArea();
 
-
         Button fiveStarButton = new Button("5 stars");
         Button fourStarButton = new Button("4 stars");
         Button threeStarButton = new Button("3 stars");
         Button twoStarButton = new Button("2 stars");
         Button oneStarButton = new Button("1 stars");
 
-        grid.add(oneStarButton,5,0);
-        grid.add(twoStarButton,6,0);
-        grid.add(threeStarButton,7,0);
-        grid.add(fourStarButton,8,0);
-        grid.add(fiveStarButton,9,0);
+        grid.add(oneStarButton,9,1);
+        grid.add(twoStarButton,8,1);
+        grid.add(threeStarButton,7,1);
+        grid.add(fourStarButton,6,1);
+        grid.add(fiveStarButton,5,1);
 
 
-        grid.add(reviewLabel, 0,0);
-        grid.add(reviewArea, 1,0);
-        grid.add(cancelButton, 2,1);
-        grid.add(submitButton, 2,2);
+        grid.add(reviewLabel, 7,0);
+        grid.add(reviewArea, 7,2);
+        grid.add(cancelButton, 7,3);
+        grid.add(submitButton, 7,4);
 
+        fiveStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
 
-        oneStarButton.setOnAction(e -> {
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
+
+            manager.addReview(reviewArea.getText());
+            window.setScene(thisScene);
+        });
+
+        fourStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
+
+            manager.addReview(reviewArea.getText());
+            window.setScene(thisScene);
+        });
+
+        threeStarButton.setOnAction(e -> {
             ListView<String> listReviews = new ListView<>();
             listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
 
@@ -588,27 +623,44 @@ public class Main extends Application {
         });
 
         twoStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
             manager.addReview(reviewArea.getText());
             window.setScene(scene);
 
         });
 
-        threeStarButton.setOnAction(e -> {
-            manager.addReview(reviewArea.getText());
-            window.setScene(scene);
+        oneStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! We are happy you had a great time!");
 
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
+
+            manager.addReview(reviewArea.getText());
+            window.setScene(thisScene);
         });
 
-        fourStarButton.setOnAction(e -> {
-            manager.addReview(reviewArea.getText());
-            window.setScene(scene);
 
-        });
-
-        fiveStarButton.setOnAction(e -> {
-            manager.addReview(reviewArea.getText());
-            window.setScene(scene);
-        });
 
 
         submitButton.setOnAction(e -> {

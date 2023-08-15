@@ -300,33 +300,31 @@ public class HotelRooms {
             if (floor == 1) {                                                       //Goes into the description for small rooms
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("Floor 1 have our finest small rooms, perfect for 1-2 people to enjoy!");
+                alert.setContentText("Small rooms, perfect for 1-2 people to enjoy!");
                 alert.showAndWait();
             }
             if (floor == 2) {                                                       //Goes into the description for large rooms
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("For those with a group of 3-4 people, our second floor has the right open space for you!");
+                alert.setContentText("Larger rooms, to fit 3-4 people nicely!");
                 alert.showAndWait();
             }
             if (floor == 3) {                                                       //Goes into the description for family rooms
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("Having a big family trip? Well on floor 3 we have just the room for you!\n" +
-                        "Perfect for families of 5-6 people. Baby station included!");
+                alert.setContentText("Perfect for families of 5-6 people. Baby station included!");
                 alert.showAndWait();
             }
             if (floor == 4) {                                                       //Goes into the description for luxurious rooms
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("Our rooms not good enough for your standards? Don't worry we got something for you as well!\n" +
-                        "On the fourth floor we have some luxurious rooms for those who love interior design.");
+                alert.setContentText("Luxurious rooms for those who love interior design.");
                 alert.showAndWait();
             }
             if (floor == 5) {                                                       //Goes into the description for penthouse suites
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("Can't stand the closed spaces of a normal hotel room? \n" + "On the top floor awaits your spacious and luxurious penthouse suite! Fit for a king!");
+                alert.setContentText("Spacious and luxurious penthouse suite! Fit for a king!");
                 alert.showAndWait();
             }
         } else {
