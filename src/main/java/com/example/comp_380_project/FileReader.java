@@ -5,6 +5,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/** @author Jorge Enriquez
+ *  Date: Aug 15, 2023
+ *  Version: */
+
 public class FileReader{
     private File usernamesFile;
     private File passwordFile;
