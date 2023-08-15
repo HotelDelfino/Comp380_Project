@@ -412,30 +412,30 @@ public class Main extends Application {
         floors.setStyle("fx-font-size:15");
 
         Label roomSelect = new Label("Select your desired room!");
-        GridPane.setConstraints(roomSelect, 0, 2); 
+        GridPane.setConstraints(roomSelect, 0, 2); // grid coordinates for room select label
         roomSelect.setStyle("-fx-font-size:15");
 
         ChoiceBox<Integer> rooms = new ChoiceBox<>(); //dropdown menu for room selection
-        rooms.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
-        rooms.setValue(0);
-        GridPane.setConstraints(rooms,1,2);
+        rooms.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9); // 0-9 rooms to select
+        rooms.setValue(0); // room 0 selected by default
+        GridPane.setConstraints(rooms,1,2); // grid coordinates for room selection choice box
         rooms.setStyle("fx-font-size:15");
 
 
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
-        goBack.setOnAction(e -> window.setScene(scene));
-        GridPane.setConstraints(goBack, 0, 3);
+        goBack.setOnAction(e -> window.setScene(scene)); // go back button returns to original main menu scene
+        GridPane.setConstraints(goBack, 0, 3); // grid coordinates for goBack button
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotelRooms.cancelRoom(floors.getValue(), rooms.getValue()));
-        GridPane.setConstraints(confirm, 2,3);
+        confirm.setOnAction(e -> hotelRooms.cancelRoom(floors.getValue(), rooms.getValue())); // confirm button uses choice box inputs as parameters for cancelRoom method
+        GridPane.setConstraints(confirm, 2,3); // grid coordinates for confirm button
 
-        grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack);
+        grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack); // add all buttons and labels to scene
 
-        Scene resRoom = new Scene(grid2, 550, 300);
-        window.setScene(resRoom);
+        Scene cancelRoom = new Scene(grid2, 550, 300); // initializes cancel room grid layout
+        window.setScene(cancelRoom); // sets window scene to cancel room submenu 
         window.show();
     }
     private void searchRoom() {
