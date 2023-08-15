@@ -15,7 +15,7 @@ public class FileReader{
     ArrayList<String> reservations = new ArrayList<>();
     ArrayList<Guest> registeredMembers = new ArrayList<>();
     
-    /** Constructor. Starts the Textfile **/
+    /** Constructor. Starts the Textfile. ONLY CALL ONCE **/
     FileReader(HotelRooms hotelrooms){
         hotel = hotelrooms;
         verifyTextFile();
@@ -101,12 +101,14 @@ public class FileReader{
             e.printStackTrace();
         }
     }
+    /** Can be called by other classes without a File object. Uses File object attached to FileReader */
     public void updateReservationTextFile(String stuff, int guestIndex){
         writeReservationTextFile(reservationsFile,stuff,guestIndex);
     }
     /** This writes on the reservations text file. Uses the guest index to find where to override text **/
     private void writeReservationTextFile(File file, String stuff, int guestIndex){
 
+        // Checks to see if the array is more than one to avoid out of bounds exception
         if(reservations.size()>1) {
             try {
                 FileWriter deleter = new FileWriter(file, false);
@@ -183,8 +185,8 @@ public class FileReader{
         }
     }
 
+    /** Captures and returns file path for Username.txt */
     public String getUserFilePath(){
-        /** Capture username file path **/
         Path path = Paths.get("usernames.txt");
         // Temporary
         System.out.println(path.toAbsolutePath());
@@ -217,6 +219,7 @@ public class FileReader{
         return false;
     }
 
+    /** Returns a boolean value by checking password with */
     public boolean verifyPassWord(String pW, int index){
         return pW.equals(passwords.get(index));
     }
