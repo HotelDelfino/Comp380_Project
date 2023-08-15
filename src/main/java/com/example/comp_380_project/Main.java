@@ -388,7 +388,6 @@ public class Main extends Application {
         GridPane.setConstraints(rooms,1,2);
         rooms.setStyle("fx-font-size:15");
 
-
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
         goBack.setOnAction(e -> window.setScene(scene));
@@ -434,7 +433,7 @@ public class Main extends Application {
         goBack.setOnAction(e -> window.setScene(scene));
         GridPane.setConstraints(goBack, 0, 3);
 
-        Button confirm = new Button("Confirm Room Selection");
+        Button confirm = new Button("Confirm Floor Selection");
         confirm.setStyle("-fx-font-size:15");
         confirm.setOnAction(e -> hotelRooms.roomInfo(floors.getValue()));
         GridPane.setConstraints(confirm, 2,3);
