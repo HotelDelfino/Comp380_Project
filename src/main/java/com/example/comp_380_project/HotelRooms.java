@@ -5,6 +5,9 @@ import javafx.scene.control.Alert;
 import java.util.Objects;
 import java.util.Scanner;
 
+/** @author Sergio Dieguez
+ *  Date: Aug 15, 2023
+ *  */
 
 public class HotelRooms {
 
