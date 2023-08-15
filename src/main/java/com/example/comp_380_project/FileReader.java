@@ -96,6 +96,12 @@ public class FileReader{
         }
     }
 
+    /** Adds to Review Array and writes to review Textfile*/
+    public void addReview(String review){
+        reviews.add(review);
+        writeTextFile(reviewFile,review);
+    }
+
     /** This function allows access to the reviews array*/
     public ArrayList<String> getReviews(){return reviews;}
 
