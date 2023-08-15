@@ -17,6 +17,10 @@ public class HotelRooms {
     String[] floor5 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Penthouse suite
 
 
+    /**
+     * Created Alert Boxes instead of print statements
+     *
+     */
     public void reserveRoom(int floor, int roomNum) {                               //Method gets the user's floor room and number room
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {             //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             if (floor == 1) {
