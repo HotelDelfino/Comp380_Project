@@ -529,16 +529,77 @@ public class Main extends Application {
         grid.setHgap(10);
         grid.setVgap(10);
 
+
         Button submitButton = new Button("Submit");
         Button cancelButton = new Button("Cancel");
 
         Label reviewLabel = new Label("Type Review:");
         TextArea reviewArea = new TextArea();
 
+
+        TextArea star5Area = new TextArea();
+        TextArea star4Area = new TextArea();
+        TextArea star3Area = new TextArea();
+        TextArea star2Area = new TextArea();
+        TextArea star1Area = new TextArea();
+
+
+        Button fiveStarButton = new Button("5 stars");
+        Button fourStarButton = new Button("4 stars");
+        Button threeStarButton = new Button("3 stars");
+        Button twoStarButton = new Button("2 stars");
+        Button oneStarButton = new Button("1 stars");
+
+        grid.add(oneStarButton,5,0);
+        grid.add(twoStarButton,6,0);
+        grid.add(threeStarButton,7,0);
+        grid.add(fourStarButton,8,0);
+        grid.add(fiveStarButton,9,0);
+
+
         grid.add(reviewLabel, 0,0);
         grid.add(reviewArea, 1,0);
         grid.add(cancelButton, 2,1);
         grid.add(submitButton, 2,2);
+
+
+        oneStarButton.setOnAction(e -> {
+            //Scene s1 = new Scene(star1Area);
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+
+            VBox vBox = new VBox(20);
+            vBox.getChildren().add(listReviews);
+
+            Scene thisScene = new Scene(vBox, 800, 800);
+
+            manager.addReview(reviewArea.getText());
+            window.setScene(thisScene);
+        });
+
+        twoStarButton.setOnAction(e -> {
+            manager.addReview(reviewArea.getText());
+            window.setScene(scene);
+
+        });
+
+        threeStarButton.setOnAction(e -> {
+            manager.addReview(reviewArea.getText());
+            window.setScene(scene);
+
+        });
+
+        fourStarButton.setOnAction(e -> {
+            manager.addReview(reviewArea.getText());
+            window.setScene(scene);
+
+        });
+
+        fiveStarButton.setOnAction(e -> {
+            manager.addReview(reviewArea.getText());
+            window.setScene(scene);
+        });
+
 
         submitButton.setOnAction(e -> {
             manager.addReview(reviewArea.getText());
