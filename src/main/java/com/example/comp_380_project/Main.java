@@ -22,8 +22,11 @@ import javafx.scene.control.TextInputDialog;
 
 /**
  * This class Main is our driver class for out javaFx Front end
- * It allows the user to interact with visual attributes to select hotel options.
- * @Authors Angel, Sergio, Adrian, Jorge
+ * It allows the user to interact with visual attributes to select hotel options.4
+ * @author Jorge
+ * @author Angel
+ * @author Sergio
+ * @author Adrian
  */
 public class Main extends Application {
     Stage window;
@@ -211,6 +214,7 @@ public class Main extends Application {
      * Allows a user to enter a username and a password
      * @author Angel Venegas
      * @return returns from the function if no username was provided
+     * @throws throws an exception
      */
     private void registerUser() {
         TextInputDialog dialog1 = new TextInputDialog();
@@ -247,10 +251,11 @@ public class Main extends Application {
 
 
     /**
-     * This method registers a user and handles duplicate usernames.
-     * Allows a user to enter a username and a password
+     * This method handles the menu options
+     *
      * @author Adrian Vergara
-     * @param
+     * @param mainMenu The stage for the main menu
+     * @throws Exception If something goes wrong
      */
     public void menu(Stage mainMenu) throws Exception {
         window = mainMenu;

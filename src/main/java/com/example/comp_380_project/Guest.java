@@ -23,12 +23,25 @@ public class Guest {
         initReservations(res);
     }
 
+    
+    /** 
+     * @param UserName
+     */
     void setUsername(String UserName){
         this.username = UserName;
     }
+    
+    /** 
+     * @param pw
+     */
     void setPassword(String pw){
         this.password = password;
     }
+    
+    /** 
+     * @param pw
+     * @return boolean
+     */
     boolean isCorrectPW(String pw){
         return this.password.equals(pw);
     }
