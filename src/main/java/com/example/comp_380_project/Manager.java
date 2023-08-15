@@ -10,10 +10,18 @@ public class Manager extends Guest {
         reviews = new ArrayList<>();
     }
 
+    
+    /** 
+     * @param review
+     */
     public void addReview(String review) {
         reviews.add(review);
     }
 
+    
+    /** 
+     * @return ArrayList<String>
+     */
     public ArrayList<String> getReviews() {
         return reviews;
     }

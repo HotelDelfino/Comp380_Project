@@ -20,6 +20,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
 
 
+/**
+ * This class Main is our driver class for out javaFx Front end
+ * It allows the user to interact with visual attributes to select hotel options.4
+ * @author Jorge
+ * @author Angel
+ * @author Sergio
+ * @author Adrian
+ */
 public class Main extends Application {
     Stage window;
     Scene scene, loginScene, guestScene;
@@ -29,16 +37,37 @@ public class Main extends Application {
     private Manager manager;
     ListView<String> listReviews;
 
+
+    /**
+     * This is the main method which calls login which calls launch
+     * @author Angel Venegas
+     * @param args Anything that gets set before main is called
+     * @throws Exception Throws an exception if something happens throughout the program
+     */
     public static void main(String[] args) throws Exception {
         Main main = new Main();
   
         main.login(args);
     }
 
+    /**
+     * This method launches the javaFX application
+     * @author Angel Venegas
+     * @param args Anything that gets set before main is called
+     */
     public void login(String[] args) {
         launch(args); // launches window
     }
 
+
+    /**
+     * This method starts the javaFX application which creates a new window with a new scene.
+     * It displays 3 buttons which the user can click to login as guest, manager, or register a user.
+     * @param primaryStage the primary stage for this application, onto which
+     * the application scene can be set.
+     * Applications may create other stages, if needed, but they will not be
+     * primary stages.
+     */
     @Override
     public void start(Stage primaryStage) {
         window = primaryStage;
@@ -82,6 +111,11 @@ public class Main extends Application {
     }
 
 
+    /**
+     * This opens up a dialog so a guest could log in if they are registered in the system
+     * @param primaryStage
+     * @return returns from the function if no username was provided
+     */
     private void guestLogin(Stage primaryStage) {
         TextInputDialog dialog1 = new TextInputDialog();
         dialog1.setTitle("Login As Guest");
@@ -127,6 +161,12 @@ public class Main extends Application {
         }   
     }
 
+    /**
+     * Allows a user to login as a manager which has a set password and username.
+     * @author Angel Venegas
+     * @param primaryStage the stage gets passed to menu if the user successfully logs in, if successful, the user
+     * gets to login with menu options
+     */
     private void managerLogin(Stage primaryStage) {
         TextInputDialog dialog1 = new TextInputDialog();
         dialog1.setTitle("Login As Manager");
@@ -169,6 +209,13 @@ public class Main extends Application {
         }
     }
 
+    /**
+     * This method registers a user and handles duplicate usernames.
+     * Allows a user to enter a username and a password
+     * @author Angel Venegas
+     * @return returns from the function if no username was provided
+     * @throws throws an exception
+     */
     private void registerUser() {
         TextInputDialog dialog1 = new TextInputDialog();
         dialog1.setTitle("Register");
@@ -203,6 +250,13 @@ public class Main extends Application {
 //////////-----------------------------------Main Menu-----------------------------------------------------------------
 
 
+    /**
+     * This method handles the menu options
+     *
+     * @author Adrian Vergara
+     * @param mainMenu The stage for the main menu
+     * @throws Exception If something goes wrong
+     */
     public void menu(Stage mainMenu) throws Exception {
         window = mainMenu;
         mainMenu.setTitle("Hotel Delfino: Main Menu"); // unnamed hotel
@@ -217,11 +271,35 @@ public class Main extends Application {
         info = new Button("Room Info"); // info button
         close = new Button("Close");
 
+        /**
+         * Calls reserveRoom on SetOnAction when the button is pressed
+         * @author Angel Venegas
+         */
         reserve.setOnAction(e -> reserveRoom());
+        /**
+         * Calls searchRoom on SetOnAction when the button is pressed
+         * @author Angel Venegas
+         */
         search.setOnAction(e -> searchRoom());
+        /**
+         * Calls cancelReservation on SetOnAction when the button is pressed
+         * @author Angel Venegas
+         */
         cancel.setOnAction(e -> cancelReservation());
+        /**
+         * Calls reviewRoom on SetOnAction when the button is pressed
+         * @author Angel Venegas
+         */
         review.setOnAction(e -> reviewRoom());
+        /**
+         * Calls editRoom on SetOnAction when the button is pressed
+         * @author Angel Venegas
+         */
         edit.setOnAction(e -> editRoom());
+        /**
+         * Calls infoRoom on SetOnAction when the button is pressed
+         * @author Angel Venegas
+         */
         info.setOnAction(e -> infoRoom());
         close.setOnAction(e -> window.close());
 
@@ -445,6 +523,9 @@ public class Main extends Application {
         window.show();
     }
 
+    /**
+     * @author Angel Venegas
+     */
     private void reviewRoom() { 
         Scene reviewScene;
         GridPane grid = new GridPane();
@@ -452,16 +533,134 @@ public class Main extends Application {
         grid.setHgap(10);
         grid.setVgap(10);
 
+
         Button submitButton = new Button("Submit");
         Button cancelButton = new Button("Cancel");
 
-        Label reviewLabel = new Label("Type Review:");
+        Label reviewLabel = new Label("Please select one of the options.");
         TextArea reviewArea = new TextArea();
 
-        grid.add(reviewLabel, 0,0);
-        grid.add(reviewArea, 1,0);
-        grid.add(cancelButton, 2,1);
-        grid.add(submitButton, 2,2);
+        TextArea star5Area = new TextArea();
+        TextArea star4Area = new TextArea();
+        TextArea star3Area = new TextArea();
+        TextArea star2Area = new TextArea();
+        TextArea star1Area = new TextArea();
+
+        Button fiveStarButton = new Button("5 stars");
+        Button fourStarButton = new Button("4 stars");
+        Button threeStarButton = new Button("3 stars");
+        Button twoStarButton = new Button("2 stars");
+        Button oneStarButton = new Button("1 stars");
+
+        grid.add(oneStarButton,9,1);
+        grid.add(twoStarButton,8,1);
+        grid.add(threeStarButton,7,1);
+        grid.add(fourStarButton,6,1);
+        grid.add(fiveStarButton,5,1);
+
+
+        grid.add(reviewLabel, 7,0);
+        grid.add(reviewArea, 7,2);
+        grid.add(cancelButton, 7,3);
+        grid.add(submitButton, 7,4);
+
+        fiveStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
+
+            manager.addReview(reviewArea.getText());
+            window.setScene(thisScene);
+        });
+
+        fourStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
+
+            manager.addReview(reviewArea.getText());
+            window.setScene(thisScene);
+        });
+
+        threeStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
+
+            manager.addReview(reviewArea.getText());
+            window.setScene(thisScene);
+        });
+
+        twoStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
+            manager.addReview(reviewArea.getText());
+            window.setScene(scene);
+
+        });
+
+        oneStarButton.setOnAction(e -> {
+            ListView<String> listReviews = new ListView<>();
+            listReviews.getItems().addAll("Thank you so much! We are happy you had a great time!");
+
+            Button cancel = new Button("Done");
+
+            GridPane g = new GridPane();
+            g.getChildren().addAll(listReviews, cancel);
+
+            cancel.setOnAction(newE ->  {
+                window.setScene(scene);
+            });
+
+            Scene thisScene = new Scene(g, 800, 800);
+
+            manager.addReview(reviewArea.getText());
+            window.setScene(thisScene);
+        });
+
+
+
 
         submitButton.setOnAction(e -> {
             manager.addReview(reviewArea.getText());

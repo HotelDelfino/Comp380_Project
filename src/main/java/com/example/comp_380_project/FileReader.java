@@ -5,15 +5,21 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/** @author Jorge Enriquez
+ *  Date: Aug 15, 2023
+ *  Version: */
+
 public class FileReader{
-    File usernamesFile;
-    File passwordFile;
-    File reservationsFile;
+    private File usernamesFile;
+    private File passwordFile;
+    private File reservationsFile;
+    private File reviewFile;
     private static HotelRooms hotel;
-    ArrayList<String> userNames = new ArrayList<>();
-    ArrayList<String> passwords = new ArrayList<>();
-    ArrayList<String> reservations = new ArrayList<>();
-    ArrayList<Guest> registeredMembers = new ArrayList<>();
+    private ArrayList<String> userNames = new ArrayList<>();
+    private ArrayList<String> passwords = new ArrayList<>();
+    private ArrayList<String> reservations = new ArrayList<>();
+    private ArrayList<String> reviews = new ArrayList<>();
+    private ArrayList<Guest> registeredMembers = new ArrayList<>();
     
     /** Constructor. Starts the Textfile. ONLY CALL ONCE **/
     FileReader(HotelRooms hotelrooms){
@@ -22,7 +28,7 @@ public class FileReader{
         createRegisteredGuest();
     }
     /** This reads username text file. Adds content to Array **/
-    public void readUsernameFile(File file){
+    private void readUsernameFile(File file){
         System.out.println("Attempting to read file: " + file.getAbsolutePath());
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
@@ -40,7 +46,7 @@ public class FileReader{
         }
     }
     /** This reads password text file. Adds content to Array **/
-    public void readPasswordFile(File file){
+    private void readPasswordFile(File file){
 
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
@@ -59,7 +65,7 @@ public class FileReader{
     }
 
     /** This reads the reservations file. Adds to HotelRooms **/
-    public void readReservationsFile(File file){
+    private void readReservationsFile(File file){
 
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
@@ -77,6 +83,31 @@ public class FileReader{
         }
     }
 
+    /** This reads the reviews files and stores it in Reviews Array */
+    private void readReviewFile(File file){
+        try{
+            BufferedReader br = new BufferedReader(new java.io.FileReader(file));
+            String st;
+            while ((st = br.readLine())!= null){
+                reviews.add(st);
+            }
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
+            e.printStackTrace();
+        }catch(IOException f){
+            System.out.println("An Error has occurred");
+            f.printStackTrace();
+        }
+    }
+
+    /** Adds to Review Array and writes to review Textfile*/
+    public void addReview(String review){
+        reviews.add(review);
+        writeTextFile(reviewFile,review);
+    }
+
+    /** This function allows access to the reviews array*/
+    public ArrayList<String> getReviews(){return reviews;}
 
     /** This creates a new username and password **/
     public void registerNewUser(String username, String pw){
@@ -89,7 +120,7 @@ public class FileReader{
     }
 
     /** This writes a new line on the text file. Does not do anything else**/
-    public void writeTextFile(File file, String stuff){
+    private void writeTextFile(File file, String stuff){
 
         try{
             FileWriter myWriter = new FileWriter(file,true);
@@ -178,7 +209,13 @@ public class FileReader{
             //Save the file for the whole class to use
             reservationsFile = reservations;
 
-
+            File reviews = new File("reviews.txt");
+            if(reviews.createNewFile()) System.out.println("File Successfully Created: " + reviews.getName());
+            else{
+                System.out.println("File reviews.txt already exists");
+                readReviewFile(reviews);
+            }
+            reviewFile = reviews;
         }catch(IOException e){
             System.out.println("An Error Occurred");
             e.printStackTrace();
@@ -223,12 +260,12 @@ public class FileReader{
     public boolean verifyPassWord(String pW, int index){
         return pW.equals(passwords.get(index));
     }
-    public void createGuest(String username, String password){
+    private void createGuest(String username, String password){
         registeredMembers.add(new Guest(username,password));
     }
 
     /** Creates Guest Objects from textfiles. Adds reservations **/
-    public void createRegisteredGuest(){
+    private void createRegisteredGuest(){
         for(int i = 0; i < userNames.size(); i++){
             registeredMembers.add(new Guest(userNames.get(i),passwords.get(i),reservations.get(i)));
             hotel.updateHotelRoomsArray(registeredMembers.get(i));
