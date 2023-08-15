@@ -31,7 +31,7 @@ public class HotelRooms {
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
-                        alert.setContentText("Thank you for booking room " + floor + roomNum);      //Thanks the user for booking the room through a pop-up box
+                        alert.setContentText("Thank you for booking room " + floor + roomNum + "!");      //Thanks the user for booking the room through a pop-up box
                         alert.showAndWait();
                 } else {                                                            //If room is closed, it will not allow the user to continue booking the room
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -47,7 +47,7 @@ public class HotelRooms {
                     database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
-                    alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                    alert.setContentText("Thank you for booking room " + floor + roomNum + "!");     //Thanks the user for booking the room through a pop-up box
                     alert.showAndWait();
                 } else {                                                            //If room is closed, it will not allow the user to continue booking the room
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -63,7 +63,7 @@ public class HotelRooms {
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
-                        alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                        alert.setContentText("Thank you for booking room " + floor + roomNum + "!");     //Thanks the user for booking the room through a pop-up box
                         alert.showAndWait();
                     } else {                                                            //If room is closed, it will not allow the user to continue booking the room
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -79,7 +79,7 @@ public class HotelRooms {
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
-                        alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                        alert.setContentText("Thank you for booking room " + floor + roomNum + "!");     //Thanks the user for booking the room through a pop-up box
                         alert.showAndWait();
                     } else {                                                            //If room is closed, it will not allow the user to continue booking the room
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -95,7 +95,7 @@ public class HotelRooms {
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
-                        alert.setContentText("Thank you for booking room " + floor + roomNum);     //Thanks the user for booking the room through a pop-up box
+                        alert.setContentText("Thank you for booking room " + floor + roomNum + "!");     //Thanks the user for booking the room through a pop-up box
                         alert.showAndWait();
                     } else {                                                            //If room is closed, it will not allow the user to continue booking the room
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);

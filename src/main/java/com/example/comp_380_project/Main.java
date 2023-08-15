@@ -678,7 +678,7 @@ public class Main extends Application {
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotelRooms.cancelRoom(initFloor.getValue(), initRoom.getValue())); // bars :(
+        confirm.setOnAction(e -> hotelRooms.editRoom(initFloor.getValue(), initRoom.getValue(), finFloor.getValue(), finRoom.getValue())); // bars :(
         GridPane.setConstraints(confirm, 2,3);
 
         grid2.getChildren().addAll(reservation, currRoom, initRoom, initFloor, roomSelect, finRoom, finFloor, confirm, goBack);
