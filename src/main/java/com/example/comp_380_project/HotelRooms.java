@@ -215,7 +215,17 @@ public class HotelRooms {
             alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
     }
-
+    /**
+     * @param initFloor
+     * @param initRoom
+     * @param finFloor
+     * @param finRoom
+     *
+     * This method allows the user to change their room they reserved to another.
+     * When the user selects this option it will ask for the room they reserved and use the cancelRoom method to remove their reservation.
+     * Then the user will select which room they want to reserve hence why it is calling the reserveRoom method.
+     *
+     */
     public void editRoom(int initFloor, int initRoom, int finFloor, int finRoom) { //Method allows the user to change their room they reserved to another
         if(initFloor >= 1 && initFloor <= 5 && initRoom >= 0 && initRoom <= 9 && finFloor >= 1 && finFloor <=5 && finRoom >= 0 && finRoom <= 9) { //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             cancelRoom(initFloor, initRoom); //Cancel initial booking
