@@ -2,6 +2,9 @@ package com.example.comp_380_project;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 
 import java.util.Scanner;
@@ -18,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.paint.LinearGradient;
 
 
 /**
@@ -76,6 +80,7 @@ public class Main extends Application {
 
 
         VBox root = new VBox(40);
+        root.setAlignment(Pos.CENTER);
         root.setPadding(new Insets(50));
 
         Font buttonFont = Font.font("Arial", 32);
@@ -99,11 +104,20 @@ public class Main extends Application {
         });
 
         root.getChildren().addAll(registerButton, managerButton, guestButton);
-        loginScene = new Scene(root, 600, 400);
+        root.setBackground(Background.EMPTY);
+        loginScene = new Scene(root, 780, 600);
+        loginScene.setFill(new LinearGradient(
+                0, 0, 1, 1, true,                      //sizing
+                CycleMethod.NO_CYCLE,                                    //cycling
+                new Stop(0, Color.web("#191970")),                 //colors
+                new Stop(1, Color.web("#87CEEB")))
+        );
 
-        window.setTitle("Welcome To Hotel");
-        window.setWidth(Screen.getPrimary().getVisualBounds().getWidth() * 1.0);
-        window.setHeight(Screen.getPrimary().getVisualBounds().getHeight() * 1.0);
+        window.setTitle("Welcome Hotel Delfino!");
+        window.setWidth(780);
+        //window.setWidth(Screen.getPrimary().getVisualBounds().getWidth() * 1.0);
+        window.setHeight(600);
+        //window.setHeight(Screen.getPrimary().getVisualBounds().getHeight() * 1.0);
         window.setScene(loginScene);
         window.show();
     }
@@ -294,8 +308,8 @@ public class Main extends Application {
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
-        grid.setVgap(50); //vertical space for each "unit"
-        grid.setHgap(50); //horizontal space for each "unit"
+        grid.setVgap(30); //vertical space for each "unit"
+        grid.setHgap(20); //horizontal space for each "unit"
 
         grid.getChildren().addAll(welcome, reserve, search, cancel, review, edit, info, close); // from here to line 51, adding buttons to grid.
 
@@ -317,8 +331,15 @@ public class Main extends Application {
         GridPane.setConstraints(info, 2, 3);
         GridPane.setConstraints(close, 2, 4);
 
-        Scene menu = new Scene(grid, 800, 600);
+        grid.setBackground(Background.EMPTY);
+        Scene menu = new Scene(grid,780,600);
         scene = menu;
+        scene.setFill(new LinearGradient(
+                0, 0, 1, 1, true,                      //sizing
+                CycleMethod.NO_CYCLE,                                    //cycling
+                new Stop(0, Color.web("#191970")),                 //colors
+                new Stop(1, Color.web("#87CEEB")))
+        );
         mainMenu.setScene(menu);
         mainMenu.show();
     }
@@ -780,5 +801,86 @@ public class Main extends Application {
     }
 
 /*---------------------------------Manager Menu-----------------------------------------------------------------------*/
+    /*
+    public void managerMenu(Stage managerMenu){
+        window = managerMenu;
+        managerMenu.setTitle("Hotel Delfino: Main Menu"); // unnamed hotel
+        Label welcome = new Label("Hotel Delfino - Manager Edition");
+        GridPane.setConstraints(welcome, 1,0);
+
+        reserve = new Button("Reserve a Room"); // reserve button
+        search = new Button("Search for a Room"); // search button
+        cancel = new Button("Cancel Reservation"); // cancel button
+        review = new Button("Review Reservation"); // review button
+        edit = new Button("Edit Reservation"); // edit button
+        info = new Button("Room Info"); // info button
+        close = new Button("Close");
+
+        /*
+         * Calls reserveRoom on SetOnAction when the button is pressed
+         */
+        // reserve.setOnAction(e -> reserveRoom());
+
+        /*
+         * Calls searchRoom on SetOnAction when the button is pressed
+         */
+        // search.setOnAction(e -> searchRoom());
+        /*
+         * Calls cancelReservation on SetOnAction when the button is pressed
+         */
+        // cancel.setOnAction(e -> cancelReservation());
+        /*
+         * Calls reviewRoom on SetOnAction when the button is pressed
+         */
+        // review.setOnAction(e -> reviewRoom());
+        /*
+         * Calls editRoom on SetOnAction when the button is pressed
+         */
+        // edit.setOnAction(e -> editRoom());
+        /*
+         * Calls infoRoom on SetOnAction when the button is pressed
+         */
+         /*
+        info.setOnAction(e -> infoRoom());
+        close.setOnAction(e -> window.close());
+
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
+        grid.setVgap(30); //vertical space for each "unit"
+        grid.setHgap(20); //horizontal space for each "unit"
+
+        grid.getChildren().addAll(welcome, reserve, search, cancel, review, edit, info, close); // from here to line 51, adding buttons to grid.
+
+        welcome.setStyle("-fx-font-size:23");
+        reserve.setStyle("-fx-font-size:20"); // increasing button/font size
+        search.setStyle("-fx-font-size:20");
+        cancel.setStyle("-fx-font-size:20");
+        review.setStyle("-fx-font-size:20");
+        edit.setStyle("-fx-font-size:20");
+        info.setStyle("-fx-font-size:20");
+        close.setStyle("-fx-font-size:20");
+
+        grid.setAlignment(Pos.CENTER);
+        GridPane.setConstraints(reserve,0 , 1); // from here to line 58, placing buttons
+        GridPane.setConstraints(search, 2, 1);
+        GridPane.setConstraints(cancel, 0, 2);
+        GridPane.setConstraints(review, 2, 2);
+        GridPane.setConstraints(edit, 0, 3);
+        GridPane.setConstraints(info, 2, 3);
+        GridPane.setConstraints(close, 2, 4);
+
+        grid.setBackground(Background.EMPTY);
+        Scene menu = new Scene(grid,780,600);
+        scene = menu;
+        scene.setFill(new LinearGradient(
+                0, 0, 1, 1, true,                                  //sizing
+                CycleMethod.NO_CYCLE,                              //cycling
+                new Stop(0, Color.web("#191970")),                 //colors
+                new Stop(1, Color.web("#87CEEB")))
+        );
+        managerMenu.setScene(menu);
+        managerMenu.show();
+    }
+    */
 
 }
