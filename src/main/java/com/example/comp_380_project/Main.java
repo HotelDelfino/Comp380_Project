@@ -386,7 +386,7 @@ public class Main extends Application {
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
         goBack.setOnAction(e -> window.setScene(scene)); // goBack button changes scene back to original main menu
-        GridPane.setConstraints(goBack, 0, 3); // grid coordinates for goBack button/
+        GridPane.setConstraints(goBack, 0, 3); // grid coordinates for goBack button
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
