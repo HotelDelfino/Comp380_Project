@@ -5,7 +5,12 @@ import javafx.scene.control.Alert;
 import java.util.Objects;
 import java.util.Scanner;
 
-/** @author Sergio Dieguez
+/**
+ * The HotelRooms class contains each floor of the hotel as String arrays, in which every index 0-9 is a room available
+ * for booking. The HotelRooms class also contains methods that allow Guests to manipulate the String arrays' indices via
+ * the FileReader class, which stores Guests' reservation info. These methods serve as the backend processes by which the
+ * Main Menu's buttons call upon to operate.
+ * @author Sergio Dieguez
  *  Date: Aug 15, 2023
  *  */
 

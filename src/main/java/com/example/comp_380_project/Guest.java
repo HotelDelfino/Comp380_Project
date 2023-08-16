@@ -3,12 +3,9 @@ package com.example.comp_380_project;
 import java.util.ArrayList;
 
 /**
- * Guest
- * <p>
- *     The following class holds a unique username and password for a Guest.
- *     The Guest class can also hold the reservations, made by the guest, in an array.
- *     Guest can modify the reservations array and verify identities with Main.
- * </p>
+ * This class Guest handles the creation and utilities of Guest "objects" that can register by
+ * creating unique usernames and passwords, and using those as parameters to log in and access the main menu.
+ * Guest can modify the reservations array and verify identities with Main.
  *
  * @author Jorge Enriquez
  * Date: August 15, 2023
