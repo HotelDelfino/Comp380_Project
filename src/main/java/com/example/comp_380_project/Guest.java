@@ -40,6 +40,16 @@ public class Guest {
         this.password = pw;
         initReservations(res);
     }
+    /** Constructor that takes in a username and password and sets bookedReservations to 0
+     * @param un takes in a String username
+     * @param pw takes in a String password
+     * */
+    Guest(String un, String pw, int guestID){
+        this.username = un;
+        this.password = pw;
+        this.bookedReservations.add(0);
+        this.guestIndex = guestID;
+    }
 
     
     /** Sets the username of the Guest

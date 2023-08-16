@@ -307,7 +307,9 @@ public class FileReader{
      * @param username gets a String
      *  @param password */
     private void createGuest(String username, String password){
+
         registeredMembers.add(new Guest(username,password));
+        // add user index here
     }
 
     /** Creates Guest Objects from textfiles. Adds reservations **/
