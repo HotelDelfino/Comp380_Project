@@ -255,7 +255,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -269,7 +269,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -283,7 +283,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -297,7 +297,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -311,7 +311,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -326,7 +326,7 @@ public class HotelRooms {
      * @param floor
      *
      * This method gives you basic information of each the rooms as a way to market the hotel.
-     * If the user wants to know more information on what room they want to reserve, this returns a s.o.p
+     * If the user wants to know more information on what room they want to reserve, this returns message
      *
      */
     public void roomInfo(int floor){                            //Method gives you basic information of each the rooms as a way to market the hotel
@@ -417,7 +417,7 @@ public class HotelRooms {
     /** sets current logged in guest. */
     public void setGuestOnLogin(Guest guest1){this.guest = guest1;
         this.guest.printReservationsArray();}
-    /** Activates when file reader instanciates. Updates all arrays with what is on reservations.txt */
+    /** Activates when file reader instantiates. Updates all arrays with what is on reservations.txt */
     public void updateHotelRoomsArray(Guest guest){
         if(!guest.hasRooms())return;
         else{

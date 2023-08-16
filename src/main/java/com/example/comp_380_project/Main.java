@@ -64,7 +64,7 @@ public class Main extends Application {
 
     /**
      * This method starts the javaFX application which creates a new window with a new scene.
-     * It displays 3 buttons which the user can click to login as guest, manager, or register a user.
+     * It displays 3 buttons which the user can click to log in as guest, manager, or register a user.
      * @param primaryStage the primary stage for this application, onto which
      * the application scene can be set.
      * Applications may create other stages, if needed, but they will not be
@@ -176,7 +176,7 @@ public class Main extends Application {
     /**
      * Allows a user to login as a manager which has a set password and username.
      * @param primaryStage the stage gets passed to menu if the user successfully logs in, if successful, the user
-     * gets to login with menu options
+     * gets to log in with menu options
      */
     private void managerLogin(Stage primaryStage) {
         TextInputDialog dialog1 = new TextInputDialog();

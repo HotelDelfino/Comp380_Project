@@ -262,7 +262,7 @@ public class FileReader{
     }
 
     /** Capture password file path
-     * @return String String returns the file path as a string*/
+     * @return String returns the file path as a string*/
     public String getPassWFilePath(){
         Path path = Paths.get("passwords.txt");
         // Temporary
