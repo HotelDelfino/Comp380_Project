@@ -2,6 +2,9 @@ package com.example.comp_380_project;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 
 import java.util.Scanner;
@@ -18,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.paint.LinearGradient;
 
 
 /**
@@ -40,7 +44,6 @@ public class Main extends Application {
 
     /**
      * This is the main method which calls login which calls launch
-     * @author Angel Venegas
      * @param args Anything that gets set before main is called
      * @throws Exception Throws an exception if something happens throughout the program
      */
@@ -52,7 +55,6 @@ public class Main extends Application {
 
     /**
      * This method launches the javaFX application
-     * @author Angel Venegas
      * @param args Anything that gets set before main is called
      */
     public void login(String[] args) {
@@ -62,7 +64,7 @@ public class Main extends Application {
 
     /**
      * This method starts the javaFX application which creates a new window with a new scene.
-     * It displays 3 buttons which the user can click to login as guest, manager, or register a user.
+     * It displays 3 buttons which the user can click to log in as guest, manager, or register a user.
      * @param primaryStage the primary stage for this application, onto which
      * the application scene can be set.
      * Applications may create other stages, if needed, but they will not be
@@ -78,6 +80,7 @@ public class Main extends Application {
 
 
         VBox root = new VBox(40);
+        root.setAlignment(Pos.CENTER);
         root.setPadding(new Insets(50));
 
         Font buttonFont = Font.font("Arial", 32);
@@ -101,11 +104,20 @@ public class Main extends Application {
         });
 
         root.getChildren().addAll(registerButton, managerButton, guestButton);
-        loginScene = new Scene(root, 600, 400);
+        root.setBackground(Background.EMPTY);
+        loginScene = new Scene(root, 780, 600);
+        loginScene.setFill(new LinearGradient(
+                0, 0, 1, 1, true,                      //sizing
+                CycleMethod.NO_CYCLE,                                    //cycling
+                new Stop(0, Color.web("#191970")),                 //colors
+                new Stop(1, Color.web("#87CEEB")))
+        );
 
-        window.setTitle("Welcome To Hotel");
-        window.setWidth(Screen.getPrimary().getVisualBounds().getWidth() * 1.0);
-        window.setHeight(Screen.getPrimary().getVisualBounds().getHeight() * 1.0);
+        window.setTitle("Welcome Hotel Delfino!");
+        window.setWidth(780);
+        //window.setWidth(Screen.getPrimary().getVisualBounds().getWidth() * 1.0);
+        window.setHeight(600);
+        //window.setHeight(Screen.getPrimary().getVisualBounds().getHeight() * 1.0);
         window.setScene(loginScene);
         window.show();
     }
@@ -163,9 +175,8 @@ public class Main extends Application {
 
     /**
      * Allows a user to login as a manager which has a set password and username.
-     * @author Angel Venegas
      * @param primaryStage the stage gets passed to menu if the user successfully logs in, if successful, the user
-     * gets to login with menu options
+     * gets to log in with menu options
      */
     private void managerLogin(Stage primaryStage) {
         TextInputDialog dialog1 = new TextInputDialog();
@@ -212,7 +223,6 @@ public class Main extends Application {
     /**
      * This method registers a user and handles duplicate usernames.
      * Allows a user to enter a username and a password
-     * @author Angel Venegas
      * @return returns from the function if no username was provided
      * @throws throws an exception
      */
@@ -253,7 +263,6 @@ public class Main extends Application {
     /**
      * This method handles the menu options
      *
-     * @author Adrian Vergara
      * @param mainMenu The stage for the main menu
      * @throws Exception If something goes wrong
      */
@@ -273,40 +282,34 @@ public class Main extends Application {
 
         /**
          * Calls reserveRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         reserve.setOnAction(e -> reserveRoom());
         /**
          * Calls searchRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         search.setOnAction(e -> searchRoom());
         /**
          * Calls cancelReservation on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         cancel.setOnAction(e -> cancelReservation());
         /**
          * Calls reviewRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         review.setOnAction(e -> reviewRoom());
         /**
          * Calls editRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         edit.setOnAction(e -> editRoom());
         /**
          * Calls infoRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         info.setOnAction(e -> infoRoom());
         close.setOnAction(e -> window.close());
 
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
-        grid.setVgap(50); //vertical space for each "unit"
-        grid.setHgap(50); //horizontal space for each "unit"
+        grid.setVgap(30); //vertical space for each "unit"
+        grid.setHgap(20); //horizontal space for each "unit"
 
         grid.getChildren().addAll(welcome, reserve, search, cancel, review, edit, info, close); // from here to line 51, adding buttons to grid.
 
@@ -328,8 +331,15 @@ public class Main extends Application {
         GridPane.setConstraints(info, 2, 3);
         GridPane.setConstraints(close, 2, 4);
 
-        Scene menu = new Scene(grid, 800, 600);
+        grid.setBackground(Background.EMPTY);
+        Scene menu = new Scene(grid,780,600);
         scene = menu;
+        scene.setFill(new LinearGradient(
+                0, 0, 1, 1, true,                      //sizing
+                CycleMethod.NO_CYCLE,                                    //cycling
+                new Stop(0, Color.web("#191970")),                 //colors
+                new Stop(1, Color.web("#87CEEB")))
+        );
         mainMenu.setScene(menu);
         mainMenu.show();
     }
@@ -337,8 +347,11 @@ public class Main extends Application {
 
     /**
      * This method handles the reserve room button's functionality
+<<<<<<< HEAD
      * Sets up new scene that opens upon button press, and initializes choice boxes as inputs that can be used
      * as parameters to call reserveRoom method in HotelRooms using a hotelRooms object
+=======
+>>>>>>> c326908b747a314c80480b1a95e76718b8757c70
      */
     private void reserveRoom() {
         GridPane grid2 = new GridPane(); // initializes a new grid layout for reserve room submenu
@@ -546,171 +559,60 @@ public class Main extends Application {
     }
 
     /**
+<<<<<<< HEAD
      * This method handles the reviewRoom button's functionality
      * Sets up new scene that opens upon button press, and initializes a textbox in which user can type a review into
      * and 1-5 star buttons that prompt a particular message to open for each one
+=======
+     * Allows the user to select the amount of stars they want to give the hotel and a text box to share their feelings
+     * of their experience
+>>>>>>> c326908b747a314c80480b1a95e76718b8757c70
      */
-    private void reviewRoom() { 
-        Scene reviewScene;
-        GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10,10,10,10));
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setGridLinesVisible(true);
+    private void reviewRoom() {
+        GridPane gridStars = new GridPane();
+        gridStars.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
+        gridStars.setVgap(50); //vertical space for each "unit"
+        gridStars.setHgap(50); //horizontal space for each "unit"
+        //gridStars.setGridLinesVisible(true);
+        gridStars.setAlignment(Pos.CENTER);
+
+        Label reservation = new Label("Thank you for taking the time to review your time here at Hotel Delfino!" +
+                "\n\nBelow you can score our hotel from a 5 to 1 scale. (5 Excellent - 1 Poor)" +
+                "\nIf you have time please leave your thoughts and experience here at Hotel Delfino! (Optional)");
+        GridPane.setConstraints(reservation, 0,0);
+        reservation.setStyle("-fx-font-size:20");
+
+        Label starsSelect = new Label("Please select the amount of stars you would like to give:");
+        GridPane.setConstraints(starsSelect,0,1);
+        starsSelect.setStyle("-fx-font-size:15");
 
 
-        Button submitButton = new Button("Submit");
-        Button cancelButton = new Button("Cancel");
+        ChoiceBox<Integer> stars = new ChoiceBox<Integer>(); //dropdown menu for how many stars the user wants to give
+        stars.getItems().addAll(5,4,3,2,1); // 5 stars available to select
+        stars.setValue(5);
+        GridPane.setConstraints(stars, 1,1);
+        stars.setStyle("fx-font-size:15");
 
-        Label reviewLabel = new Label("Please select one of the options.");
         TextArea reviewArea = new TextArea();
+        gridStars.add(reviewArea, 0,2);
 
-        TextArea star5Area = new TextArea();
-        TextArea star4Area = new TextArea();
-        TextArea star3Area = new TextArea();
-        TextArea star2Area = new TextArea();
-        TextArea star1Area = new TextArea();
+        Button goBack = new Button("Return to Main Menu");
+        goBack.setStyle("-fx-font-size:15");
+        goBack.setOnAction(e -> window.setScene(scene));
+        GridPane.setConstraints(goBack, 0, 3);
 
-        Button fiveStarButton = new Button("5 stars");
-        Button fourStarButton = new Button("4 stars");
-        Button threeStarButton = new Button("3 stars");
-        Button twoStarButton = new Button("2 stars");
-        Button oneStarButton = new Button("1 stars");
+        Button confirm = new Button("Confirm");
+        confirm.setStyle("-fx-font-size:15");
+        confirm.setOnAction(e -> hotelRooms.roomReview(stars.getValue()));
+        GridPane.setConstraints(confirm, 2,3);
 
-        grid.add(oneStarButton,9,1);
-        grid.add(twoStarButton,8,1);
-        grid.add(threeStarButton,7,1);
-        grid.add(fourStarButton,6,1);
-        grid.add(fiveStarButton,5,1);
+        gridStars.getChildren().addAll(reservation, starsSelect, stars, confirm, goBack);
 
-
-        grid.add(reviewLabel, 7,0);
-        grid.add(reviewArea, 7,2);
-        grid.add(cancelButton, 7,3);
-        grid.add(submitButton, 7,4);
-
-        fiveStarButton.setOnAction(e -> {
-            ListView<String> listReviews = new ListView<>();
-            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
-
-            Button cancel = new Button("Done");
-
-            GridPane g = new GridPane();
-            g.getChildren().addAll(listReviews, cancel);
-
-            cancel.setOnAction(newE ->  {
-                window.setScene(scene);
-            });
-
-            Scene thisScene = new Scene(g, 800, 800);
-
-            manager.addReview(reviewArea.getText());
-            window.setScene(thisScene);
-        });
-
-        fourStarButton.setOnAction(e -> {
-            ListView<String> listReviews = new ListView<>();
-            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
-
-            Button cancel = new Button("Done");
-
-            GridPane g = new GridPane();
-            g.getChildren().addAll(listReviews, cancel);
-
-            cancel.setOnAction(newE ->  {
-                window.setScene(scene);
-            });
-
-            Scene thisScene = new Scene(g, 800, 800);
-
-            manager.addReview(reviewArea.getText());
-            window.setScene(thisScene);
-        });
-
-        threeStarButton.setOnAction(e -> {
-            ListView<String> listReviews = new ListView<>();
-            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
-
-            Button cancel = new Button("Done");
-
-            GridPane g = new GridPane();
-            g.getChildren().addAll(listReviews, cancel);
-
-            cancel.setOnAction(newE ->  {
-                window.setScene(scene);
-            });
-
-            Scene thisScene = new Scene(g, 800, 800);
-
-            manager.addReview(reviewArea.getText());
-            window.setScene(thisScene);
-        });
-
-        twoStarButton.setOnAction(e -> {
-            ListView<String> listReviews = new ListView<>();
-            listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
-
-            Button cancel = new Button("Done");
-
-            GridPane g = new GridPane();
-            g.getChildren().addAll(listReviews, cancel);
-
-            cancel.setOnAction(newE ->  {
-                window.setScene(scene);
-            });
-
-            Scene thisScene = new Scene(g, 800, 800);
-            manager.addReview(reviewArea.getText());
-            window.setScene(scene);
-
-        });
-
-        oneStarButton.setOnAction(e -> {
-            ListView<String> listReviews = new ListView<>();
-            listReviews.getItems().addAll("Thank you so much! We are happy you had a great time!");
-
-            Button cancel = new Button("Done");
-
-            GridPane g = new GridPane();
-            g.getChildren().addAll(listReviews, cancel);
-
-            cancel.setOnAction(newE ->  {
-                window.setScene(scene);
-            });
-
-            Scene thisScene = new Scene(g, 800, 800);
-
-            manager.addReview(reviewArea.getText());
-            window.setScene(thisScene);
-        });
-
-
-
-
-        submitButton.setOnAction(e -> {
-            manager.addReview(reviewArea.getText());
-            window.setScene(scene);
-
-        });
-
-        cancelButton.setOnAction(e -> {
-            /*ListView<String> listReviews = new ListView<>();
-            listReviews.getItems().addAll(manager.getReviews());
-    
-            VBox vBox = new VBox(20);
-            vBox.getChildren().add(listReviews);
-    
-            Scene thisScene = new Scene(vBox, 800, 800);
-            window.setScene(thisScene);
-            window.show();*/
-            window.setScene(scene);
-        });
-        
-
-        reviewScene = new Scene(grid, 700,700);
-        window.setScene(reviewScene);
+        Scene resRoom = new Scene(gridStars, 550, 300);
+        window.setScene(resRoom);
         window.show();
-    }
+
+        }
 
     /**
      * This method handles the editRoom button's functionality
@@ -780,5 +682,86 @@ public class Main extends Application {
     }
 
 /*---------------------------------Manager Menu-----------------------------------------------------------------------*/
+    /*
+    public void managerMenu(Stage managerMenu){
+        window = managerMenu;
+        managerMenu.setTitle("Hotel Delfino: Main Menu"); // unnamed hotel
+        Label welcome = new Label("Hotel Delfino - Manager Edition");
+        GridPane.setConstraints(welcome, 1,0);
+
+        reserve = new Button("Reserve a Room"); // reserve button
+        search = new Button("Search for a Room"); // search button
+        cancel = new Button("Cancel Reservation"); // cancel button
+        review = new Button("Review Reservation"); // review button
+        edit = new Button("Edit Reservation"); // edit button
+        info = new Button("Room Info"); // info button
+        close = new Button("Close");
+
+        /*
+         * Calls reserveRoom on SetOnAction when the button is pressed
+         */
+        // reserve.setOnAction(e -> reserveRoom());
+
+        /*
+         * Calls searchRoom on SetOnAction when the button is pressed
+         */
+        // search.setOnAction(e -> searchRoom());
+        /*
+         * Calls cancelReservation on SetOnAction when the button is pressed
+         */
+        // cancel.setOnAction(e -> cancelReservation());
+        /*
+         * Calls reviewRoom on SetOnAction when the button is pressed
+         */
+        // review.setOnAction(e -> reviewRoom());
+        /*
+         * Calls editRoom on SetOnAction when the button is pressed
+         */
+        // edit.setOnAction(e -> editRoom());
+        /*
+         * Calls infoRoom on SetOnAction when the button is pressed
+         */
+         /*
+        info.setOnAction(e -> infoRoom());
+        close.setOnAction(e -> window.close());
+
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
+        grid.setVgap(30); //vertical space for each "unit"
+        grid.setHgap(20); //horizontal space for each "unit"
+
+        grid.getChildren().addAll(welcome, reserve, search, cancel, review, edit, info, close); // from here to line 51, adding buttons to grid.
+
+        welcome.setStyle("-fx-font-size:23");
+        reserve.setStyle("-fx-font-size:20"); // increasing button/font size
+        search.setStyle("-fx-font-size:20");
+        cancel.setStyle("-fx-font-size:20");
+        review.setStyle("-fx-font-size:20");
+        edit.setStyle("-fx-font-size:20");
+        info.setStyle("-fx-font-size:20");
+        close.setStyle("-fx-font-size:20");
+
+        grid.setAlignment(Pos.CENTER);
+        GridPane.setConstraints(reserve,0 , 1); // from here to line 58, placing buttons
+        GridPane.setConstraints(search, 2, 1);
+        GridPane.setConstraints(cancel, 0, 2);
+        GridPane.setConstraints(review, 2, 2);
+        GridPane.setConstraints(edit, 0, 3);
+        GridPane.setConstraints(info, 2, 3);
+        GridPane.setConstraints(close, 2, 4);
+
+        grid.setBackground(Background.EMPTY);
+        Scene menu = new Scene(grid,780,600);
+        scene = menu;
+        scene.setFill(new LinearGradient(
+                0, 0, 1, 1, true,                                  //sizing
+                CycleMethod.NO_CYCLE,                              //cycling
+                new Stop(0, Color.web("#191970")),                 //colors
+                new Stop(1, Color.web("#87CEEB")))
+        );
+        managerMenu.setScene(menu);
+        managerMenu.show();
+    }
+    */
 
 }

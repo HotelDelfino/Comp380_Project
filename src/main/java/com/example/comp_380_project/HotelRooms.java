@@ -20,9 +20,10 @@ public class HotelRooms {
     String[] floor5 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Penthouse suite
 
 
-    /**
-     * Created Alert Boxes instead of print statements
-     *
+    /**This method gets the user's floor room and number room.
+     * Based on the user's input of room number it will go into the specific string array and change the string inside from open to closed in the index
+     * @param floor takes in an integer
+     * @param roomNum takes in an integer
      */
     public void reserveRoom(int floor, int roomNum) {                               //Method gets the user's floor room and number room
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {             //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
@@ -46,7 +47,7 @@ public class HotelRooms {
 
                 if (floor2[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                     floor2[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
-                    guest.cancelReservation((floor*10)+roomNum);
+                    guest.addReservation((floor*10)+roomNum);
                     database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
@@ -62,7 +63,7 @@ public class HotelRooms {
                 if (floor == 3) {
                     if (floor3[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor3[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
-                        guest.cancelReservation((floor*10)+roomNum);
+                        guest.addReservation((floor*10)+roomNum);
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
@@ -78,7 +79,7 @@ public class HotelRooms {
                 if (floor == 4) {
                     if (floor4[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor4[roomNum] = guest.getUsername();                                    //If it isn't, make it so the room the user choose now becomes closed
-                        guest.cancelReservation((floor*10)+roomNum);
+                        guest.addReservation((floor*10)+roomNum);
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
@@ -94,7 +95,7 @@ public class HotelRooms {
                 if (floor == 5) {
                     if (floor5[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor5[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
-                        guest.cancelReservation((floor*10)+roomNum);
+                        guest.addReservation((floor*10)+roomNum);
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
@@ -115,7 +116,14 @@ public class HotelRooms {
                 alert.showAndWait();                                                                                    //Or the floors it will give this message through
             }                                                                                                           //through a pop-up window
         }
-
+    /**
+     * @param floor
+     * @param roomNum
+     *
+     * This method allows the user to cancel the room they booked.
+     * Based on the user's input of room number it will go into the specific string array and change the string from username to open inside the index
+     *
+     */
     public void cancelRoom(int floor, int roomNum) {                               //Method allows the user to cancel the room they booked
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {            //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             if (floor == 1) {
@@ -205,7 +213,17 @@ public class HotelRooms {
             alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
     }
-
+    /**
+     * @param initFloor
+     * @param initRoom
+     * @param finFloor
+     * @param finRoom
+     *
+     * This method allows the user to change their room they reserved to another.
+     * When the user selects this option it will ask for the room they reserved and use the cancelRoom method to remove their reservation.
+     * Then the user will select which room they want to reserve hence why it is calling the reserveRoom method.
+     *
+     */
     public void editRoom(int initFloor, int initRoom, int finFloor, int finRoom) { //Method allows the user to change their room they reserved to another
         if(initFloor >= 1 && initFloor <= 5 && initRoom >= 0 && initRoom <= 9 && finFloor >= 1 && finFloor <=5 && finRoom >= 0 && finRoom <= 9) { //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             cancelRoom(initFloor, initRoom); //Cancel initial booking
@@ -217,7 +235,14 @@ public class HotelRooms {
         alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }
     }
-
+    /**
+     * @param floor
+     * @param roomNum
+     *
+     * This method detects if user picked an option from 1 to 5 for floors and 0 to 9 for each room
+     * Based on the user's input of room number it will return if the room is closed or open.
+     *
+     */
     public void searchRoom(int floor, int roomNum){
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {         //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             if (floor == 1) {
@@ -230,7 +255,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -244,7 +269,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -258,7 +283,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -272,7 +297,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -286,7 +311,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Room " + floor + roomNum + " has already been taken by someone else!\n" +
-                            "Please look for another room if possible. If none available, please choose another floor for possible availability!");
+                            "Please look for another room if possible.");
                     alert.showAndWait();
                 }
             }
@@ -297,7 +322,13 @@ public class HotelRooms {
             alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
     }
-
+    /**
+     * @param floor
+     *
+     * This method gives you basic information of each the rooms as a way to market the hotel.
+     * If the user wants to know more information on what room they want to reserve, this returns message
+     *
+     */
     public void roomInfo(int floor){                            //Method gives you basic information of each the rooms as a way to market the hotel
         if (floor >= 1 && floor <= 5) {                         //The user can choose floors 1-5
             if (floor == 1) {                                                       //Goes into the description for small rooms
@@ -337,35 +368,56 @@ public class HotelRooms {
             alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
     }
+    /**
+     * @param stars
+     *
+     * This method can score their experience at the hotel.
+     * If the user enters a specific amount of stars to the menu it will give a message based on what they selected
+     *
+     */
     public void roomReview(int stars){
-        if (stars >= 1 && stars <= 5) {
-            if (stars == 1) {
-                System.out.println("We are so sorry that the experience was terrible, if you can please describe your experience " +
-                        "on why you scored us this low. (Optional)");
+        if (stars >= 1 && stars <= 5) {                                             //The user can score their experience at the hotel
+            if (stars == 1) {                                                       //Gives an apologetic message for such a terrible score
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("We are so sorry that the experience was terrible, we hope your next experience here would be so much better.");
+                alert.showAndWait();
             }
-            if (stars == 2) {
-                System.out.println("We are so sorry that the experience was bad, if you can please describe your experience " +
-                        "on why you scored us this low. (Optional)");
+            if (stars == 2) {                                                       //Gives a sorrowful message for such a bad score
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("We are so sorry that the experience was bad, we hope your next experience here would be much better.");
+                alert.showAndWait();
             }
-            if (stars == 3) {
-                System.out.println("We are so sorry that the experience wasn't as good we wanted you to have, if you can please " +
-                        "describe your experience and how we could improve to earn a better score. (Optional)");
+            if (stars == 3) {                                                       //Gives a sad response to an average score
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("We are so sorry that the experience wasn't as good we wanted you to have.");
+                alert.showAndWait();
             }
-            if (stars == 4) {
-                System.out.println("We are happy to hear that,  if you can please " +
-                        "describe your experience and how we could improve to earn a perfect score. (Optional)");
+            if (stars == 4) {                                                       //Gives a happy message for a better score
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("We are happy to hear that! We hope we can get a perfect score next time!");
+                alert.showAndWait();
             }
-            if (stars == 5) {
-                System.out.println("Thank you so much! If it is possible could you leave your experience here. (Optional)");
+            if (stars == 5) {                                                       //Gives a thankful message for perfect score
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Thank you so much! A perfect score!");
+                alert.showAndWait();
             }
         } else {
-            System.out.println("Thank you for stopping by at Hotel Delfino!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Thank you for stopping by at Hotel Delfino!");    //If the user doesn't pick anything it will give them thanks anyway
+            alert.showAndWait();
         }
     }
     /** sets current logged in guest. */
     public void setGuestOnLogin(Guest guest1){this.guest = guest1;
         this.guest.printReservationsArray();}
-    /** Activates when file reader instanciates. Updates all arrays with what is on reservations.txt */
+    /** Activates when file reader instantiates. Updates all arrays with what is on reservations.txt */
     public void updateHotelRoomsArray(Guest guest){
         if(!guest.hasRooms())return;
         else{
