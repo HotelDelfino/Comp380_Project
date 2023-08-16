@@ -347,6 +347,8 @@ public class Main extends Application {
 
     /**
      * This method handles the reserve room button's functionality
+     * Sets up new scene that opens upon button press, and initializes choice boxes as inputs that can be used
+     * as parameters to call reserveRoom method in HotelRooms using a hotelRooms object
      */
     private void reserveRoom() {
         GridPane grid2 = new GridPane(); // initializes a new grid layout for reserve room submenu
@@ -398,6 +400,11 @@ public class Main extends Application {
         window.show(); // show scene
     }
 
+    /**
+     * This method handles the cancel reservation button's functionality
+     * Sets up new scene that opens upon button press, and initializes choice boxes as inputs that can be used
+     * as parameters to call cancel method in HotelRooms using a hotelRooms object
+     */
     private void cancelReservation() {
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
@@ -444,9 +451,16 @@ public class Main extends Application {
         grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack); // add all buttons and labels to scene
 
         Scene cancelRoom = new Scene(grid2, 550, 300); // initializes cancel room grid layout
-        window.setScene(cancelRoom); // sets window scene to cancel room submenu 
+        window.setScene(cancelRoom); // sets window scene to cancel room submenu
         window.show();
     }
+
+
+    /**
+     * This method handles the search room button's functionality
+     * Sets up new scene that opens upon button press, and initializes choice boxes as inputs that can be used
+     * as parameters to call searchRoom method in HotelRooms using a hotelRooms object
+     */
     private void searchRoom() {
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
@@ -496,6 +510,11 @@ public class Main extends Application {
         window.show();
     }
 
+    /**
+     * This method handles the infoRoom button's functionality
+     * Sets up new scene that opens upon button press, and initializes a choice box as an input that can be used as
+     * the parameter to call the infoRoom method in HotelRooms using a hotelRooms object
+     */
     private void infoRoom() {
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
@@ -539,6 +558,9 @@ public class Main extends Application {
     /**
      * Allows the user to select the amount of stars they want to give the hotel and a text box to share their feelings
      * of their experience
+     * This method handles the reviewRoom button's functionality
+     * Sets up new scene that opens upon button press, and initializes a textbox in which user can type a review into
+     * and 1-5 star buttons that prompt a particular message to open for each one
      */
     private void reviewRoom() {
         GridPane gridStars = new GridPane();
@@ -586,6 +608,11 @@ public class Main extends Application {
 
         }
 
+    /**
+     * This method handles the editRoom button's functionality
+     * Sets up new scene that opens upon button press, and initializes four choice boxes as inputs that can be used as
+     * the parameters to call the editRoom method in HotelRooms using a hotelRooms object
+     */
     private void editRoom() {
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
@@ -646,20 +673,6 @@ public class Main extends Application {
         Scene editRoom = new Scene(grid2, 550, 300);
         window.setScene(editRoom);
         window.show();
-        /*Scanner input3 = new Scanner(System.in);
-        System.out.println("Please input the floor and room number you would like to change:\n");
-        System.out.println("Please note that each floor has ten rooms\n\n" +
-                "Small rooms: 1\n" +
-                "Larger rooms: 2\n" +
-                "Family rooms: 3\n" +
-                "Luxury rooms: 4\n" +
-                "Penthouse suite: 5\n");
-        hotelRooms.changeRoom(input3.nextInt(), input3.nextInt());
-
-        Scanner input4 = new Scanner(System.in);
-        System.out.print("Which room would you like to change it to?");
-        hotelRooms.reserveRoom(input4.nextInt(), input4.nextInt());
-        */
     }
 
 /*---------------------------------Manager Menu-----------------------------------------------------------------------*/
