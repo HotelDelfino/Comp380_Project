@@ -237,7 +237,14 @@ public class HotelRooms {
         alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }
     }
-
+    /**
+     * @param floor
+     * @param roomNum
+     *
+     * This method detects if user picked an option from 1 to 5 for floors and 0 to 9 for each room
+     * Based on the user's input of room number it will return if the room is closed or open.
+     *
+     */
     public void searchRoom(int floor, int roomNum){
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {         //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
             if (floor == 1) {
@@ -317,7 +324,13 @@ public class HotelRooms {
             alert.showAndWait();                                                                                    //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
     }
-
+    /**
+     * @param floor
+     *
+     * This method gives you basic information of each the rooms as a way to market the hotel.
+     * If the user wants to know more information on what room they want to reserve, this returns a s.o.p
+     *
+     */
     public void roomInfo(int floor){                            //Method gives you basic information of each the rooms as a way to market the hotel
         if (floor >= 1 && floor <= 5) {                         //The user can choose floors 1-5
             if (floor == 1) {                                                       //Goes into the description for small rooms
