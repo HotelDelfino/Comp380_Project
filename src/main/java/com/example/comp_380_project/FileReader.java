@@ -21,13 +21,15 @@ public class FileReader{
     private ArrayList<String> reviews = new ArrayList<>();
     private ArrayList<Guest> registeredMembers = new ArrayList<>();
     
-    /** Constructor. Starts the Textfile. ONLY CALL ONCE **/
+    /** @param hotelrooms
+     * Constructor. Starts the Textfile. ONLY CALL ONCE **/
     FileReader(HotelRooms hotelrooms){
         hotel = hotelrooms;
         verifyTextFile();
         createRegisteredGuest();
     }
-
+    /**@param file
+     * reads the username file and adds it to the userNames array*/
     private void readUsernameFile(File file){
         System.out.println("Attempting to read file: " + file.getAbsolutePath());
         try{
@@ -45,7 +47,8 @@ public class FileReader{
             f.printStackTrace();
         }
     }
-    /** This reads password text file. Adds content to Array **/
+    /** @param file
+     * This reads password text file. Adds content to Array **/
     private void readPasswordFile(File file){
 
         try{
@@ -64,7 +67,8 @@ public class FileReader{
         }
     }
 
-    /** This reads the reservations file. Adds to HotelRooms **/
+    /** @param file
+     * This reads the reservations file. Adds to HotelRooms **/
     private void readReservationsFile(File file){
 
         try{
@@ -83,7 +87,8 @@ public class FileReader{
         }
     }
 
-    /** This reads the reviews files and stores it in Reviews Array */
+    /** @param file
+     * This reads the reviews files and stores it in Reviews Array */
     private void readReviewFile(File file){
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
@@ -100,7 +105,8 @@ public class FileReader{
         }
     }
 
-    /** Adds to Review Array and writes to review Textfile*/
+    /** @param review
+     * Adds to Review Array and writes to review Textfile*/
     public void addReview(String review){
         reviews.add(review);
         writeTextFile(reviewFile,review);
@@ -112,7 +118,9 @@ public class FileReader{
      * */
     public ArrayList<String> getReviews(){return reviews;}
 
-    /** This creates a new username and password **/
+    /** @param username
+     * @param pw
+     * This creates a new username and password **/
     public void registerNewUser(String username, String pw){
         writeTextFile(usernamesFile, username);
         userNames.add(username);
@@ -122,7 +130,9 @@ public class FileReader{
         createGuest(username,pw);
     }
 
-    /** This writes a new line on the text file. Does not do anything else**/
+    /** @param file
+     * @param stuff
+     * This writes a new line on the text file. Does not do anything else**/
     private void writeTextFile(File file, String stuff){
 
         try{
@@ -135,11 +145,16 @@ public class FileReader{
             e.printStackTrace();
         }
     }
-    /** Can be called by other classes without a File object. Uses File object attached to FileReader */
+    /** @param stuff
+     * @param guestIndex
+     * Can be called by other classes without a File object. Uses File object attached to FileReader */
     public void updateReservationTextFile(String stuff, int guestIndex){
         writeReservationTextFile(reservationsFile,stuff,guestIndex);
     }
-    /** This writes on the reservations text file. Uses the guest index to find where to override text **/
+    /** @param file
+     * @param stuff
+     * @param guestIndex
+     * This writes on the reservations text file. Uses the guest index to find where to override text **/
     private void writeReservationTextFile(File file, String stuff, int guestIndex){
 
         // Checks to see if the array is more than one to avoid out of bounds exception
@@ -225,7 +240,9 @@ public class FileReader{
         }
     }
 
-    /** Captures and returns file path for Username.txt */
+    /** @return String
+     *
+     * Captures and returns file path for Username.txt */
     public String getUserFilePath(){
         Path path = Paths.get("usernames.txt");
         // Temporary
@@ -233,15 +250,17 @@ public class FileReader{
         return path.toAbsolutePath().toString();
     }
 
+    /** @return String
+     * Capture password file path **/
     public String getPassWFilePath(){
-        /** Capture password file path **/
         Path path = Paths.get("passwords.txt");
         // Temporary
         System.out.println(path.toAbsolutePath());
         return path.toAbsolutePath().toString();
     }
     
-    /** Checks to see if Username exists **/
+    /** @return String
+     * Checks to see if Username exists **/
     public boolean verifyUsername(String userN){
         for (int i = 0; i < userNames.size(); i++) {
             if (userN.equals(userNames.get(i))) return true;
@@ -249,7 +268,10 @@ public class FileReader{
         return false;
     }
 
-    /** Checks to see if Username is in the system and if the password matches **/
+    /** @param userN
+     * @param pW
+     * @return boolean
+     * Checks to see if Username is in the system and if the password matches **/
     public boolean verifyLogin(String userN, String pW){
         for (int i = 0; i < userNames.size(); i++) {
             if (userN.equals(userNames.get(i))) {
@@ -259,10 +281,16 @@ public class FileReader{
         return false;
     }
 
-    /** Returns a boolean value by checking password with */
+    /** @param pW
+     * @param index
+     * @return boolean
+     * Returns a boolean value by checking password with */
     public boolean verifyPassWord(String pW, int index){
         return pW.equals(passwords.get(index));
     }
+    /** @param username
+     *  @param password
+     *  This function instanciates a new guest and adds it to registeredMembers array */
     private void createGuest(String username, String password){
         registeredMembers.add(new Guest(username,password));
     }
@@ -276,6 +304,9 @@ public class FileReader{
         }
     }
 
+    /** @param username
+     *  @return Guest
+     *  This function returns a guest object from the registedMembers array by looking through the usernames array*/
     public Guest getRegisteredGuest(String username){
         for (int i = 0; i < userNames.size(); i++) {
             if (userNames.get(i).equals(username)) return registeredMembers.get(i);
