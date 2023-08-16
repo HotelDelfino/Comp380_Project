@@ -517,27 +517,49 @@ public class Main extends Application {
 
     /**
      */
-    private void reviewRoom() { 
-        Scene reviewScene;
-        GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10,10,10,10));
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setGridLinesVisible(true);
+    private void reviewRoom() {
+        GridPane grid2 = new GridPane();
+        grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
+        grid2.setVgap(50); //vertical space for each "unit"
+        grid2.setHgap(50); //horizontal space for each "unit"
+        //grid2.setGridLinesVisible(true);
+        grid2.setAlignment(Pos.CENTER);
+
+        Label reservation = new Label("Room Information");
+        GridPane.setConstraints(reservation, 0,0);
+        reservation.setStyle("-fx-font-size:20");
+
+        Label floorSelect = new Label("Select your desired floor!");
+        GridPane.setConstraints(floorSelect,0,1);
+        floorSelect.setStyle("-fx-font-size:15");
 
 
-        Button submitButton = new Button("Submit");
-        Button cancelButton = new Button("Cancel");
+        ChoiceBox<Integer> floors = new ChoiceBox<Integer>(); //dropdown menu for floor selection
+        floors.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
+        floors.setValue(1);
+        GridPane.setConstraints(floors, 1,1);
+        floors.setStyle("fx-font-size:15");
 
-        Label reviewLabel = new Label("Please select one of the options.");
         TextArea reviewArea = new TextArea();
+        grid2.add(reviewArea, 0,2);
 
-        TextArea star5Area = new TextArea();
-        TextArea star4Area = new TextArea();
-        TextArea star3Area = new TextArea();
-        TextArea star2Area = new TextArea();
-        TextArea star1Area = new TextArea();
+        Button goBack = new Button("Return to Main Menu");
+        goBack.setStyle("-fx-font-size:15");
+        goBack.setOnAction(e -> window.setScene(scene));
+        GridPane.setConstraints(goBack, 0, 3);
 
+        Button confirm = new Button("Confirm Floor Selection");
+        confirm.setStyle("-fx-font-size:15");
+        confirm.setOnAction(e -> hotelRooms.roomReview(floors.getValue()));
+        GridPane.setConstraints(confirm, 2,3);
+
+        grid2.getChildren().addAll(reservation, floorSelect, floors, confirm, goBack);
+
+        Scene resRoom = new Scene(grid2, 550, 300);
+        window.setScene(resRoom);
+        window.show();
+
+        /**
         Button fiveStarButton = new Button("5 stars");
         Button fourStarButton = new Button("4 stars");
         Button threeStarButton = new Button("3 stars");
@@ -549,13 +571,15 @@ public class Main extends Application {
         grid.add(threeStarButton,7,1);
         grid.add(fourStarButton,6,1);
         grid.add(fiveStarButton,5,1);
+*/
 
-
+        /**
         grid.add(reviewLabel, 7,0);
         grid.add(reviewArea, 7,2);
         grid.add(cancelButton, 7,3);
         grid.add(submitButton, 7,4);
-
+*/
+        /**
         fiveStarButton.setOnAction(e -> {
             ListView<String> listReviews = new ListView<>();
             listReviews.getItems().addAll("Thank you so much! If it is possible could you leave your experience here. (Optional)");
@@ -651,9 +675,9 @@ public class Main extends Application {
             window.setScene(thisScene);
         });
 
+*/
 
-
-
+/**
         submitButton.setOnAction(e -> {
             manager.addReview(reviewArea.getText());
             window.setScene(scene);
@@ -669,15 +693,15 @@ public class Main extends Application {
     
             Scene thisScene = new Scene(vBox, 800, 800);
             window.setScene(thisScene);
-            window.show();*/
+            window.show();//
             window.setScene(scene);
         });
-        
-
+        */
+/**
         reviewScene = new Scene(grid, 700,700);
         window.setScene(reviewScene);
         window.show();
-    }
+   */ }
 
     private void editRoom() {
         GridPane grid2 = new GridPane();
