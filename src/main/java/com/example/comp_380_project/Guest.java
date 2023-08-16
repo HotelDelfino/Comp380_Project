@@ -2,7 +2,7 @@ package com.example.comp_380_project;
 
 import java.util.ArrayList;
 
-import static java.lang.Integer.parseInt;
+/** @author Jorge Enriquez */
 
 public class Guest {
     private String username;

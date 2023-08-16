@@ -27,7 +27,7 @@ public class FileReader{
         verifyTextFile();
         createRegisteredGuest();
     }
-    /** This reads username text file. Adds content to Array **/
+
     private void readUsernameFile(File file){
         System.out.println("Attempting to read file: " + file.getAbsolutePath());
         try{
@@ -106,7 +106,10 @@ public class FileReader{
         writeTextFile(reviewFile,review);
     }
 
-    /** This function allows access to the reviews array*/
+    /** @return ArrayList
+     *
+     * This function allows access to the reviews array
+     * */
     public ArrayList<String> getReviews(){return reviews;}
 
     /** This creates a new username and password **/

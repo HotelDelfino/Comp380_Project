@@ -40,7 +40,6 @@ public class Main extends Application {
 
     /**
      * This is the main method which calls login which calls launch
-     * @author Angel Venegas
      * @param args Anything that gets set before main is called
      * @throws Exception Throws an exception if something happens throughout the program
      */
@@ -52,7 +51,6 @@ public class Main extends Application {
 
     /**
      * This method launches the javaFX application
-     * @author Angel Venegas
      * @param args Anything that gets set before main is called
      */
     public void login(String[] args) {
@@ -163,7 +161,6 @@ public class Main extends Application {
 
     /**
      * Allows a user to login as a manager which has a set password and username.
-     * @author Angel Venegas
      * @param primaryStage the stage gets passed to menu if the user successfully logs in, if successful, the user
      * gets to login with menu options
      */
@@ -212,7 +209,6 @@ public class Main extends Application {
     /**
      * This method registers a user and handles duplicate usernames.
      * Allows a user to enter a username and a password
-     * @author Angel Venegas
      * @return returns from the function if no username was provided
      * @throws throws an exception
      */
@@ -253,7 +249,6 @@ public class Main extends Application {
     /**
      * This method handles the menu options
      *
-     * @author Adrian Vergara
      * @param mainMenu The stage for the main menu
      * @throws Exception If something goes wrong
      */
@@ -273,32 +268,26 @@ public class Main extends Application {
 
         /**
          * Calls reserveRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         reserve.setOnAction(e -> reserveRoom());
         /**
          * Calls searchRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         search.setOnAction(e -> searchRoom());
         /**
          * Calls cancelReservation on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         cancel.setOnAction(e -> cancelReservation());
         /**
          * Calls reviewRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         review.setOnAction(e -> reviewRoom());
         /**
          * Calls editRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         edit.setOnAction(e -> editRoom());
         /**
          * Calls infoRoom on SetOnAction when the button is pressed
-         * @author Angel Venegas
          */
         info.setOnAction(e -> infoRoom());
         close.setOnAction(e -> window.close());
@@ -337,7 +326,6 @@ public class Main extends Application {
 
     /**
      * This method handles the reserve room button's functionality
-     * @author Adrian Vergara
      */
     private void reserveRoom() {
         GridPane grid2 = new GridPane(); // initializes a new grid layout for reserve room submenu
@@ -528,7 +516,6 @@ public class Main extends Application {
     }
 
     /**
-     * @author Angel Venegas
      */
     private void reviewRoom() { 
         Scene reviewScene;
