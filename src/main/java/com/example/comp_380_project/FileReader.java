@@ -6,12 +6,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 /**
- * FileReader
- * <p>
- * The FileReader class creates 4 textfiles that hold usernames, passwords, reservations and reviews.
+ * The FileReader class creates 4 text files that hold usernames, passwords, reservations and reviews.
  * FileReader is in charge of reading these 4 text files and holding their contents within the class.
- * FileReader is also able to modify the information within these arrays and write to the textfiles.
- * </p>
+ * FileReader is also able to modify the information within these arrays and write to the text files.
  *
  * @author Jorge Enriquez
  *  Date: Aug 15, 2023

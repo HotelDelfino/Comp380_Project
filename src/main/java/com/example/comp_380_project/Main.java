@@ -25,8 +25,8 @@ import javafx.scene.paint.LinearGradient;
 
 
 /**
- * This class Main is our driver class for out javaFx Front end
- * It allows the user to interact with visual attributes to select hotel options.4
+ * This class Main is our driver class for our javaFx Front end.
+ * It allows the user to interact with visual assets to select hotel options.
  * @author Jorge
  * @author Angel
  * @author Sergio
