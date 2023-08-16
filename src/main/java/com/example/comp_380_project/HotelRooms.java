@@ -20,12 +20,10 @@ public class HotelRooms {
     String[] floor5 = {"Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open", "Open"}; //Penthouse suite
 
 
-    /**
-     * @param floor
-     * @param roomNum
-     *
-     * This method gets the user's floor room and number room.
+    /**This method gets the user's floor room and number room.
      * Based on the user's input of room number it will go into the specific string array and change the string inside from open to closed in the index
+     * @param floor takes in an integer
+     * @param roomNum takes in an integer
      */
     public void reserveRoom(int floor, int roomNum) {                               //Method gets the user's floor room and number room
         if (floor >= 1 && floor <= 5 && roomNum >= 0 && roomNum <= 9) {             //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
