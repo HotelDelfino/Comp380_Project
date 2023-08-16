@@ -395,7 +395,7 @@ public class Main extends Application {
 
         grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack); // adds all buttons and labels onto scene
 
-        Scene resRoom = new Scene(grid2, 550, 300); // new scene for reservation sub menu/
+        Scene resRoom = new Scene(grid2, 550, 300); // new scene for reservation sub menu
         window.setScene(resRoom); // set scene upon clicking "reserve a room" button in main menu
         window.show(); // show scene
     }
