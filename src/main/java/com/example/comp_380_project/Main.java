@@ -537,46 +537,50 @@ public class Main extends Application {
     }
 
     /**
+     * Allows the user to select the amount of stars they want to give the hotel and a text box to share their feelings
+     * of their experience
      */
     private void reviewRoom() {
-        GridPane grid2 = new GridPane();
-        grid2.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
-        grid2.setVgap(50); //vertical space for each "unit"
-        grid2.setHgap(50); //horizontal space for each "unit"
-        //grid2.setGridLinesVisible(true);
-        grid2.setAlignment(Pos.CENTER);
+        GridPane gridStars = new GridPane();
+        gridStars.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
+        gridStars.setVgap(50); //vertical space for each "unit"
+        gridStars.setHgap(50); //horizontal space for each "unit"
+        //gridStars.setGridLinesVisible(true);
+        gridStars.setAlignment(Pos.CENTER);
 
-        Label reservation = new Label("Room Information");
+        Label reservation = new Label("Thank you for taking the time to review your time here at Hotel Delfino!" +
+                "\n\nBelow you can score our hotel from a 5 to 1 scale. (5 Excellent - 1 Poor)" +
+                "\nIf you have time please leave your thoughts and experience here at Hotel Delfino! (Optional)");
         GridPane.setConstraints(reservation, 0,0);
         reservation.setStyle("-fx-font-size:20");
 
-        Label floorSelect = new Label("Select your desired floor!");
-        GridPane.setConstraints(floorSelect,0,1);
-        floorSelect.setStyle("-fx-font-size:15");
+        Label starsSelect = new Label("Please select the amount of stars you would like to give:");
+        GridPane.setConstraints(starsSelect,0,1);
+        starsSelect.setStyle("-fx-font-size:15");
 
 
-        ChoiceBox<Integer> floors = new ChoiceBox<Integer>(); //dropdown menu for floor selection
-        floors.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
-        floors.setValue(1);
-        GridPane.setConstraints(floors, 1,1);
-        floors.setStyle("fx-font-size:15");
+        ChoiceBox<Integer> stars = new ChoiceBox<Integer>(); //dropdown menu for how many stars the user wants to give
+        stars.getItems().addAll(5,4,3,2,1); // 5 stars available to select
+        stars.setValue(5);
+        GridPane.setConstraints(stars, 1,1);
+        stars.setStyle("fx-font-size:15");
 
         TextArea reviewArea = new TextArea();
-        grid2.add(reviewArea, 0,2);
+        gridStars.add(reviewArea, 0,2);
 
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
         goBack.setOnAction(e -> window.setScene(scene));
         GridPane.setConstraints(goBack, 0, 3);
 
-        Button confirm = new Button("Confirm Floor Selection");
+        Button confirm = new Button("Confirm");
         confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotelRooms.roomReview(floors.getValue()));
+        confirm.setOnAction(e -> hotelRooms.roomReview(stars.getValue()));
         GridPane.setConstraints(confirm, 2,3);
 
-        grid2.getChildren().addAll(reservation, floorSelect, floors, confirm, goBack);
+        gridStars.getChildren().addAll(reservation, starsSelect, stars, confirm, goBack);
 
-        Scene resRoom = new Scene(grid2, 550, 300);
+        Scene resRoom = new Scene(gridStars, 550, 300);
         window.setScene(resRoom);
         window.show();
 

@@ -371,37 +371,37 @@ public class HotelRooms {
     /**
      * @param stars
      *
-     * This method gives you basic information of each the rooms as a way to market the hotel.
-     * If the user wants to know more information on what room they want to reserve, this returns a s.o.p
+     * This method can score their experience at the hotel.
+     * If the user enters a specific amount of stars to the menu it will give a message based on what they selected
      *
      */
     public void roomReview(int stars){
-        if (stars >= 1 && stars <= 5) {                                              //The user can a score
-            if (stars == 1) {                                                       //Goes into the description for small rooms
+        if (stars >= 1 && stars <= 5) {                                             //The user can score their experience at the hotel
+            if (stars == 1) {                                                       //Gives an apologetic message for such a terrible score
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("We are so sorry that the experience was terrible");
+                alert.setContentText("We are so sorry that the experience was terrible, we hope your next experience here would be so much better.");
                 alert.showAndWait();
             }
-            if (stars == 2) {                                                       //Goes into the description for large rooms
+            if (stars == 2) {                                                       //Gives a sorrowful message for such a bad score
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("We are so sorry that the experience was bad");
+                alert.setContentText("We are so sorry that the experience was bad, we hope your next experience here would be much better.");
                 alert.showAndWait();
             }
-            if (stars == 3) {                                                       //Goes into the description for family rooms
+            if (stars == 3) {                                                       //Gives a sad response to an average score
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("We are so sorry that the experience wasn't as good we wanted you to have");
+                alert.setContentText("We are so sorry that the experience wasn't as good we wanted you to have.");
                 alert.showAndWait();
             }
-            if (stars == 4) {                                                       //Goes into the description for luxurious rooms
+            if (stars == 4) {                                                       //Gives a happy message for a better score
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("We are happy to hear that! We hope we can get a perfect score next time!");
                 alert.showAndWait();
             }
-            if (stars == 5) {                                                       //Goes into the description for penthouse suites
+            if (stars == 5) {                                                       //Gives a thankful message for perfect score
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("Thank you so much! A perfect score!");
@@ -410,8 +410,8 @@ public class HotelRooms {
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
-            alert.setContentText("Thank you for stopping by at Hotel Delfino!");                        //If the user picks a wrong input for the rooms
-            alert.showAndWait(); 
+            alert.setContentText("Thank you for stopping by at Hotel Delfino!");    //If the user doesn't pick anything it will give them thanks anyway
+            alert.showAndWait();
         }
     }
     /** sets current logged in guest. */
