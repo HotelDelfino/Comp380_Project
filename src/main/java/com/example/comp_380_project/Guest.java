@@ -143,8 +143,10 @@ public class Guest {
     }
     /** Prints the bookedReservations array to the console */
     public void printReservationsArray(){
+        System.out.print("[ ");
         for (int i = 0; i < bookedReservations.size(); i++) {
-            System.out.println(bookedReservations.get(i));
+            System.out.print(bookedReservations.get(i) + " ");
         }
+        System.out.print("]\n");
     }
 }

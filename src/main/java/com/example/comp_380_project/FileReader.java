@@ -41,10 +41,12 @@ public class FileReader{
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
             String st;
+            System.out.print("[ ");
             while ((st = br.readLine())!= null){
                 userNames.add(st);
-                System.out.println(st);
+                System.out.print(st + " ");
             }
+            System.out.print("]\n");
         }catch(FileNotFoundException e){
             System.out.println("File not found");
             e.printStackTrace();
@@ -57,14 +59,16 @@ public class FileReader{
      * @param file gets the File necessary to run
      * @exception FileNotFoundException On file not found. */
     private void readPasswordFile(File file){
-
+        System.out.println("Attempting to read file: " + file.getAbsolutePath());
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
             String st;
+            System.out.print("[ ");
             while ((st = br.readLine())!= null){
                 passwords.add(st);
-                System.out.println(st);
+                System.out.print(st + " ");
             }
+            System.out.print("]\n");
         }catch(FileNotFoundException e){
             System.out.println("File not found");
             e.printStackTrace();
@@ -78,13 +82,12 @@ public class FileReader{
      * @param file gets the File necessary to run
      * @exception FileNotFoundException On file not found. */
     private void readReservationsFile(File file){
-
+        System.out.println("Attempting to read file: " + file.getAbsolutePath());
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
             String st;
             while ((st = br.readLine())!= null){
                 reservations.add(st);
-                System.out.println(st);
             }
         }catch(FileNotFoundException e){
             System.out.println("File not found");
@@ -99,6 +102,7 @@ public class FileReader{
      * @param file gets the File necessary to run
      * @exception FileNotFoundException On file not found. */
     private void readReviewFile(File file){
+        System.out.println("Attempting to read file: " + file.getAbsolutePath());
         try{
             BufferedReader br = new BufferedReader(new java.io.FileReader(file));
             String st;
@@ -176,8 +180,8 @@ public class FileReader{
                     if (i != guestIndex)
                         myWriter.write("\n"+reservations.get(i));
                     else myWriter.write("\n" + stuff);
-                    System.out.println("File Writing Successful");
                 }
+                System.out.println("File Writing Successful");
                 myWriter.close();
             } catch (IOException e) {
                 System.out.println("An error has occurred");
