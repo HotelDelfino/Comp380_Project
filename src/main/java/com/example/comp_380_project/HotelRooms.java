@@ -441,9 +441,9 @@ public class HotelRooms {
     public void printArray(){
         for (int i = 0; i < floor1.length; i++) {
             System.out.println(floor1[i]);
+            System.out.println();
         }
     }
-
     public void setDatabase(FileReader db){
         database = db;
     }
