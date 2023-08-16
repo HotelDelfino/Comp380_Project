@@ -47,7 +47,7 @@ public class HotelRooms {
 
                 if (floor2[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                     floor2[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
-                    guest.cancelReservation((floor*10)+roomNum);
+                    guest.addReservation((floor*10)+roomNum);
                     database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
@@ -63,7 +63,7 @@ public class HotelRooms {
                 if (floor == 3) {
                     if (floor3[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor3[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
-                        guest.cancelReservation((floor*10)+roomNum);
+                        guest.addReservation((floor*10)+roomNum);
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
@@ -79,7 +79,7 @@ public class HotelRooms {
                 if (floor == 4) {
                     if (floor4[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor4[roomNum] = guest.getUsername();                                    //If it isn't, make it so the room the user choose now becomes closed
-                        guest.cancelReservation((floor*10)+roomNum);
+                        guest.addReservation((floor*10)+roomNum);
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
@@ -95,7 +95,7 @@ public class HotelRooms {
                 if (floor == 5) {
                     if (floor5[roomNum].equals("Open")) {                                  //This checks if the room is not closed
                         floor5[roomNum] = guest.getUsername();                                     //If it isn't, make it so the room the user choose now becomes closed
-                        guest.cancelReservation((floor*10)+roomNum);
+                        guest.addReservation((floor*10)+roomNum);
                         database.updateReservationTextFile(guest.reservationsToString(), guest.getGuestIndex());
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);

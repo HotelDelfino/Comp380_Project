@@ -188,9 +188,9 @@ public class FileReader{
             }
         }else{
             try {
-                FileWriter deleter = new FileWriter(file, false);
-                deleter.write(reservations.get(0));
-                deleter.close();
+                FileWriter writer = new FileWriter(file, false);
+                writer.write(reservations.get(0));
+                writer.close();
                 System.out.println("File Writing Successful");
 
             } catch (IOException e) {

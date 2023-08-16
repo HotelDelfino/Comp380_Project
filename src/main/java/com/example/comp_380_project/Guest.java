@@ -96,6 +96,7 @@ public class Guest {
         bookedReservations.add(room);
         if(bookedReservations.size() > 1 && bookedReservations.get(0)==0)
             bookedReservations.remove(0);
+        printReservationsArray();
     }
     /** removes a reservation from the bookedReservations array
      * @param room takes in an int

@@ -2,4 +2,8 @@
 0
 0
 0
+<<<<<<< Updated upstream
 0
+=======
+20
+>>>>>>> Stashed changes
