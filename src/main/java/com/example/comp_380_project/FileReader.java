@@ -176,7 +176,7 @@ public class FileReader{
                 deleter.close();
                 System.out.println("File Wipe Successful");
                 FileWriter myWriter = new FileWriter(file, true);
-                for (int i = 1; i < reservations.size(); i++) {
+                for (int i = 1; i <= reservations.size(); i++) {
                     if (i != guestIndex)
                         myWriter.write("\n"+reservations.get(i));
                     else myWriter.write("\n" + stuff);
@@ -307,9 +307,9 @@ public class FileReader{
      * @param username gets a String
      *  @param password */
     private void createGuest(String username, String password){
-
         registeredMembers.add(new Guest(username,password));
         // add user index here
+        registeredMembers.get(userNames.size()-1).setGuestIndex(userNames.size()-1);
     }
 
     /** Creates Guest Objects from textfiles. Adds reservations **/
