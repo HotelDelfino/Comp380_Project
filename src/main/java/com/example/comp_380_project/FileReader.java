@@ -138,6 +138,7 @@ public class FileReader{
         writeTextFile(passwordFile, pw);
         passwords.add(pw);
         writeTextFile(reservationsFile,"0");
+        reservations.add("0");
         createGuest(username,pw);
     }
 
@@ -168,6 +169,7 @@ public class FileReader{
      * @param guestIndex gets an int*/
     private void writeReservationTextFile(File file, String stuff, int guestIndex){
 
+
         // Checks to see if the array is more than one to avoid out of bounds exception
         if(reservations.size()>1) {
             try {
@@ -176,7 +178,7 @@ public class FileReader{
                 deleter.close();
                 System.out.println("File Wipe Successful");
                 FileWriter myWriter = new FileWriter(file, true);
-                for (int i = 1; i <= reservations.size(); i++) {
+                for (int i = 1; i < reservations.size(); i++) {
                     if (i != guestIndex)
                         myWriter.write("\n"+reservations.get(i));
                     else myWriter.write("\n" + stuff);
@@ -308,6 +310,7 @@ public class FileReader{
      *  @param password */
     private void createGuest(String username, String password){
         registeredMembers.add(new Guest(username,password));
+
         // add user index here
         registeredMembers.get(userNames.size()-1).setGuestIndex(userNames.size()-1);
     }
@@ -330,5 +333,12 @@ public class FileReader{
         }
         return null;
     }
+
+    public void printArray(){
+        for (int i = 0; i < reservations.size(); i++) {
+            System.out.println(reservations.get(i));
+        }
+    }
+
 
 }
