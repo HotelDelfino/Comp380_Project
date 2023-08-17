@@ -570,37 +570,42 @@ public class Main extends Application {
         //gridStars.setGridLinesVisible(true);
         gridStars.setAlignment(Pos.CENTER);
 
-        Label reservation = new Label("Thank you for taking the time to review your time here at Hotel Delfino!" +
-                "\n\nBelow you can score our hotel from a 5 to 1 scale. (5 Excellent - 1 Poor)" +
-                "\nIf you have time please leave your thoughts and experience here at Hotel Delfino! (Optional)");
+        Label reservation = new Label("Thank you for taking the time to review your time here at Hotel Delfino!");
+
         GridPane.setConstraints(reservation, 0,0);
         reservation.setStyle("-fx-font-size:20");
 
+        Label description = new Label( "Below you can score our hotel from a 5 to 1 scale. (5 Excellent - 1 Poor)" +
+        "\nIf you have time please leave your thoughts and experience here at Hotel Delfino! (Optional)");
+        GridPane.setConstraints(description,0,1);
+        description.setStyle("-fx-font-size:15");
+
         Label starsSelect = new Label("Please select the amount of stars you would like to give:");
-        GridPane.setConstraints(starsSelect,0,1);
+        GridPane.setConstraints(starsSelect,0,2);
         starsSelect.setStyle("-fx-font-size:15");
 
 
         ChoiceBox<Integer> stars = new ChoiceBox<Integer>(); //dropdown menu for how many stars the user wants to give
         stars.getItems().addAll(5,4,3,2,1); // 5 stars available to select
         stars.setValue(5);
-        GridPane.setConstraints(stars, 1,1);
+        GridPane.setConstraints(stars, 1,2);
         stars.setStyle("fx-font-size:15");
 
         TextArea reviewArea = new TextArea();
-        gridStars.add(reviewArea, 0,2);
+        gridStars.add(reviewArea, 0,3);
 
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
         goBack.setOnAction(e -> window.setScene(scene));
-        GridPane.setConstraints(goBack, 0, 3);
+        GridPane.setConstraints(goBack, 0, 4);
 
         Button confirm = new Button("Confirm");
         confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotelRooms.roomReview(stars.getValue()));
-        GridPane.setConstraints(confirm, 2,3);
+        reviewArea.getText();
+        confirm.setOnAction(e -> hotelRooms.roomReview(stars.getValue(),reviewArea.getText()));
+        GridPane.setConstraints(confirm, 1,4);
 
-        gridStars.getChildren().addAll(reservation, starsSelect, stars, confirm, goBack);
+        gridStars.getChildren().addAll(reservation, description, starsSelect, stars, confirm, goBack);
 
         Scene resRoom = new Scene(gridStars, 550, 300);
         window.setScene(resRoom);

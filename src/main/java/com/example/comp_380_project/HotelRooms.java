@@ -380,38 +380,53 @@ public class HotelRooms {
      * If the user enters a specific amount of stars to the menu it will give a message based on what they selected
      *
      */
-    public void roomReview(int stars){
-        if (stars >= 1 && stars <= 5) {                                             //The user can score their experience at the hotel
+    public void roomReview(int stars, String review){
+        if (stars >= 1 && stars <= 5 && !guest.checkIfWrittenReview()) {                                             //The user can score their experience at the hotel
             if (stars == 1) {                                                       //Gives an apologetic message for such a terrible score
+                if(!review.isBlank()) database.addReview("1: " + review);
+                guest.wroteReview(review);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("We are so sorry that the experience was terrible, we hope your next experience here would be so much better.");
                 alert.showAndWait();
             }
             if (stars == 2) {                                                       //Gives a sorrowful message for such a bad score
+                if(!review.isBlank()) database.addReview("2: " + review);
+                guest.wroteReview(review);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("We are so sorry that the experience was bad, we hope your next experience here would be much better.");
                 alert.showAndWait();
             }
             if (stars == 3) {                                                       //Gives a sad response to an average score
+                if(!review.isBlank()) database.addReview("3: " + review);
+                guest.wroteReview(review);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("We are so sorry that the experience wasn't as good we wanted you to have.");
                 alert.showAndWait();
             }
             if (stars == 4) {                                                       //Gives a happy message for a better score
+                if(!review.isBlank()) database.addReview("4: " + review);
+                guest.wroteReview(review);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("We are happy to hear that! We hope we can get a perfect score next time!");
                 alert.showAndWait();
             }
             if (stars == 5) {                                                       //Gives a thankful message for perfect score
+                if(!review.isBlank()) database.addReview("5: " + review);
+                guest.wroteReview(review);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("Thank you so much! A perfect score!");
                 alert.showAndWait();
             }
+        } else if (guest.checkIfWrittenReview()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("You've already written a review!");    //If the user doesn't pick anything it will give them thanks anyway
+            alert.showAndWait();
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);

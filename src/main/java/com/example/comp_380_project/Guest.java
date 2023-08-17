@@ -17,6 +17,8 @@ public class Guest {
     private String Name;
     private int guestIndex;
     private ArrayList<Integer> bookedReservations = new ArrayList<>();
+    private boolean hasReview = false;
+    private String review;
 
     /** Constructor */
     Guest(){}
@@ -159,4 +161,9 @@ public class Guest {
         }
         System.out.print("]\n");
     }
+    public void wroteReview(String reviewtext){
+        this.hasReview = true;
+        this.review = reviewtext;
+    }
+    public boolean checkIfWrittenReview(){return this.hasReview;}
 }
