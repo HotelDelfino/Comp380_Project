@@ -11,6 +11,7 @@ import java.util.Scanner;
  * the FileReader class, which stores Guests' reservation info. These methods serve as the backend processes by which the
  * Main Menu's buttons call upon to operate.
  * @author Sergio Dieguez
+ * @author Angel Venegas
  *  Date: Aug 15, 2023
  *  */
 
