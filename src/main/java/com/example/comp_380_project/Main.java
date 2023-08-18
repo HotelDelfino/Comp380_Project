@@ -25,6 +25,8 @@ import javafx.scene.paint.LinearGradient;
  * @author Angel
  * @author Sergio
  * @author Adrian
+ * Date: Aug 15, 2023
+ * version: 1.0
  */
 public class Main extends Application {
     Stage window;

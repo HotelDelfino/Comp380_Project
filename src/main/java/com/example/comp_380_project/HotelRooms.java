@@ -63,7 +63,7 @@ public class HotelRooms {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
                     alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                    alert.showAndWait();                                                                    //different room through a pop-up box
+                    alert.showAndWait();                                                                  //different room through a pop-up box
                 }
             }
                 if (floor == 3) {
@@ -79,7 +79,7 @@ public class HotelRooms {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
                         alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                        alert.showAndWait();                                                                    //different room through a pop-up box
+                        alert.showAndWait();                                                                   //different room through a pop-up box
                     }
                 }
                 if (floor == 4) {
@@ -95,7 +95,7 @@ public class HotelRooms {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
                         alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                        alert.showAndWait();                                                                    //different room through a pop-up box
+                        alert.showAndWait();                                                                 //different room through a pop-up box
                     }
                 }
                 if (floor == 5) {
@@ -111,7 +111,7 @@ public class HotelRooms {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setHeaderText(null);
                         alert.setContentText("Sorry but this room is already booked! Please try another room.");  //It will give this message to the user to try again with a
-                        alert.showAndWait();                                                                    //different room through a pop-up box
+                        alert.showAndWait();                                                                 //different room through a pop-up box
                     }
                 }
 
@@ -119,8 +119,8 @@ public class HotelRooms {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("You inputted a wrong number for either floor or room number. Please try again!"); //If the user picks a wrong input for the rooms
-                alert.showAndWait();                                                                                    //Or the floors it will give this message through
-            }                                                                                                           //through a pop-up window
+                alert.showAndWait();                                                                                  //Or the floors it will give this message through
+            }                                                                                                       //through a pop-up window
         }
     /**
      * @param floor
@@ -216,7 +216,7 @@ public class HotelRooms {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText(null);
             alert.setContentText("You inputted a wrong number for either floor or room number. Please try again!"); //If the user picks a wrong input for the rooms
-            alert.showAndWait();                                                                                    //Or the floors it will give this message through
+            alert.showAndWait();                                                                                   //Or the floors it will give this message through
         }                                                                                                           //through a pop-up window
     }
     /**

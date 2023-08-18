@@ -11,12 +11,13 @@ import java.util.ArrayList;
  * FileReader is also able to modify the information within these arrays and write to the text files.
  *
  * @author Jorge Enriquez
+ * @author Angel Venegas
  *  Date: Aug 15, 2023
  *  Version: 1.0*/
 
 public class FileReader{
     private File usernamesFile;
-    private File passwordFile;
+    public File passwordFile; // For unit tests to work
     private File reservationsFile;
     private File reviewFile;
     private static HotelRooms hotel;
