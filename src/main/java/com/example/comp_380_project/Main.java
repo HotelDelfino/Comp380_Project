@@ -619,7 +619,7 @@ public class Main extends Application {
         grid2.setHgap(50); //horizontal space for each "unit"
         //grid2.setGridLinesVisible(true);
         grid2.setAlignment(Pos.CENTER);
-        grid2.setGridLinesVisible(true);
+        //grid2.setGridLinesVisible(true);
 
         Label reservation = new Label("Edit Reservation");
         GridPane.setConstraints(reservation, 0,0);
