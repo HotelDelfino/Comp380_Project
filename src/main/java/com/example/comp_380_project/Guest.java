@@ -166,4 +166,10 @@ public class Guest {
         this.review = reviewtext;
     }
     public boolean checkIfWrittenReview(){return this.hasReview;}
+    public boolean hasReservation(int room){
+        for (int i = 0; i < bookedReservations.size(); i++) {
+            if(bookedReservations.get(i)==room) return true;
+        }
+        return false;
+    }
 }

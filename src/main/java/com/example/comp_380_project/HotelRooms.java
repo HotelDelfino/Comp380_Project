@@ -232,13 +232,15 @@ public class HotelRooms {
      */
     public void editRoom(int initFloor, int initRoom, int finFloor, int finRoom) { //Method allows the user to change their room they reserved to another
         if(initFloor >= 1 && initFloor <= 5 && initRoom >= 0 && initRoom <= 9 && finFloor >= 1 && finFloor <=5 && finRoom >= 0 && finRoom <= 9) { //Detects if user picked an option from  1 to 5 for floors and 0 to 9 for each room
-            cancelRoom(initFloor, initRoom); //Cancel initial booking
-            reserveRoom(finFloor, finRoom); // Reserve target room
-        } else {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setHeaderText(null);
-        alert.setContentText("You inputted a wrong number for either floor or room number. Please try again!"); //If the user picks a wrong input for the rooms
-        alert.showAndWait();                                                                                    //Or the floors it will give this message through
+            if(guest.hasReservation((initFloor*10)+initRoom)) {
+                cancelRoom(initFloor, initRoom); //Cancel initial booking
+                reserveRoom(finFloor, finRoom); // Reserve target room
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);                                                              //If a user tries to cancel a room that is not theirs
+                alert.setContentText("Sorry but this room is not under your name. Please try again.");   //Then this message should let them know to try again
+                alert.showAndWait();
+            }
         }
     }
     /**

@@ -884,38 +884,55 @@ public class Main extends Application {
         GridPane.setConstraints(reservation, 0,0); // grid coordinates for cancel reservation label
         reservation.setStyle("-fx-font-size:20");
 
+        Label enterUN = new Label("Enter Username: ");
+        GridPane.setConstraints(enterUN, 0, 1);
+        enterUN.setStyle("-fx-font-size: 15");
+
+        TextField usernameTextField = new TextField();
+        GridPane.setConstraints(usernameTextField, 1, 1);
+
         Label floorSelect = new Label("Select your desired floor!");
-        GridPane.setConstraints(floorSelect,0,1);  // grid coordinates for floor selection label
+        GridPane.setConstraints(floorSelect,0,2);  // grid coordinates for floor selection label
         floorSelect.setStyle("-fx-font-size:15");
 
         ChoiceBox<Integer> floors = new ChoiceBox<>(); // dropdown menu for floor selection
         floors.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
         floors.setValue(1); // first floor by default
-        GridPane.setConstraints(floors, 1,1); // coordinates for floor selection choice box
+        GridPane.setConstraints(floors, 1,2); // coordinates for floor selection choice box
         floors.setStyle("fx-font-size:15");
 
         Label roomSelect = new Label("Select your desired room!");
-        GridPane.setConstraints(roomSelect, 0, 2); // grid coordinates for room select label
+        GridPane.setConstraints(roomSelect, 0, 3); // grid coordinates for room select label
         roomSelect.setStyle("-fx-font-size:15");
 
         ChoiceBox<Integer> rooms = new ChoiceBox<>(); //dropdown menu for room selection
         rooms.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9); // 0-9 rooms to select
         rooms.setValue(0); // room 0 selected by default
-        GridPane.setConstraints(rooms,1,2); // grid coordinates for room selection choice box
+        GridPane.setConstraints(rooms,1,3); // grid coordinates for room selection choice box
         rooms.setStyle("fx-font-size:15");
 
 
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
         goBack.setOnAction(e -> window.setScene(scene)); // go back button returns to original main menu scene
-        GridPane.setConstraints(goBack, 0, 3); // grid coordinates for goBack button
+        GridPane.setConstraints(goBack, 0, 4); // grid coordinates for goBack button
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotelRooms.cancelRoom(floors.getValue(), rooms.getValue())); // confirm button uses choice box inputs as parameters for cancelRoom method
-        GridPane.setConstraints(confirm, 2,3); // grid coordinates for confirm button
+        confirm.setOnAction(e -> {
+            if (dataBase.verifyUsername(usernameTextField.getText())) {
+                hotelRooms.setGuestOnLogin(dataBase.getRegisteredGuest(usernameTextField.getText()));
+                hotelRooms.cancelRoom(floors.getValue(), rooms.getValue());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Username does not exist");    //If the user doesn't pick anything it will give them thanks anyway
+                alert.showAndWait();
+            }
+        }); // confirm button uses choice box inputs as parameters for cancelRoom method
+        GridPane.setConstraints(confirm, 1,4); // grid coordinates for confirm button
 
-        grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack); // add all buttons and labels to scene
+        grid2.getChildren().addAll(reservation, enterUN, usernameTextField, floorSelect, floors, roomSelect, rooms, confirm, goBack);
 
         Scene cancelRoom = new Scene(grid2, 550, 300); // initializes cancel room grid layout
         window.setScene(cancelRoom); // sets window scene to cancel room submenu
@@ -930,55 +947,73 @@ public class Main extends Application {
         grid2.setHgap(50); //horizontal space for each "unit"
         //grid2.setGridLinesVisible(true);
         grid2.setAlignment(Pos.CENTER);
-        grid2.setGridLinesVisible(true);
+        grid2.setGridLinesVisible(false);
 
         Label reservation = new Label("Edit Reservation");
         GridPane.setConstraints(reservation, 0,0);
         reservation.setStyle("-fx-font-size:20");
 
+        Label enterUN = new Label("Enter Username: ");
+        GridPane.setConstraints(enterUN, 0, 1);
+        enterUN.setStyle("-fx-font-size: 15");
+
+        TextField usernameTextField = new TextField();
+        GridPane.setConstraints(usernameTextField, 1, 1);
+
         Label currRoom = new Label("What room are you currently booked on?");
-        GridPane.setConstraints(currRoom,0,1);
+        GridPane.setConstraints(currRoom,0,2);
         currRoom.setStyle("-fx-font-size:15");
 
         ChoiceBox<Integer> initFloor = new ChoiceBox<>(); //dropdown menu for floor selection
         initFloor.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
         initFloor.setValue(1);
-        GridPane.setConstraints(initFloor, 1,1);
+        GridPane.setConstraints(initFloor, 1,2);
         initFloor.setStyle("fx-font-size:15");
 
         ChoiceBox<Integer> initRoom = new ChoiceBox<>(); //dropdown menu for floor selection
         initRoom.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9); // 5 floors available to select
         initRoom.setValue(0);
-        GridPane.setConstraints(initRoom, 2,1);
+        GridPane.setConstraints(initRoom, 2,2);
         initRoom.setStyle("fx-font-size:15");
 
         Label roomSelect = new Label("What room would you like to change to?");
-        GridPane.setConstraints(roomSelect, 0, 2);
+        GridPane.setConstraints(roomSelect, 0, 3);
         roomSelect.setStyle("-fx-font-size:15");
 
         ChoiceBox<Integer> finFloor = new ChoiceBox<>(); //dropdown menu for room selection
         finFloor.getItems().addAll(1, 2, 3, 4, 5);
         finFloor.setValue(1);
-        GridPane.setConstraints(finFloor,1,2);
+        GridPane.setConstraints(finFloor,1,3);
         finFloor.setStyle("fx-font-size:15");
 
         ChoiceBox<Integer> finRoom = new ChoiceBox<>(); //dropdown menu for room selection
         finRoom.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
         finRoom.setValue(0);
-        GridPane.setConstraints(finRoom,2,2);
+        GridPane.setConstraints(finRoom,2,3);
         finRoom.setStyle("fx-font-size:15");
 
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
         goBack.setOnAction(e -> window.setScene(scene));
-        GridPane.setConstraints(goBack, 0, 3);
+        GridPane.setConstraints(goBack, 0, 4);
 
         Button confirm = new Button("Confirm Room Selection");
         confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotelRooms.editRoom(initFloor.getValue(), initRoom.getValue(), finFloor.getValue(), finRoom.getValue())); // bars :(
-        GridPane.setConstraints(confirm, 2,3);
+        //confirm.setOnAction(e -> hotelRooms.editRoom(initFloor.getValue(), initRoom.getValue(), finFloor.getValue(), finRoom.getValue())); // bars :(
+        confirm.setOnAction(e -> {
+            if (dataBase.verifyUsername(usernameTextField.getText())) {
+                hotelRooms.setGuestOnLogin(dataBase.getRegisteredGuest(usernameTextField.getText()));
+                hotelRooms.editRoom(initFloor.getValue(), initRoom.getValue(), finFloor.getValue(), finRoom.getValue());
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Username does not exist");    //If the user doesn't pick anything it will give them thanks anyway
+                alert.showAndWait();
+            }
+        }); // confirm button uses choice box inputs as parameters for cancelRoom method
+        GridPane.setConstraints(confirm, 2,4);
 
-        grid2.getChildren().addAll(reservation, currRoom, initRoom, initFloor, roomSelect, finRoom, finFloor, confirm, goBack);
+        grid2.getChildren().addAll(reservation,enterUN, usernameTextField, currRoom, initRoom, initFloor, roomSelect, finRoom, finFloor, confirm, goBack);
 
         Scene editRoom = new Scene(grid2, 550, 300);
         window.setScene(editRoom);
