@@ -1,5 +1,7 @@
 package com.example.comp_380_project;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
@@ -938,7 +940,20 @@ public class Main extends Application {
         window.setScene(cancelRoom); // sets window scene to cancel room submenu
         window.show();
     }
-    public void viewAllReviews(){}
+    public void viewAllReviews(){
+        ObservableList<String> reviews = FXCollections.observableArrayList(dataBase.getReviews());
+
+        ListView<String> listView = new ListView<>(reviews);
+        Button goBackButton = new Button("Go Back");
+        goBackButton.setOnAction(event -> window.setScene(scene));
+
+        VBox vBox = new VBox(new Label("Reviews For Manager To See"), listView, goBackButton);
+        Scene scene = new Scene(vBox, 900, 900);
+
+        window.setScene(scene);
+        window.show();
+    }
+
     public void editRoomManager(){
         //TODO search box to find user
         GridPane grid2 = new GridPane();
