@@ -172,4 +172,7 @@ public class Guest {
         }
         return false;
     }
+    public ArrayList<Integer> getBookedReservations(){
+        return bookedReservations;
+    }
 }

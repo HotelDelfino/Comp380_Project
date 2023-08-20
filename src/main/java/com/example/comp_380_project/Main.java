@@ -34,6 +34,7 @@ public class Main extends Application {
     Stage window;
     Scene scene, loginScene, guestScene;
     Button reserve, search, cancel, review, edit, info, close;
+    Button reviewReservations;
     private static HotelRooms hotelRooms;
     private static FileReader dataBase;
     ListView<String> listReviews;
@@ -271,10 +272,11 @@ public class Main extends Application {
         reserve = new Button("Reserve a Room"); // reserve button
         search = new Button("Search for a Room"); // search button
         cancel = new Button("Cancel Reservation"); // cancel button
-        review = new Button("Review Reservation"); // review button
+        review = new Button("Review Hotel"); // review button
         edit = new Button("Edit Reservation"); // edit button
         info = new Button("Room Info"); // info button
         close = new Button("Close");
+        reviewReservations = new Button("Review Reservations");
 
         /**
          * Calls reserveRoom on SetOnAction when the button is pressed
@@ -291,7 +293,7 @@ public class Main extends Application {
         /**
          * Calls reviewRoom on SetOnAction when the button is pressed
          */
-        review.setOnAction(e -> reviewRoom());
+        review.setOnAction(e -> reviewHotel());
         /**
          * Calls editRoom on SetOnAction when the button is pressed
          */
@@ -300,6 +302,7 @@ public class Main extends Application {
          * Calls infoRoom on SetOnAction when the button is pressed
          */
         info.setOnAction(e -> infoRoom());
+        reviewReservations.setOnAction(e -> reviewReservations());
         close.setOnAction(e -> window.close());
 
         GridPane grid = new GridPane();
@@ -307,7 +310,7 @@ public class Main extends Application {
         grid.setVgap(30); //vertical space for each "unit"
         grid.setHgap(20); //horizontal space for each "unit"
 
-        grid.getChildren().addAll(welcome, reserve, search, cancel, review, edit, info, close); // from here to line 51, adding buttons to grid.
+        grid.getChildren().addAll(welcome, reserve, search, cancel, review, edit, info, reviewReservations, close); // from here to line 51, adding buttons to grid.
 
         welcome.setStyle("-fx-font-size:23");
         reserve.setStyle("-fx-font-size:20"); // increasing button/font size
@@ -316,6 +319,7 @@ public class Main extends Application {
         review.setStyle("-fx-font-size:20");
         edit.setStyle("-fx-font-size:20");
         info.setStyle("-fx-font-size:20");
+        reviewReservations.setStyle("-fx-font-size: 20");
         close.setStyle("-fx-font-size:20");
 
         grid.setAlignment(Pos.CENTER);
@@ -325,7 +329,8 @@ public class Main extends Application {
         GridPane.setConstraints(review, 2, 2);
         GridPane.setConstraints(edit, 0, 3);
         GridPane.setConstraints(info, 2, 3);
-        GridPane.setConstraints(close, 2, 4);
+        GridPane.setConstraints(reviewReservations,0,4);
+        GridPane.setConstraints(close, 2, 5);
 
         grid.setBackground(Background.EMPTY);
         Scene menu = new Scene(grid,780,600);
@@ -558,7 +563,7 @@ public class Main extends Application {
      * Sets up new scene that opens upon button press, and initializes a textbox in which user can type a review into
      * and 1-5 star buttons that prompt a particular message to open for each one
      */
-    private void reviewRoom() {
+    private void reviewHotel() {
         GridPane gridStars = new GridPane();
         gridStars.setPadding(new Insets(10, 10, 10, 10)); // reserved spacing between window borders and buttons
         gridStars.setVgap(50); //vertical space for each "unit"
@@ -673,6 +678,20 @@ public class Main extends Application {
 
         Scene editRoom = new Scene(grid2, 550, 300);
         window.setScene(editRoom);
+        window.show();
+    }
+
+    public void reviewReservations(){
+        ObservableList<Integer> reservations = FXCollections.observableArrayList(hotelRooms.guest.getBookedReservations());
+
+        ListView<Integer> listView = new ListView<>(reservations);
+        Button goBackButton = new Button("Go Back");
+        goBackButton.setOnAction(event -> window.setScene(scene));
+
+        VBox vBox = new VBox(new Label("Your Bookings"), listView, goBackButton);
+        Scene scene = new Scene(vBox, 800, 800);
+
+        window.setScene(scene);
         window.show();
     }
 
