@@ -832,42 +832,50 @@ public class Main extends Application {
         //grid2.setGridLinesVisible(true);
         grid2.setAlignment(Pos.CENTER);
 
-        Label reservation = new Label("Cancel Reservation");
-        GridPane.setConstraints(reservation, 0,0); // grid coordinates for cancel reservation label
-        reservation.setStyle("-fx-font-size:20");
+        Label floor1Label = new Label("Floor 1");
+        GridPane.setConstraints(floor1Label, 0,0); // grid coordinates for cancel reservation label
+        floor1Label.setStyle("-fx-font-size:15");
+        ObservableList<String> floor1 = FXCollections.observableArrayList(hotelRooms.floor1);
+        ListView<String> listViewf1 = new ListView<>(floor1);
+        GridPane.setConstraints(listViewf1,0,1);
 
-        Label floorSelect = new Label("Select your desired floor!");
-        GridPane.setConstraints(floorSelect,0,1);  // grid coordinates for floor selection label
-        floorSelect.setStyle("-fx-font-size:15");
+        Label floor2Label = new Label("Floor 2");
+        GridPane.setConstraints(floor2Label,1,0);  // grid coordinates for floor selection label
+        floor2Label.setStyle("-fx-font-size:15");
+        ObservableList<String> floor2 = FXCollections.observableArrayList(hotelRooms.floor2);
+        ListView<String> listViewf2 = new ListView<>(floor2);
+        GridPane.setConstraints(listViewf2,1,1);
 
-        ChoiceBox<Integer> floors = new ChoiceBox<>(); // dropdown menu for floor selection
-        floors.getItems().addAll(1, 2, 3, 4, 5); // 5 floors available to select
-        floors.setValue(1); // first floor by default
-        GridPane.setConstraints(floors, 1,1); // coordinates for floor selection choice box
-        floors.setStyle("fx-font-size:15");
 
-        Label roomSelect = new Label("Select your desired room!");
-        GridPane.setConstraints(roomSelect, 0, 2); // grid coordinates for room select label
-        roomSelect.setStyle("-fx-font-size:15");
+        Label floor3Label = new Label("Floor 3");
+        GridPane.setConstraints(floor3Label, 2, 0); // grid coordinates for room select label
+        floor3Label.setStyle("-fx-font-size:15");
+        ObservableList<String> floor3 = FXCollections.observableArrayList(hotelRooms.floor3);
+        ListView<String> listViewf3 = new ListView<>(floor3);
+        GridPane.setConstraints(listViewf3,2,1);
 
-        ChoiceBox<Integer> rooms = new ChoiceBox<>(); //dropdown menu for room selection
-        rooms.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9); // 0-9 rooms to select
-        rooms.setValue(0); // room 0 selected by default
-        GridPane.setConstraints(rooms,1,2); // grid coordinates for room selection choice box
-        rooms.setStyle("fx-font-size:15");
+        Label floor4Label = new Label("Floor 4");
+        GridPane.setConstraints(floor4Label, 0, 2); // grid coordinates for room select label
+        floor4Label.setStyle("-fx-font-size:15");
+        ObservableList<String> floor4 = FXCollections.observableArrayList(hotelRooms.floor4);
+        ListView<String> listViewf4 = new ListView<>(floor4);
+        GridPane.setConstraints(listViewf4,0,3);
 
+        Label floor5Label = new Label("Floor 5");
+        GridPane.setConstraints(floor4Label, 1, 2); // grid coordinates for room select label
+        floor5Label.setStyle("-fx-font-size:15");
+        ObservableList<String> floor5 = FXCollections.observableArrayList(hotelRooms.floor5);
+        ListView<String> listViewf5 = new ListView<>(floor5);
+        GridPane.setConstraints(listViewf5,1,3);
 
         Button goBack = new Button("Return to Main Menu");
         goBack.setStyle("-fx-font-size:15");
         goBack.setOnAction(e -> window.setScene(scene)); // go back button returns to original main menu scene
-        GridPane.setConstraints(goBack, 0, 3); // grid coordinates for goBack button
+        GridPane.setConstraints(goBack, 0, 4); // grid coordinates for goBack button
 
-        Button confirm = new Button("Confirm Room Selection");
-        confirm.setStyle("-fx-font-size:15");
-        confirm.setOnAction(e -> hotelRooms.cancelRoom(floors.getValue(), rooms.getValue())); // confirm button uses choice box inputs as parameters for cancelRoom method
-        GridPane.setConstraints(confirm, 2,3); // grid coordinates for confirm button
 
-        grid2.getChildren().addAll(reservation, floorSelect, floors, roomSelect, rooms, confirm, goBack); // add all buttons and labels to scene
+
+        grid2.getChildren().addAll(floor1Label, listViewf1, floor2Label, listViewf2, floor3Label, listViewf3, floor4Label, listViewf4, floor5Label, listViewf5, goBack); // add all buttons and labels to scene
 
         Scene cancelRoom = new Scene(grid2, 550, 300); // initializes cancel room grid layout
         window.setScene(cancelRoom); // sets window scene to cancel room submenu
@@ -948,7 +956,7 @@ public class Main extends Application {
         goBackButton.setOnAction(event -> window.setScene(scene));
 
         VBox vBox = new VBox(new Label("Reviews For Manager To See"), listView, goBackButton);
-        Scene scene = new Scene(vBox, 900, 900);
+        Scene scene = new Scene(vBox, 800, 800);
 
         window.setScene(scene);
         window.show();
