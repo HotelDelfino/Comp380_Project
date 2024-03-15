@@ -1,5 +1,10 @@
 5: YO
 5: Lit
+<<<<<<< HEAD
 1: Honestly, I'm a bit upset that Sergio didn't use his voice changer to ask the professor a question. 
 3: greatttt
 5: it's cool :)
+=======
+1: Honestly, I'm a bit upset
+3: greatttt
+>>>>>>> parent of 635d0a3 (Revert "bro why")
